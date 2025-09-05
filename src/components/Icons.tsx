@@ -1,17 +1,17 @@
 import { Menu, Moon, Sun, X } from "lucide-react"
 
-export const IconMenu = () => {
-    return <Menu />
+export const IconMenu = (props: React.SVGProps<SVGSVGElement>) => {
+    return <Menu {...props} />
 }
 
-export const IconSun = () => {
-    return <Sun />
+export const IconSun = (props: React.SVGProps<SVGSVGElement>) => {
+    return <Sun {...props} />
 }
 
-export const IconMoon = () => {
-    return <Moon />
+export const IconMoon = (props: React.SVGProps<SVGSVGElement>) => {
+    return <Moon {...props} />
 }
 
-export const IconClose = () => {
-    return <X />
+export const IconClose = (props: React.SVGProps<SVGSVGElement>) => {
+    return <X {...props} />
 }

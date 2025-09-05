@@ -1,5 +1,5 @@
-import { AlignStartHorizontal } from "lucide-react"
+import { Menu } from "lucide-react"
 
 export const IconMenu = () => {
-    return <AlignStartHorizontal />
+    return <Menu />
 }

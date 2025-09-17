@@ -1,4 +1,4 @@
-import { Menu, Moon, Sun, X } from "lucide-react"
+import { Github, Menu, Moon, Newspaper, Sun, Twitter, X } from "lucide-react"
 import { LucideProps } from "lucide-react"
 
 export const IconMenu = (props: LucideProps) => {
@@ -15,4 +15,16 @@ export const IconMoon = (props: LucideProps) => {
 
 export const IconClose = (props: LucideProps) => {
     return <X {...props} />
+}
+
+export const IconTwitter = (props: LucideProps) => {
+    return <Twitter {...props} />
+}
+
+export const IconGithub = (props: LucideProps) => {
+    return <Github {...props} />
+}
+
+export const IconNewspaper = (props: LucideProps) => {
+    return <Newspaper {...props} />
 }

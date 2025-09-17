@@ -3,7 +3,6 @@ import { IconGithub, IconNewspaper, IconTwitter } from "@/components/Icons"
 import { Accent } from "@/components/ui/accent"
 import { Button } from "@/components/ui/button"
 import { TC } from "@/components/ui/TC"
-import Image from "next/image"
 import Link from "next/link"
 import { FC } from "react"
 
@@ -46,7 +45,7 @@ const HomeIntro: FC = async () => {
     return (
         <LoadedContainer id="skip-nav">
             <section className="flex flex-col items-center justify-center h-screen">
-                <div className="custom-container">
+                <div className="container">
                     <h2
                         className="text-2xl text-dark dark:text-light font-bold md:text-4xl 2xl:text-5xl"
                         data-fade="1"

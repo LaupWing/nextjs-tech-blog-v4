@@ -1,58 +1,55 @@
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
+import type { ComponentPropsWithoutRef, FC } from "react"
+import clsx from "clsx"
 
-import { cn } from "@/lib/utils"
+export type ButtonVariant = "default" | "gradient-animation"
 
-const buttonVariants = cva(
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-    {
-        variants: {
-            variant: {
-                default:
-                    "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
-                destructive:
-                    "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
-                outline:
-                    "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
-                secondary:
-                    "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-                ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-                link: "text-primary underline-offset-4 hover:underline",
-            },
-            size: {
-                default: "h-9 px-4 py-2 has-[>svg]:px-3",
-                sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
-                lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-                icon: "size-9",
-            },
-        },
-        defaultVariants: {
-            variant: "default",
-            size: "default",
-        },
-    }
-)
-
-function Button({
-    className,
-    variant,
-    size,
-    asChild = false,
-    ...props
-}: React.ComponentProps<"button"> &
-    VariantProps<typeof buttonVariants> & {
-        asChild?: boolean
-    }) {
-    const Comp = asChild ? Slot : "button"
-
-    return (
-        <Comp
-            data-slot="button"
-            className={cn(buttonVariants({ variant, size, className }))}
-            {...props}
-        />
-    )
+interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
+    is_loading?: boolean
+    href?: string
+    variant?: ButtonVariant
 }
 
-export { Button, buttonVariants }
+export const Button: FC<ButtonProps> = ({
+    children,
+    className,
+    disabled: button_disabled,
+    is_loading,
+    href,
+    variant = "default",
+    ...props
+}) => {
+    const disabled = is_loading || button_disabled
+
+    const variants: Record<ButtonVariant, string> = {
+        default:
+            "py-2 border border-gray-300 dark:border-gray-600 focus:outline-none focus-visible:ring focus-visible:ring-accent shadow-sm hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 transition duration-100",
+        "gradient-animation": "bg-white py-[7px]",
+    }
+
+    const classNameComputed = clsx(
+        "rounded font-bold px-4 scale-100 bg-light dark:bg-dark text-gray-600 disabled:bg-gray-200 dark:text-gray-200 dark:disabled:bg-gray-700 ",
+        variants[variant],
+        className
+    )
+
+    return variant === "gradient-animation" ? (
+        <div
+            className={
+                "gradient-animation-border shadow hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 transition duration-100 scale-100 " +
+                className
+            }
+        >
+            <button
+                {...props}
+                disabled={disabled}
+                className={classNameComputed}
+            >
+                {children}
+            </button>
+        </div>
+    ) : (
+        <button {...props} disabled={disabled} className={classNameComputed}>
+            {children}
+        </button>
+    )
+}

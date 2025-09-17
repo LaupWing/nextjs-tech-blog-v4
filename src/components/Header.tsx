@@ -61,7 +61,7 @@ export const Header: FC<HeaderProps> = () => {
     return (
         <header
             className={clsx(
-                "sticky top-0 flex flex-col z-50 h-18 transition-shadow bg-light dark:bg-dark",
+                "sticky top-0 flex flex-col z-50 h-18 duration-300 transition-shadow bg-light dark:bg-dark",
                 onTop && "shadow-sm"
             )}
         >

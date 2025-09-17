@@ -43,6 +43,7 @@ export const ThemeButton = () => {
             <motion.div
                 className="rounded-full w-7 h-7 bg-white flex items-center justify-center"
                 layout
+                // @ts-ignore
                 transition={spring}
             >
                 {darkMode ? (

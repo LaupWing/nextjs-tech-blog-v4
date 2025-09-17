@@ -2,9 +2,9 @@
 import { useSelectedLayoutSegment } from "next/navigation"
 import { FC, useEffect, useState } from "react"
 import clsx from "clsx"
-import { UnstyledLink } from "./links/UnstyledLink.client"
 import { ThemeButton } from "./ThemeButton.client"
 import { IconClose, IconMenu } from "./Icons"
+import Link from "next/link"
 
 interface HeaderProps {
     large?: boolean
@@ -82,7 +82,7 @@ export const Header: FC<HeaderProps> = () => {
                             className="pb-2"
                             key={`${href}-${label}`}
                         >
-                            <UnstyledLink href={href}>{label}</UnstyledLink>
+                            <Link href={href}>{label}</Link>
                             {activeSegment === segement ? (
                                 <div className="h-[3px] gradient-animation-slow w-full shadow" />
                             ) : (
@@ -98,12 +98,12 @@ export const Header: FC<HeaderProps> = () => {
                     onClick={() => setShowSideNav(true)}
                     className="flex sm:hidden"
                 >
-                    <IconMenu size={30} />
+                    {/* <IconMenu size={30} /> */}
                 </button>
                 <ul className="sm:flex hidden items-center justify-between gap-3 text-xs md:gap-6 md:text-base">
                     {links.map(({ href, label, segement }) => (
                         <li className="pb-2" key={`${href}-${label}`}>
-                            <UnstyledLink href={href}>{label}</UnstyledLink>
+                            <Link href={href}>{label}</Link>
                             {activeSegment === segement ? (
                                 <div className="h-[3px] gradient-animation-slow w-full shadow" />
                             ) : (

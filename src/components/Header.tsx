@@ -61,7 +61,7 @@ export const Header: FC<HeaderProps> = () => {
     return (
         <header
             className={clsx(
-                "sticky top-0 flex flex-col z-50 h-nav transition-shadow bg-light dark:bg-dark",
+                "sticky top-0 flex flex-col z-50 h-18 transition-shadow bg-light dark:bg-dark",
                 onTop && "shadow-sm"
             )}
         >
@@ -93,7 +93,7 @@ export const Header: FC<HeaderProps> = () => {
                 </ul>
             </div>
             <div className="gradient-animation w-full h-1.5 bg-red-400" />
-            <nav className="custom-container flex-1 flex items-center justify-between text-dark dark:text-light">
+            <nav className="container flex-1 flex items-center justify-between text-dark dark:text-light">
                 <button
                     onClick={() => setShowSideNav(true)}
                     className="flex sm:hidden"

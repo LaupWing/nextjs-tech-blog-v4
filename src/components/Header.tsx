@@ -61,7 +61,7 @@ export const Header: FC<HeaderProps> = () => {
     return (
         <header
             className={clsx(
-                "sticky top-0 flex flex-col z-50 h-18 duration-300 transition-shadow bg-light dark:bg-dark",
+                "sticky top-0 flex flex-col z-50 h-18 duration-300 transition-shadow bg-light dark:bg-dark justify-between items-center",
                 onTop && "shadow-sm"
             )}
         >
@@ -93,26 +93,26 @@ export const Header: FC<HeaderProps> = () => {
                 </ul>
             </div>
             <div className="gradient-animation w-full h-1 bg-red-400" />
-            <nav className="max-w-2xl w-full flex-1 flex items-center justify-between text-dark dark:text-light mx-auto border rounded-full">
+            <nav className="max-w-2xl w-full flex items-center justify-between text-dark dark:text-light mx-auto border rounded-full mt-4 p-1.5">
                 <button
                     onClick={() => setShowSideNav(true)}
                     className="flex sm:hidden"
                 >
                     {/* <IconMenu size={30} /> */}
                 </button>
-                <ul className="sm:flex hidden items-center justify-between gap-3 text-xs md:gap-6 md:text-base">
+                <ul className="sm:flex hidden items-center justify-between gap-x-3 text-xs md:gap-6 md:text-base sm:ml-4 ml-2">
                     {links.map(({ href, label, segement }) => (
-                        <li className="pb-2" key={`${href}-${label}`}>
+                        <li className="" key={`${href}-${label}`}>
                             <Link href={href}>{label}</Link>
-                            {activeSegment === segement ? (
+                            {/* {activeSegment === segement ? (
                                 <div className="h-[3px] gradient-animation-slow w-full shadow" />
                             ) : (
                                 <div className="h-[3px]" />
-                            )}
+                            )} */}
                         </li>
                     ))}
                 </ul>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center">
                     <ThemeButton />
                 </div>
             </nav>

@@ -1,5 +1,6 @@
 import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
 import { IconGithub, IconNewspaper, IconTwitter } from "@/components/Icons"
+import { ContactMe } from "@/components/sections/ContactMe"
 import { Accent } from "@/components/ui/accent"
 import { Button } from "@/components/ui/button"
 import { TC } from "@/components/ui/tc"
@@ -10,6 +11,7 @@ export default function Home() {
     return (
         <main>
             <HomeIntro />
+            <ContactMe />
         </main>
     )
 }

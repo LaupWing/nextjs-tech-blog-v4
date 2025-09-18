@@ -59,12 +59,7 @@ export const Header: FC<HeaderProps> = () => {
     ]
 
     return (
-        <header
-            className={clsx(
-                "sticky top-0 flex flex-col z-50 h-18 duration-300 transition-shadow bg-light dark:bg-dark justify-between items-center",
-                onTop && "shadow-sm"
-            )}
-        >
+        <header className="sticky top-0 flex flex-col z-50 h-18 duration-300 transition-shadow bg-light dark:bg-dark justify-between items-center">
             <div
                 className={`fixed block sm:hidden duration-500 transform inset-0 bg-light dark:bg-dark z-50
                     ${show_side_nav ? "translate-x-0" : "-translate-x-full"}`}
@@ -93,7 +88,12 @@ export const Header: FC<HeaderProps> = () => {
                 </ul>
             </div>
             <div className="gradient-animation w-full h-1 bg-red-400" />
-            <nav className="max-w-2xl w-full flex items-center justify-between text-dark dark:text-light bg-black/2 dark:bg-white/4 backdrop-blur-sm mx-auto border rounded-full mt-4 p-1.5">
+            <nav
+                className={clsx(
+                    "max-w-2xl w-full flex items-center justify-between text-dark dark:text-light bg-black/2 dark:bg-white/4 backdrop-blur-sm mx-auto border rounded-full mt-4 p-1.5 duration-200",
+                    onTop && "shadow-sm"
+                )}
+            >
                 <button
                     onClick={() => setShowSideNav(true)}
                     className="flex sm:hidden"

@@ -93,7 +93,7 @@ export const Header: FC<HeaderProps> = () => {
                 </ul>
             </div>
             <div className="gradient-animation w-full h-1 bg-red-400" />
-            <nav className="max-w-2xl w-full flex items-center justify-between text-dark dark:text-light mx-auto border rounded-full mt-4 p-1.5">
+            <nav className="max-w-2xl w-full flex items-center justify-between text-dark dark:text-light bg-black/2 dark:bg-white/4 backdrop-blur-sm mx-auto border rounded-full mt-4 p-1.5">
                 <button
                     onClick={() => setShowSideNav(true)}
                     className="flex sm:hidden"

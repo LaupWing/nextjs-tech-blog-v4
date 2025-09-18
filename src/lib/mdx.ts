@@ -1,4 +1,4 @@
-import { ContentType, PickFrontmatter } from "@/types/frontmatters"
+import { ContentType, Frontmatter, PickFrontmatter } from "@/types/frontmatters"
 import { readdirSync, readFileSync } from "fs"
 import matter from "gray-matter"
 import { join } from "path"
@@ -24,4 +24,18 @@ export async function getAllFilesFrontmatter<T extends ContentType>(type: T) {
         ]
         return res
     }, [])
+}
+
+export function getRecent<T extends Frontmatter>(
+    contents: Array<T>,
+    limit = 4
+) {
+    const sorted_contents = contents.sort((a, b) => {
+        return (
+            new Date(b.publishedAt).getTime() -
+            new Date(a.publishedAt).getTime()
+        )
+    })
+
+    return sorted_contents.slice(0, limit)
 }

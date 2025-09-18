@@ -2,7 +2,7 @@ import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
 import { IconGithub, IconNewspaper, IconTwitter } from "@/components/Icons"
 import { Accent } from "@/components/ui/accent"
 import { Button } from "@/components/ui/button"
-import { TC } from "@/components/ui/TC"
+import { TC } from "@/components/ui/tc"
 import Link from "next/link"
 import { FC } from "react"
 

@@ -13,3 +13,41 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model ContentMeta {
+  id        Int      @id @default(autoincrement())
+  slug      String   @unique
+  createdAt DateTime @default(now())
+  Like      Like[]
+  View      View[]
+}
+
+model Like {
+  id              Int          @id @default(autoincrement())
+  createdAt       DateTime     @default(now())
+  session_id      String
+  content_meta_id Int?
+  ContentMeta     ContentMeta? @relation(fields: [content_meta_id], references: [id], onDelete: Cascade)
+}
+
+model View {
+  id              Int          @id @default(autoincrement())
+  createdAt       DateTime     @default(now())
+  session_id      String
+  content_meta_id Int?
+  ContentMeta     ContentMeta? @relation(fields: [content_meta_id], references: [id], onDelete: Cascade)
+}
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name      String
+  email     String
+  message   String
+}
+
+model Subscriber {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  email     String
+}

@@ -1,12 +1,12 @@
 import type { ComponentPropsWithoutRef, FC } from "react"
 import { BlogFrontmatter, InjectedMeta } from "@/types/frontmatters"
 import clsx from "clsx"
-import { CloudinaryImage } from "../images/CloudinaryImage.client"
-import { Tag } from "../elements/Tag"
 import { IconClock, IconEye } from "../Icons"
 import { format } from "date-fns"
 import Link from "next/link"
 import { Accent } from "../ui/accent"
+import { Badge } from "../ui/badge"
+import { CloudinaryImage } from "../CloudinaryImage.client"
 
 interface BlogCardProps extends ComponentPropsWithoutRef<"li"> {
     post: BlogFrontmatter & InjectedMeta
@@ -45,18 +45,19 @@ export const BlogCard: FC<BlogCardProps> = ({
                         }}
                     />
                     <div className="absolute bottom-0 px-4 w-full py-2 mt-2 flex flex-wrap justify-end gap-x-2 gap-y-1 text-sm text-black dark:text-gray-100">
-                        {post.tags.split(",").map((tag) => (
-                            <Tag
-                                active={false}
-                                className="bg-opacity-80 dark:!bg-opacity-60"
-                                key={tag}
-                            >
-                                {checkTagged?.(tag) ? (
-                                    <Accent>{tag}</Accent>
-                                ) : (
-                                    tag
-                                )}
-                            </Tag>
+                        {post.tags.split(",").map((tag, index) => (
+                            <Badge key={index}>{tag.trim()}</Badge>
+                            // <Tag
+                            //     active={false}
+                            //     className="bg-opacity-80 dark:!bg-opacity-60"
+                            //     key={tag}
+                            // >
+                            //     {checkTagged?.(tag) ? (
+                            //         <Accent>{tag}</Accent>
+                            //     ) : (
+                            //         tag
+                            //     )}
+                            // </Tag>
                         ))}
                     </div>
                 </div>

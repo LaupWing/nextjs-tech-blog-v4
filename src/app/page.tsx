@@ -115,3 +115,31 @@ const fetchRecentBlogs = async () => {
     const recent_blogs = getRecent(blogs)
     return await attachContentMeta<"blog">(recent_blogs)
 }
+
+const HomeBlogs: FC = async () => {
+    const recent_blogs = await fetchRecentBlogs()
+
+    return (
+        <section className="py-20">
+            <div className="custom-container">
+                <h2
+                    id="projects"
+                    className="text-2xl font-semibold md:text-4xl"
+                >
+                    <Accent>Recent Blog Posts</Accent>
+                </h2>
+                <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                    {/* {recent_blogs.map((post) => (
+                        // @ts-ignore
+                        <BlogCard key={post.slug} post={post} />
+                    ))} */}
+                </ul>
+                <Link href="/blog">
+                    <Button className="mt-4" href="/blog">
+                        See more post
+                    </Button>
+                </Link>
+            </div>
+        </section>
+    )
+}

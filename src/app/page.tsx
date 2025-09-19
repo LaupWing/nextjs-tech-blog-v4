@@ -1,3 +1,4 @@
+import { BlogCard } from "@/components/cards/BlogCard"
 import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
 import { IconGithub, IconNewspaper, IconTwitter } from "@/components/Icons"
 import { ContactMe } from "@/components/sections/ContactMe"
@@ -122,7 +123,7 @@ const HomeBlogs: FC = async () => {
 
     return (
         <section className="py-20">
-            <div className="custom-container">
+            <div className="container">
                 <h2
                     id="projects"
                     className="text-2xl font-semibold md:text-4xl"
@@ -130,10 +131,10 @@ const HomeBlogs: FC = async () => {
                     <Accent>Recent Blog Posts</Accent>
                 </h2>
                 <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                    {/* {recent_blogs.map((post) => (
+                    {recent_blogs.map((post) => (
                         // @ts-ignore
                         <BlogCard key={post.slug} post={post} />
-                    ))} */}
+                    ))}
                 </ul>
                 <Link href="/blog">
                     <Button className="mt-4" href="/blog">

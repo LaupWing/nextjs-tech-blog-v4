@@ -27,7 +27,7 @@ export const Button: FC<ButtonProps> = ({
     }
 
     const classNameComputed = clsx(
-        "rounded font-bold px-4 scale-100 bg-white dark:bg-[#0e0e0e] text-gray-600 disabled:bg-gray-200 dark:text-gray-200 dark:disabled:bg-gray-700 ",
+        "rounded cursor-pointer font-bold px-4 scale-100 bg-white dark:bg-[#0e0e0e] text-gray-600 disabled:bg-gray-200 dark:text-gray-200 dark:disabled:bg-gray-700 ",
         variants[variant],
         className
     )

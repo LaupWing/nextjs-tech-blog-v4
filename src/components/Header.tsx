@@ -88,34 +88,36 @@ export const Header: FC<HeaderProps> = () => {
                 </ul>
             </div>
             <div className="gradient-animation w-full h-1 bg-red-400" />
-            <nav
-                className={clsx(
-                    "max-w-2xl w-full flex items-center justify-between text-dark dark:text-light bg-black/2 dark:bg-white/4 backdrop-blur-sm mx-auto border rounded-full mt-4 p-1.5 duration-200",
-                    onTop && "shadow-sm"
-                )}
-            >
-                <button
-                    onClick={() => setShowSideNav(true)}
-                    className="flex sm:hidden"
+            <div className="px-2 w-full sm:px-0">
+                <nav
+                    className={clsx(
+                        "max-w-2xl w-full flex items-center justify-between text-dark dark:text-light bg-black/2 dark:bg-white/4 backdrop-blur-sm border rounded-full mt-4 p-1.5 duration-200 mx-auto",
+                        onTop && "shadow-sm"
+                    )}
                 >
-                    {/* <IconMenu size={30} /> */}
-                </button>
-                <ul className="sm:flex hidden items-center justify-between gap-x-3 text-xs md:gap-6 md:text-base sm:ml-4 ml-2">
-                    {links.map(({ href, label, segement }) => (
-                        <li className="" key={`${href}-${label}`}>
-                            <Link href={href}>{label}</Link>
-                            {/* {activeSegment === segement ? (
-                                <div className="h-[3px] gradient-animation-slow w-full shadow" />
-                            ) : (
-                                <div className="h-[3px]" />
-                            )} */}
-                        </li>
-                    ))}
-                </ul>
-                <div className="flex items-center">
-                    <ThemeButton />
-                </div>
-            </nav>
+                    <button
+                        onClick={() => setShowSideNav(true)}
+                        className="flex sm:hidden ml-4 text-slate-700"
+                    >
+                        <IconMenu size={30} />
+                    </button>
+                    <ul className="sm:flex hidden items-center justify-between gap-x-3 text-xs md:gap-6 md:text-base sm:ml-4 ml-2">
+                        {links.map(({ href, label, segement }) => (
+                            <li
+                                className={clsx("opacity-40", {
+                                    "opacity-100": activeSegment === segement,
+                                })}
+                                key={`${href}-${label}`}
+                            >
+                                <Link href={href}>{label}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="flex items-center">
+                        <ThemeButton />
+                    </div>
+                </nav>
+            </div>
         </header>
     )
 }

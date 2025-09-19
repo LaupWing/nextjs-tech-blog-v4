@@ -4,6 +4,8 @@ import { ContactMe } from "@/components/sections/ContactMe"
 import { Accent } from "@/components/ui/accent"
 import { Button } from "@/components/ui/button"
 import { TC } from "@/components/ui/tc"
+import { attachContentMeta } from "@/lib/helper"
+import { getAllFilesFrontmatter, getRecent } from "@/lib/mdx"
 import Link from "next/link"
 import { FC } from "react"
 
@@ -106,4 +108,10 @@ const HomeIntro: FC = async () => {
             </section>
         </LoadedContainer>
     )
+}
+
+const fetchRecentBlogs = async () => {
+    const blogs = await getAllFilesFrontmatter("blog")
+    const recent_blogs = getRecent(blogs)
+    return await attachContentMeta<"blog">(recent_blogs)
 }

@@ -4,7 +4,7 @@ import clsx from "clsx"
 import { IconClock, IconEye } from "../Icons"
 import { format } from "date-fns"
 import Link from "next/link"
-import { Accent } from "../ui/accent"
+import { Accent } from "../Accent"
 import { Badge } from "../ui/badge"
 import { CloudinaryImage } from "../CloudinaryImage.client"
 

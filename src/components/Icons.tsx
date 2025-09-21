@@ -18,6 +18,7 @@ import {
     SiGatsby,
     SiGit,
     SiJavascript,
+    SiLinkedin,
     SiMarkdown,
     SiMongodb,
     SiNextdotjs,
@@ -142,4 +143,8 @@ export const IconVuejs: IconType = (props) => {
 
 export const IconWordpress: IconType = (props) => {
     return <SiWordpress {...props} />
+}
+
+export const IconLinkedin: IconType = (props) => {
+    return <SiLinkedin {...props} />
 }

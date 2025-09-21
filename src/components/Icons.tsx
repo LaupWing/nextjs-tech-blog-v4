@@ -29,6 +29,7 @@ import {
     SiTailwindcss,
     SiTypescript,
     SiVercel,
+    SiWordpress,
 } from "react-icons/si"
 
 export const IconMenu = (props: LucideProps) => {
@@ -137,4 +138,8 @@ export const IconVercel: IconType = (props) => {
 
 export const IconVuejs: IconType = (props) => {
     return <IoLogoVue {...props} />
+}
+
+export const IconWordpress: IconType = (props) => {
+    return <SiWordpress {...props} />
 }

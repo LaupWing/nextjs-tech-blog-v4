@@ -12,6 +12,7 @@ import {
 import { LucideProps } from "lucide-react"
 import { IconType } from "react-icons"
 import { FaLaravel } from "react-icons/fa"
+import { GrMysql } from "react-icons/gr"
 import { IoLogoFirebase } from "react-icons/io5"
 import {
     SiGatsby,
@@ -113,4 +114,8 @@ export const IconRedux: IconType = (props) => {
 
 export const IconSolidity: IconType = (props) => {
     return <SiSolidity {...props} />
+}
+
+export const IconMySQL: IconType = (props) => {
+    return <GrMysql {...props} />
 }

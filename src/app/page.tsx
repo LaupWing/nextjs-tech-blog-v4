@@ -160,8 +160,11 @@ const HomeProjects: FC = async () => {
 
     return (
         <section className="py-20">
-            <article className="custom-container">
-                <h2 id="projects" className="text-2xl md:text-4xl">
+            <article className="container">
+                <h2
+                    id="projects"
+                    className="text-2xl font-semibold md:text-4xl"
+                >
                     <Accent>Recent Projects</Accent>
                 </h2>
                 <p className="mt-2 text-gray-600 dark:text-gray-300">

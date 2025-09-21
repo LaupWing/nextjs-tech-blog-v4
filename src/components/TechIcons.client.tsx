@@ -32,20 +32,20 @@ export interface TechIconsProps extends ComponentPropsWithoutRef<"ul"> {
 
 export const TechIcons: FC<TechIconsProps> = ({ className, techs }) => {
     return (
-        <Tooltip>
-            <ul
-                className={clsx(
-                    className,
-                    "flex flex-wrap text-gray-700 dark:text-gray-200 flex-1 gap-4"
-                )}
-            >
-                {techs.map((tech) => {
-                    if (!techList[tech]) {
-                        return null
-                    }
-                    const current = techList[tech]
+        <ul
+            className={clsx(
+                className,
+                "flex flex-wrap text-gray-700 dark:text-gray-200 flex-1 gap-4"
+            )}
+        >
+            {techs.map((tech) => {
+                if (!techList[tech]) {
+                    return null
+                }
+                const current = techList[tech]
 
-                    return (
+                return (
+                    <Tooltip>
                         <li key={current.name} className="text-xl list-none">
                             <TooltipTrigger className="flex">
                                 <current.icon size={30} />
@@ -54,10 +54,10 @@ export const TechIcons: FC<TechIconsProps> = ({ className, techs }) => {
                                 <p>{current.name}</p>
                             </TooltipContent>
                         </li>
-                    )
-                })}
-            </ul>
-        </Tooltip>
+                    </Tooltip>
+                )
+            })}
+        </ul>
     )
 }
 

@@ -9,6 +9,7 @@ import { attachContentMeta } from "@/lib/helper"
 import { getAllFilesFrontmatter, getRecent } from "@/lib/mdx"
 import Link from "next/link"
 import { FC } from "react"
+import { ProjectCard } from "@/components/cards/ProjectCard"
 
 export default function Home() {
     return (
@@ -16,6 +17,7 @@ export default function Home() {
             <HomeIntro />
             <ContactMe />
             <HomeBlogs />
+            <HomeProjects />
         </main>
     )
 }

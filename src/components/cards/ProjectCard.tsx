@@ -1,9 +1,9 @@
 import type { ComponentPropsWithoutRef, FC } from "react"
 import type { ProjectFrontmatter } from "@/types/frontmatters"
 import clsx from "clsx"
-import { TechIcons, TechListType } from "../TechIcons.client"
 import { CloudinaryImage } from "../CloudinaryImage.client"
 import Link from "next/link"
+import { TechIcons, TechListType } from "../TechIcons.client"
 
 interface ProjectCardProps extends ComponentPropsWithoutRef<"li"> {
     project: ProjectFrontmatter

@@ -12,7 +12,7 @@ import {
 import { LucideProps } from "lucide-react"
 import { IconType } from "react-icons"
 import { IoLogoFirebase } from "react-icons/io5"
-import { SiGatsby } from "react-icons/si"
+import { SiGatsby, SiGit } from "react-icons/si"
 
 export const IconMenu = (props: LucideProps) => {
     return <Menu {...props} />
@@ -56,4 +56,8 @@ export const IconFirebase: IconType = (props) => {
 
 export const IconGatsby: IconType = (props) => {
     return <SiGatsby {...props} />
+}
+
+export const IconGit: IconType = (props) => {
+    return <SiGit {...props} />
 }

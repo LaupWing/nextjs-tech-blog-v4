@@ -22,6 +22,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import { Input } from "@/components/ui/input"
 
 interface BlogsContainerProps {
     posts: Array<BlogFrontmatter & InjectedMeta>
@@ -107,14 +108,15 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
 
     return (
         <>
-            <input
-                type="text"
-                className="w-full dark:text-white rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent focus:outline-none focus:ring-0 dark:focus:border-accent-light mt-4"
-                placeholder="Search..."
-                value={search}
-                data-fade="3"
-                onChange={handleSearch}
-            />
+            <div data-fade="3">
+                <Input
+                    type="search"
+                    className="w-full mt-4"
+                    placeholder="Search..."
+                    value={search}
+                    onChange={handleSearch}
+                />
+            </div>
             <div
                 className="mt-2 flex flex-wrap items-baseline justify-start gap-2 text-sm text-gray-600 dark:text-gray-300"
                 data-fade="4"
@@ -131,42 +133,34 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
                     </Tag>
                 ))}
             </div>
-            <Select>
-                <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Select a fruit" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectGroup>
-                        <SelectLabel>Fruits</SelectLabel>
-                        {sortOptions.map((option) => (
-                            <SelectItem
-                                key={option.id}
-                                value={option.value}
-                                onSelect={() => {
-                                    setSortOrder(option)
-                                    window.sessionStorage.setItem(
-                                        "blog-sort",
-                                        sortOptions.indexOf(option).toString()
-                                    )
-                                }}
-                            >
-                                <option.icon /> {option.label}
-                            </SelectItem>
-                        ))}
-                    </SelectGroup>
-                </SelectContent>
-            </Select>
-
-            <div
-                className="relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between"
-                data-fade="5"
-            >
-                {/* <SortListBox
-                    className="ml-auto"
-                    selected={sortOrder}
-                    setSelected={setSortOrder}
-                    options={sortOptions}
-                /> */}
+            <div className="mt-4 flex justify-end" data-fade="5">
+                <Select>
+                    <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="Select a fruit" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectGroup>
+                            <SelectLabel>Sort By</SelectLabel>
+                            {sortOptions.map((option) => (
+                                <SelectItem
+                                    key={option.id}
+                                    value={option.value}
+                                    onSelect={() => {
+                                        setSortOrder(option)
+                                        window.sessionStorage.setItem(
+                                            "blog-sort",
+                                            sortOptions
+                                                .indexOf(option)
+                                                .toString()
+                                        )
+                                    }}
+                                >
+                                    <option.icon /> {option.label}
+                                </SelectItem>
+                            ))}
+                        </SelectGroup>
+                    </SelectContent>
+                </Select>
             </div>
             <ul
                 className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"

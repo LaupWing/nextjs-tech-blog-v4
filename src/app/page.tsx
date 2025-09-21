@@ -145,3 +145,37 @@ const HomeBlogs: FC = async () => {
         </section>
     )
 }
+
+const fetchRecentProjects = async () => {
+    const projects = await getAllFilesFrontmatter("projects")
+    const recent_projects = getRecent(projects)
+
+    return recent_projects
+}
+
+const HomeProjects: FC = async () => {
+    const recent_projects = await fetchRecentProjects()
+
+    return (
+        <section className="py-20">
+            <article className="custom-container">
+                <h2 id="projects" className="text-2xl md:text-4xl">
+                    <Accent>Recent Projects</Accent>
+                </h2>
+                <p className="mt-2 text-gray-600 dark:text-gray-300">
+                    My most recent awesome projects.
+                </p>
+                <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                    {recent_projects.map((project) => (
+                        <ProjectCard key={project.slug} project={project} />
+                    ))}
+                </ul>
+                <Link href="/projects">
+                    <Button className="mt-4" href="/projects">
+                        See more projects
+                    </Button>
+                </Link>
+            </article>
+        </section>
+    )
+}

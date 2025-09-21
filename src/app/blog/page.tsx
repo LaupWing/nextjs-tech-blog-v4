@@ -1,10 +1,9 @@
 import type { Metadata } from "next"
-// import { BlogsContainer } from "@/components/containers/BlogsContainer.client"
-
 import { getAllFilesFrontmatter } from "@/lib/mdx"
 import seo from "@/lib/seo"
 import { attachContentMeta } from "@/lib/helper"
 import { Accent } from "@/components/Accent"
+import { BlogsContainer } from "./BlogsContainer.client"
 
 export const revalidate = 60
 
@@ -42,7 +41,7 @@ const Blog = async () => {
                     Interesting tech findings.
                 </p>
                 {/* @ts-ignore */}
-                {/* <BlogsContainer posts={posts} /> */}
+                <BlogsContainer posts={posts} />
             </section>
         </main>
     )

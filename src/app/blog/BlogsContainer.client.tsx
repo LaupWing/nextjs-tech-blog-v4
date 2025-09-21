@@ -4,29 +4,47 @@ import type { ChangeEvent, FC } from "react"
 
 import { IconCalendar, IconEye } from "@/components/Icons"
 import { BlogCard } from "@/components/cards/BlogCard"
-import {
-    SortListBox,
-    SortOption,
-} from "@/components/elements/SortListBox.client"
+// import {
+//     SortListBox,
+//     SortOption,
+// } from "@/components/elements/SortListBox.client"
 import { getTags } from "@/lib/mdx-client"
 import { useEffect, useState } from "react"
 import { Tag } from "@/components/Tag"
 import { ContentPlaceholder } from "@/components/ContentPlaceholder"
 import { getFromSessionStorage } from "@/lib/helper"
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
 
 interface BlogsContainerProps {
     posts: Array<BlogFrontmatter & InjectedMeta>
 }
 
+interface SortOption {
+    id: "date" | "views"
+    label: string
+    value: string
+    icon: FC
+}
+
 const sortOptions: Array<SortOption> = [
     {
         id: "date",
-        name: "Sort by date",
+        label: "Sort by date",
+        value: "date",
         icon: IconCalendar,
     },
     {
         id: "views",
-        name: "Sort by views",
+        label: "Sort by views",
+        value: "views",
         icon: IconEye,
     },
 ]
@@ -113,6 +131,32 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
                     </Tag>
                 ))}
             </div>
+            <Select>
+                <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Select a fruit" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectGroup>
+                        <SelectLabel>Fruits</SelectLabel>
+                        {sortOptions.map((option) => (
+                            <SelectItem
+                                key={option.id}
+                                value={option.value}
+                                onSelect={() => {
+                                    setSortOrder(option)
+                                    window.sessionStorage.setItem(
+                                        "blog-sort",
+                                        sortOptions.indexOf(option).toString()
+                                    )
+                                }}
+                            >
+                                <option.icon /> {option.label}
+                            </SelectItem>
+                        ))}
+                    </SelectGroup>
+                </SelectContent>
+            </Select>
+
             <div
                 className="relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between"
                 data-fade="5"

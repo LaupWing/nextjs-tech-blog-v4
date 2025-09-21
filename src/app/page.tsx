@@ -184,3 +184,36 @@ const HomeProjects: FC = async () => {
         </section>
     )
 }
+
+const fetchRecentLibrary = async () => {
+    const library = await getAllFilesFrontmatter("library")
+
+    const recent_library = getRecent(library)
+
+    return await attachContentMeta<"library">(recent_library)
+}
+
+const HomeLibrary: FC = async () => {
+    const recentLibrary = await fetchRecentLibrary()
+
+    return (
+        <section className="py-20">
+            <article className="custom-container">
+                <h2 className="text-2xl md:text-4xl" id="library">
+                    <Accent>Libary of Code Snippets</Accent>
+                </h2>
+                <p className="mt-2 text-gray-600 dark:text-gray-300">
+                    List of code snippets. What is documented is never lost.
+                </p>
+                <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                    {recentLibrary.map((snippet) => (
+                        <LibraryCard key={snippet.slug} snippet={snippet} />
+                    ))}
+                </ul>
+                <Link href="/library">
+                    <Button className="mt-4">See more snippets</Button>
+                </Link>
+            </article>
+        </section>
+    )
+}

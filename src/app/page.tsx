@@ -200,8 +200,8 @@ const HomeLibrary: FC = async () => {
 
     return (
         <section className="py-20">
-            <article className="custom-container">
-                <h2 className="text-2xl md:text-4xl" id="library">
+            <article className="container">
+                <h2 className="text-2xl font-semibold md:text-4xl" id="library">
                     <Accent>Libary of Code Snippets</Accent>
                 </h2>
                 <p className="mt-2 text-gray-600 dark:text-gray-300">

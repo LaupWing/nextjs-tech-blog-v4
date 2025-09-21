@@ -21,6 +21,7 @@ import {
     SiMongodb,
     SiNextdotjs,
     SiNodedotjs,
+    SiPhp,
 } from "react-icons/si"
 
 export const IconMenu = (props: LucideProps) => {
@@ -93,4 +94,8 @@ export const IconNextjs: IconType = (props) => {
 
 export const IconNodejs: IconType = (props) => {
     return <SiNodedotjs {...props} />
+}
+
+export const IconPhp: IconType = (props) => {
+    return <SiPhp {...props} />
 }

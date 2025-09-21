@@ -4,15 +4,15 @@ import type { ChangeEvent, FC } from "react"
 
 import { IconCalendar, IconEye } from "@/components/Icons"
 import { BlogCard } from "@/components/cards/BlogCard"
-import { Tag } from "@/components/elements/Tag"
 import {
     SortListBox,
     SortOption,
 } from "@/components/elements/SortListBox.client"
-import { ContentPlaceholder } from "@/components/sections/ContentPlaceholder"
-import { getFromSessionStorage } from "@/lib/helpers"
 import { getTags } from "@/lib/mdx-client"
 import { useEffect, useState } from "react"
+import { Tag } from "@/components/Tag"
+import { ContentPlaceholder } from "@/components/ContentPlaceholder"
+import { getFromSessionStorage } from "@/lib/helper"
 
 interface BlogsContainerProps {
     posts: Array<BlogFrontmatter & InjectedMeta>
@@ -102,7 +102,7 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
                 data-fade="4"
             >
                 <span className="font-medium">Choose topic:</span>
-                {tags.map((tag) => (
+                {tags.map((tag: string) => (
                     <Tag
                         key={tag}
                         onClick={() => toggleTag(tag)}
@@ -117,12 +117,12 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
                 className="relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between"
                 data-fade="5"
             >
-                <SortListBox
+                {/* <SortListBox
                     className="ml-auto"
                     selected={sortOrder}
                     setSelected={setSortOrder}
                     options={sortOptions}
-                />
+                /> */}
             </div>
             <ul
                 className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"

@@ -37,3 +37,10 @@ export const attachContentMeta = async <T extends ContentType>(
 
     return results
 }
+
+export const getFromSessionStorage = (key: string) => {
+    if (typeof sessionStorage !== "undefined") {
+        return sessionStorage.getItem(key)
+    }
+    return null
+}

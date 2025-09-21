@@ -3,6 +3,7 @@ import { IconGithub, IconLinkedin, IconTwitter } from "./Icons"
 import Link from "next/link"
 import { IconType } from "react-icons"
 import { Accent } from "./Accent"
+import { Tooltip } from "./ui/tooltip"
 // import { Tooltip } from "./Tooltip"
 
 export const Footer: FC = () => {
@@ -17,6 +18,7 @@ export const Footer: FC = () => {
                 <p className="mt-8 text-sm text-gray-600 dark:text-gray-300">
                     © Laup Wing {new Date().getFullYear()}
                 </p>
+                <SocialLinks />
             </main>
         </footer>
     )
@@ -42,21 +44,19 @@ const SocialLinks = () => {
     return (
         <div className="mt-2 flex space-x-4">
             <div className="flex items-center justify-center">
-                {/* <Tooltip
-               trigger="mouseenter"
-               hideOnClick={false}
-               interactive
-               tipChildren={<></>}
-               html={
-                  <div className="inline-block rounded-md border bg-light p-2 text-gray-600 shadow dark:border-gray-600 dark:bg-dark dark:text-gray-200">
-
-                  </div>
-               }
-            >
-               <button>
-
-               </button>
-            </Tooltip> */}
+                <Tooltip>
+                    {social.map(({ href, icon: Icon, id, text }) => (
+                        <a
+                            key={id}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-accent-light"
+                        >
+                            <Icon className="w-5 h-5" />
+                        </a>
+                    ))}
+                </Tooltip>
             </div>
         </div>
     )

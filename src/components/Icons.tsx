@@ -22,6 +22,7 @@ import {
     SiNextdotjs,
     SiNodedotjs,
     SiPhp,
+    SiReact,
 } from "react-icons/si"
 
 export const IconMenu = (props: LucideProps) => {
@@ -98,4 +99,8 @@ export const IconNodejs: IconType = (props) => {
 
 export const IconPhp: IconType = (props) => {
     return <SiPhp {...props} />
+}
+
+export const IconReact: IconType = (props) => {
+    return <SiReact {...props} />
 }

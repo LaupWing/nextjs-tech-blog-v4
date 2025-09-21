@@ -3,7 +3,7 @@ import { IconGithub, IconLinkedin, IconTwitter } from "./Icons"
 import Link from "next/link"
 import { IconType } from "react-icons"
 import { Accent } from "./Accent"
-import { Tooltip } from "./ui/tooltip"
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 // import { Tooltip } from "./Tooltip"
 
 export const Footer: FC = () => {
@@ -44,19 +44,24 @@ const SocialLinks = () => {
     return (
         <div className="mt-4 flex space-x-4">
             <div className="flex gap-4 items-center justify-center">
-                <Tooltip>
-                    {social.map(({ href, icon: Icon, id, text }) => (
-                        <a
-                            key={id}
-                            href={href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-accent-light"
-                        >
-                            <Icon className="w-5 h-5" />
-                        </a>
-                    ))}
-                </Tooltip>
+                {social.map(({ href, icon: Icon, id, text }) => (
+                    <Tooltip>
+                        <TooltipTrigger>
+                            <a
+                                key={id}
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-accent-light"
+                            >
+                                <Icon className="w-5 h-5" />
+                            </a>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <div>{text}</div>
+                        </TooltipContent>
+                    </Tooltip>
+                ))}
             </div>
         </div>
     )

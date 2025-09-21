@@ -22,6 +22,7 @@ import {
     IconVuejs,
     IconWordpress,
 } from "./Icons"
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 
 export type TechListType = keyof typeof techList
 
@@ -31,31 +32,32 @@ export interface TechIconsProps extends ComponentPropsWithoutRef<"ul"> {
 
 export const TechIcons: FC<TechIconsProps> = ({ className, techs }) => {
     return (
-        <ul
-            className={clsx(
-                className,
-                "flex flex-wrap text-gray-700 dark:text-gray-200 flex-1 gap-4"
-            )}
-        >
-            {techs.map((tech) => {
-                if (!techList[tech]) {
-                    return null
-                }
-                const current = techList[tech]
+        <Tooltip>
+            <ul
+                className={clsx(
+                    className,
+                    "flex flex-wrap text-gray-700 dark:text-gray-200 flex-1 gap-4"
+                )}
+            >
+                {techs.map((tech) => {
+                    if (!techList[tech]) {
+                        return null
+                    }
+                    const current = techList[tech]
 
-                return (
-                    <Tooltip
-                        key={current.name}
-                        className="flex"
-                        tipChildren={<p>{current.name}</p>}
-                    >
-                        <li className="text-xl list-none">
-                            <current.icon size={30} />
+                    return (
+                        <li key={current.name} className="text-xl list-none">
+                            <TooltipTrigger className="flex">
+                                <current.icon size={30} />
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                <p>{current.name}</p>
+                            </TooltipContent>
                         </li>
-                    </Tooltip>
-                )
-            })}
-        </ul>
+                    )
+                })}
+            </ul>
+        </Tooltip>
     )
 }
 

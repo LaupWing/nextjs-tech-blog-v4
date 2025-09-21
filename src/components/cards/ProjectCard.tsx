@@ -1,9 +1,9 @@
 import type { ComponentPropsWithoutRef, FC } from "react"
 import type { ProjectFrontmatter } from "@/types/frontmatters"
 import clsx from "clsx"
-import { UnstyledLink } from "../links/UnstyledLink.client"
 import { TechIcons, TechListType } from "../TechIcons.client"
 import { CloudinaryImage } from "../CloudinaryImage.client"
+import Link from "next/link"
 
 interface ProjectCardProps extends ComponentPropsWithoutRef<"li"> {
     project: ProjectFrontmatter
@@ -17,7 +17,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project, className }) => {
                 className
             )}
         >
-            <UnstyledLink
+            <Link
                 href={`/projects/${project.slug}`}
                 className="flex h-full flex-col items-start rounded-md p-4 focus:outline-none focus-visible:ring focus-visible:ring-accent-light"
             >
@@ -40,7 +40,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project, className }) => {
                 <p className="animated-underline dark:text-white mt-2 inline-block font-medium">
                     See more →
                 </p>
-            </UnstyledLink>
+            </Link>
         </li>
     )
 }

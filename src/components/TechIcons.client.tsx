@@ -45,16 +45,16 @@ export const TechIcons: FC<TechIconsProps> = ({ className, techs }) => {
                 const current = techList[tech]
 
                 return (
-                    <Tooltip>
-                        <li key={current.name} className="text-xl list-none">
+                    <li key={current.name} className="text-xl list-none">
+                        <Tooltip>
                             <TooltipTrigger className="flex">
                                 <current.icon size={30} />
                             </TooltipTrigger>
                             <TooltipContent>
                                 <p>{current.name}</p>
                             </TooltipContent>
-                        </li>
-                    </Tooltip>
+                        </Tooltip>
+                    </li>
                 )
             })}
         </ul>

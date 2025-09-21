@@ -1,5 +1,6 @@
+"use client"
 import type { Metadata } from "next"
-import { BlogsContainer } from "@/components/containers/BlogsContainer.client"
+// import { BlogsContainer } from "@/components/containers/BlogsContainer.client"
 
 import { getAllFilesFrontmatter } from "@/lib/mdx"
 import seo from "@/lib/seo"
@@ -28,7 +29,7 @@ const Blog = async () => {
 
     return (
         <main>
-            <section className="custom-container py-12">
+            <section className="container py-12">
                 <h1 className="text-3xl md:text-5xl" data-fade="0">
                     <Accent>Blog</Accent>
                 </h1>
@@ -39,7 +40,7 @@ const Blog = async () => {
                     Interesting tech findings.
                 </p>
                 {/* @ts-ignore */}
-                <BlogsContainer posts={posts} />
+                {/* <BlogsContainer posts={posts} /> */}
             </section>
         </main>
     )

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 }
 
 const Blog = async () => {
-    // const posts = await fetchBlogs()
+    const posts = await fetchBlogs()
 
     return (
         <main>

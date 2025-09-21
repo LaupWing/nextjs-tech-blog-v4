@@ -26,6 +26,7 @@ import {
     SiReact,
     SiRedux,
     SiSolidity,
+    SiTailwindcss,
 } from "react-icons/si"
 
 export const IconMenu = (props: LucideProps) => {
@@ -118,4 +119,8 @@ export const IconSolidity: IconType = (props) => {
 
 export const IconMySQL: IconType = (props) => {
     return <GrMysql {...props} />
+}
+
+export const IconTailwindcss: IconType = (props) => {
+    return <SiTailwindcss {...props} />
 }

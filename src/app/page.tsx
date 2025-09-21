@@ -10,6 +10,7 @@ import { getAllFilesFrontmatter, getRecent } from "@/lib/mdx"
 import Link from "next/link"
 import { FC } from "react"
 import { ProjectCard } from "@/components/cards/ProjectCard"
+import { LibraryCard } from "@/components/cards/LibraryCard"
 
 export default function Home() {
     return (
@@ -18,6 +19,7 @@ export default function Home() {
             <ContactMe />
             <HomeBlogs />
             <HomeProjects />
+            <HomeLibrary />
         </main>
     )
 }
@@ -207,6 +209,7 @@ const HomeLibrary: FC = async () => {
                 </p>
                 <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                     {recentLibrary.map((snippet) => (
+                        // @ts-ignore
                         <LibraryCard key={snippet.slug} snippet={snippet} />
                     ))}
                 </ul>

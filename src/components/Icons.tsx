@@ -19,6 +19,7 @@ import {
     SiJavascript,
     SiMarkdown,
     SiMongodb,
+    SiNextdotjs,
 } from "react-icons/si"
 
 export const IconMenu = (props: LucideProps) => {
@@ -83,4 +84,8 @@ export const IconMarkdown: IconType = (props) => {
 
 export const IconMongoDB: IconType = (props) => {
     return <SiMongodb {...props} />
+}
+
+export const IconNextjs: IconType = (props) => {
+    return <SiNextdotjs {...props} />
 }

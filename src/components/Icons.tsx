@@ -28,6 +28,7 @@ import {
     SiSolidity,
     SiTailwindcss,
     SiTypescript,
+    SiVercel,
 } from "react-icons/si"
 
 export const IconMenu = (props: LucideProps) => {
@@ -128,4 +129,8 @@ export const IconTailwindcss: IconType = (props) => {
 
 export const IconTypescript: IconType = (props) => {
     return <SiTypescript {...props} />
+}
+
+export const IconVercel: IconType = (props) => {
+    return <SiVercel {...props} />
 }

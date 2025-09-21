@@ -45,7 +45,7 @@ const SocialLinks = () => {
         <div className="mt-4 flex space-x-4">
             <div className="flex gap-4 items-center justify-center">
                 {social.map(({ href, icon: Icon, id, text }) => (
-                    <Tooltip>
+                    <Tooltip key={id}>
                         <TooltipTrigger>
                             <a
                                 key={id}

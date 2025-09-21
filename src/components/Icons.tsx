@@ -13,7 +13,13 @@ import { LucideProps } from "lucide-react"
 import { IconType } from "react-icons"
 import { FaLaravel } from "react-icons/fa"
 import { IoLogoFirebase } from "react-icons/io5"
-import { SiGatsby, SiGit, SiJavascript, SiMarkdown } from "react-icons/si"
+import {
+    SiGatsby,
+    SiGit,
+    SiJavascript,
+    SiMarkdown,
+    SiMongodb,
+} from "react-icons/si"
 
 export const IconMenu = (props: LucideProps) => {
     return <Menu {...props} />
@@ -73,4 +79,8 @@ export const IconLaravel: IconType = (props) => {
 
 export const IconMarkdown: IconType = (props) => {
     return <SiMarkdown {...props} />
+}
+
+export const IconMongoDB: IconType = (props) => {
+    return <SiMongodb {...props} />
 }

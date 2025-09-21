@@ -24,6 +24,7 @@ import {
     SiPhp,
     SiReact,
     SiRedux,
+    SiSolidity,
 } from "react-icons/si"
 
 export const IconMenu = (props: LucideProps) => {
@@ -108,4 +109,8 @@ export const IconReact: IconType = (props) => {
 
 export const IconRedux: IconType = (props) => {
     return <SiRedux {...props} />
+}
+
+export const IconSolidity: IconType = (props) => {
+    return <SiSolidity {...props} />
 }

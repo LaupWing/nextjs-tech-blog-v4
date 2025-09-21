@@ -13,7 +13,7 @@ import { LucideProps } from "lucide-react"
 import { IconType } from "react-icons"
 import { FaLaravel } from "react-icons/fa"
 import { GrMysql } from "react-icons/gr"
-import { IoLogoFirebase } from "react-icons/io5"
+import { IoLogoFirebase, IoLogoVue } from "react-icons/io5"
 import {
     SiGatsby,
     SiGit,
@@ -133,4 +133,8 @@ export const IconTypescript: IconType = (props) => {
 
 export const IconVercel: IconType = (props) => {
     return <SiVercel {...props} />
+}
+
+export const IconVuejs: IconType = (props) => {
+    return <IoLogoVue {...props} />
 }

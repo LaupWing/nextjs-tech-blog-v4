@@ -11,6 +11,7 @@ import Link from "next/link"
 import { FC } from "react"
 import { ProjectCard } from "@/components/cards/ProjectCard"
 import { LibraryCard } from "@/components/cards/LibraryCard"
+import { Subscribe } from "@/components/Subscribe.client"
 
 export default function Home() {
     return (
@@ -20,6 +21,7 @@ export default function Home() {
             <HomeBlogs />
             <HomeProjects />
             <HomeLibrary />
+            <Subscribe />
         </main>
     )
 }

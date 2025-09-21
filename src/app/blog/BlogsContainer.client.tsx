@@ -116,7 +116,7 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
             <div data-fade="3">
                 <Input
                     type="search"
-                    className="w-full mt-4"
+                    className="w-full mt-4 h-11 px-4"
                     placeholder="Search..."
                     value={search}
                     onChange={handleSearch}

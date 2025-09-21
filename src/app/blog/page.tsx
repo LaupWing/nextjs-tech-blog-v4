@@ -1,4 +1,3 @@
-"use client"
 import type { Metadata } from "next"
 // import { BlogsContainer } from "@/components/containers/BlogsContainer.client"
 
@@ -25,12 +24,15 @@ export const metadata: Metadata = {
 }
 
 const Blog = async () => {
-    const posts = await fetchBlogs()
+    // const posts = await fetchBlogs()
 
     return (
         <main>
             <section className="container py-12">
-                <h1 className="text-3xl md:text-5xl" data-fade="0">
+                <h1
+                    className="text-3xl font-semibold md:text-5xl"
+                    data-fade="0"
+                >
                     <Accent>Blog</Accent>
                 </h1>
                 <p

@@ -51,9 +51,14 @@ const sortOptions: Array<SortOption> = [
 ]
 
 export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
-    const [sortOrder, setSortOrder] = useState<SortOption>(
-        () => sortOptions[Number(getFromSessionStorage("blog-sort")) || 0]
+    const [sortOrder, setSortOrder] = useState<string>(() =>
+        getFromSessionStorage("blog-sort")
+            ? sortOptions.find(
+                  (x) => x.id === getFromSessionStorage("blog-sort")
+              )?.id!
+            : sortOptions[0].id
     )
+    console.log("Sort order:", sortOrder)
     const tags = getTags(posts)
     const [search, setSearch] = useState<string>("")
     const [filteredPosts, setFilteredPosts] = useState<
@@ -74,7 +79,7 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
                         .every((tag) => post.tags.includes(tag))
             )
             .sort((a, b) => {
-                if (sortOrder.id === "date") {
+                if (sortOrder === "date") {
                     return (
                         new Date(b.publishedAt).getTime() -
                         new Date(a.publishedAt).getTime()
@@ -134,7 +139,7 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
                 ))}
             </div>
             <div className="mt-4 flex justify-end" data-fade="5">
-                <Select>
+                <Select value={sortOrder}>
                     <SelectTrigger className="w-[180px]">
                         <SelectValue placeholder="Select a fruit" />
                     </SelectTrigger>
@@ -144,14 +149,12 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
                             {sortOptions.map((option) => (
                                 <SelectItem
                                     key={option.id}
-                                    value={option.value}
+                                    value={option.id}
                                     onSelect={() => {
-                                        setSortOrder(option)
+                                        setSortOrder(option.id)
                                         window.sessionStorage.setItem(
                                             "blog-sort",
-                                            sortOptions
-                                                .indexOf(option)
-                                                .toString()
+                                            option.id
                                         )
                                     }}
                                 >

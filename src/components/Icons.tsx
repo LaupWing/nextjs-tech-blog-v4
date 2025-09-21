@@ -11,6 +11,7 @@ import {
 } from "lucide-react"
 import { LucideProps } from "lucide-react"
 import { IconType } from "react-icons"
+import { FaLaravel } from "react-icons/fa"
 import { IoLogoFirebase } from "react-icons/io5"
 import { SiGatsby, SiGit, SiJavascript } from "react-icons/si"
 
@@ -64,4 +65,8 @@ export const IconGit: IconType = (props) => {
 
 export const IconJavascript: IconType = (props) => {
     return <SiJavascript {...props} />
+}
+
+export const IconLaravel: IconType = (props) => {
+    return <FaLaravel {...props} />
 }

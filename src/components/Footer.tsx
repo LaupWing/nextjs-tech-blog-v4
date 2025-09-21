@@ -42,8 +42,8 @@ const FooterLinks = () => {
 
 const SocialLinks = () => {
     return (
-        <div className="mt-2 flex space-x-4">
-            <div className="flex items-center justify-center">
+        <div className="mt-4 flex space-x-4">
+            <div className="flex gap-4 items-center justify-center">
                 <Tooltip>
                     {social.map(({ href, icon: Icon, id, text }) => (
                         <a

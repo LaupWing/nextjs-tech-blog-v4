@@ -11,8 +11,7 @@ export const revalidate = 60
 const fetchBlogs = async () => {
     const blogs = await getAllFilesFrontmatter("blog")
 
-    // return await attachContentMeta<"blog">(blogs)
-    return blogs
+    return await attachContentMeta<"blog">(blogs)
 }
 
 export const metadata: Metadata = {

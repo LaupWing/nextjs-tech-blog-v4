@@ -1,4 +1,5 @@
 import {
+    Calendar,
     Clock,
     Eye,
     Github,
@@ -63,6 +64,10 @@ export const IconNewspaper = (props: LucideProps) => {
 
 export const IconEye = (props: LucideProps) => {
     return <Eye {...props} />
+}
+
+export const IconCalendar = (props: LucideProps) => {
+    return <Calendar {...props} />
 }
 
 export const IconClock = (props: LucideProps) => {

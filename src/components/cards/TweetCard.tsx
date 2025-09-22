@@ -1,16 +1,16 @@
 import type { FC } from "react"
-import type { TweetProps } from "react-twitter-widgets"
 import clsx from "clsx"
-import { Tweet } from "react-twitter-widgets"
+import { Tweet } from "react-tweet"
 
-interface TweetCardProps extends TweetProps {
+interface TweetCardProps {
     className?: string
+    tweetId: string
 }
 
 export const TweetCard: FC<TweetCardProps> = ({ tweetId, className }) => {
     return (
         <div className={clsx("not-prose w-[99%]", className)}>
-            <Tweet tweetId={tweetId} />
+            <Tweet id={tweetId} />
         </div>
     )
 }

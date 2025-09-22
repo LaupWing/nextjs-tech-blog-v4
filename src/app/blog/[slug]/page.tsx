@@ -103,7 +103,9 @@ const Hero: FC<HeroProps> = async ({ frontmatter, slug }) => {
                     width: 5,
                 }}
             />
-            <h1 className="mt-4 dark:text-light">{frontmatter.title}</h1>
+            <h1 className="mt-4 dark:text-light text-2xl font-bold md:text-4xl">
+                {frontmatter.title}
+            </h1>
             <p>{frontmatter.description}</p>
             <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
                 Writton on{" "}

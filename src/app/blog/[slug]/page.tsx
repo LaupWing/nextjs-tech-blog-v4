@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { IconClock, IconHistory } from "@/components/Icons"
 import { Likes } from "@/components/elements/Likes.client"
 import { Views } from "@/components/elements/Views.client"
-import { Content } from "@/components/sections/Content.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { BlogFrontmatter } from "@/types/frontmatters"
 import { format } from "date-fns"
@@ -10,6 +9,9 @@ import { FC } from "react"
 import seo from "@/lib/seo"
 import Link from "next/link"
 import { TableContents } from "@/components/TableContents.client"
+import { CloudinaryImage } from "@/components/CloudinaryImage.client"
+import { Accent } from "@/components/Accent"
+import { Content } from "@/components/Content.client"
 
 export const dynamicParams = false
 

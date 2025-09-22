@@ -9,6 +9,7 @@ import {
     Menu,
     Moon,
     Newspaper,
+    Star,
     Sun,
     Twitter,
     X,
@@ -17,7 +18,7 @@ import { LucideProps } from "lucide-react"
 import { IconType } from "react-icons"
 import { FaLaravel } from "react-icons/fa"
 import { GrMysql } from "react-icons/gr"
-import { IoLogoFirebase, IoLogoVue } from "react-icons/io5"
+import { IoGitBranch, IoLogoFirebase, IoLogoVue } from "react-icons/io5"
 import {
     SiGatsby,
     SiGit,
@@ -167,4 +168,12 @@ export const IconCheckCircle = (props: LucideProps) => {
 
 export const IconClipboard = (props: LucideProps) => {
     return <Clipboard {...props} />
+}
+
+export const IconGitBranch = (props: LucideProps) => {
+    return <IoGitBranch {...props} />
+}
+
+export const IconStar = (props: LucideProps) => {
+    return <Star {...props} />
 }

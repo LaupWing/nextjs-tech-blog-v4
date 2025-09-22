@@ -2,7 +2,7 @@
 import type { ComponentPropsWithoutRef, FC } from "react"
 import { useState, useEffect } from "react"
 import clsx from "clsx"
-import { IconGithub, IconRepoForked, IconStar } from "../Icons"
+import { IconGithub, IconGitBranch, IconStar } from "../Icons"
 import Link from "next/link"
 import { Accent } from "../Accent"
 
@@ -60,7 +60,7 @@ export const GithubCard: FC<GithubCardProps> = ({ repo, className }) => {
                         <span>{data!.stargazers_count.toLocaleString()}</span>
                     </div>
                     <div className="flex items-center gap-1 text-xs">
-                        <IconRepoForked className="shrink-0 text-[1.2em]" />
+                        <IconGitBranch className="shrink-0 text-[1.2em]" />
                         <span>{data!.forks.toLocaleString()}</span>
                     </div>
                 </div>

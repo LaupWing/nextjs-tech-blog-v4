@@ -3,6 +3,7 @@ import type { FC } from "react"
 
 import { useMemo } from "react"
 import { getMDXComponent } from "mdx-bundler/client"
+import { MDXComponents } from "./MDXComponents"
 
 interface ContentProps {
     code: string

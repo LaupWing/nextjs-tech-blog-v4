@@ -62,6 +62,7 @@ export const CloudinaryImage: FC<CloudinaryImageProps> = ({
 
     return (
         <figure
+            suppressHydrationWarning
             className={clsx(
                 className,
                 !no_style && "overflow-hidden rounded shadow dark:shadow-none",

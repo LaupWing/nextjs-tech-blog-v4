@@ -63,7 +63,7 @@ const SingleBlogPage = async (props: PageProps) => {
     const { frontmatter, code } = post
 
     return (
-        <main className="container">
+        <main className="container" suppressHydrationWarning>
             <Hero frontmatter={frontmatter} slug={slug} />
             <hr className="dark:border-gray-600" />
             <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto,250px] lg:gap-8">

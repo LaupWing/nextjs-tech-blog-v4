@@ -1,5 +1,4 @@
 import Image from "next/image"
-import { CustomCode } from "./sections/CustomCode.client"
 import LiteYouTubeEmbed from "react-lite-youtube-embed"
 import { Pre } from "./sections/Pre"
 import { SplitImage } from "./sections/SplitImage"
@@ -9,6 +8,7 @@ import { TweetCard } from "./cards/TweetCard"
 import { GithubCard } from "./cards/GithubCard.client"
 import { CloudinaryImage } from "./CloudinaryImage.client"
 import { CustomLink } from "./CustomLink"
+import { CustomCode } from "./CustomCode.client"
 
 export const MDXComponents = {
     a: CustomLink,

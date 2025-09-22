@@ -1,5 +1,7 @@
 import {
     Calendar,
+    CircleCheck,
+    Clipboard,
     Clock,
     Eye,
     Github,
@@ -157,4 +159,12 @@ export const IconLinkedin: IconType = (props) => {
 
 export const IconHistory = (props: LucideProps) => {
     return <History {...props} />
+}
+
+export const IconCheckCircle = (props: LucideProps) => {
+    return <CircleCheck {...props} />
+}
+
+export const IconClipboard = (props: LucideProps) => {
+    return <Clipboard {...props} />
 }

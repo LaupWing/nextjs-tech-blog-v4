@@ -1,7 +1,7 @@
 import Image from "next/image"
 import LiteYouTubeEmbed from "react-lite-youtube-embed"
 import { TechIcons } from "./TechIcons.client"
-import { TweetCard } from "./cards/TweetCard"
+// import { TweetCard } from "./cards/TweetCard"
 import { GithubCard } from "./cards/GithubCard.client"
 import { CloudinaryImage } from "./CloudinaryImage.client"
 import { CustomLink } from "./CustomLink"
@@ -20,6 +20,6 @@ export const MDXComponents = {
     Split,
     SplitImage,
     TechIcons,
-    TweetCard,
+    // TweetCard,
     GithubCard,
 }

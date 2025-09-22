@@ -3,6 +3,7 @@ import {
     Clock,
     Eye,
     Github,
+    History,
     Menu,
     Moon,
     Newspaper,
@@ -152,4 +153,8 @@ export const IconWordpress: IconType = (props) => {
 
 export const IconLinkedin: IconType = (props) => {
     return <SiLinkedin {...props} />
+}
+
+export const IconHistory = (props: LucideProps) => {
+    return <History {...props} />
 }

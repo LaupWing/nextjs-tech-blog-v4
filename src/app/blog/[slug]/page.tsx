@@ -13,6 +13,8 @@ import { Content } from "@/components/Content.client"
 import { Likes } from "@/components/Likes.client"
 import { Views } from "@/components/Views.client"
 
+import "../../mdx.css"
+
 export const dynamicParams = false
 
 export const revalidate = 0

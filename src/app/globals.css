@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./mdx.css";
 
 @custom-variant dark (&:is(.dark *));
 

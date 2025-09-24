@@ -14,7 +14,7 @@ export const Content: FC<ContentProps> = ({ code }) => {
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        // setLoaded(true)
+        setLoaded(true)
     }, [])
 
     return (

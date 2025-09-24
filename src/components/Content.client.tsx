@@ -14,13 +14,15 @@ export const Content: FC<ContentProps> = ({ code }) => {
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        setLoaded(true)
+        // setLoaded(true)
     }, [])
 
     return (
         <article className="mdx xl:col-span-1 mt-4 projects prose mx-auto w-full transition-colors dark:prose-invert">
             {!loaded ? (
-                <Loader2 className="animate-spin h-8" />
+                <div className="flex items-center justify-center py-8">
+                    <Loader2 className="animate-spin h-8" />
+                </div>
             ) : (
                 <Component
                     components={

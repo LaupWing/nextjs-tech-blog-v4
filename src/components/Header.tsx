@@ -61,7 +61,7 @@ export const Header: FC<HeaderProps> = () => {
     return (
         <header className="sticky top-0 flex flex-col z-50 h-18 duration-300 transition-shadow bg-light dark:bg-dark justify-between items-center">
             <div
-                className={`fixed block sm:hidden duration-500 transform inset-0 bg-light dark:bg-dark z-50
+                className={`fixed block sm:hidden duration-500 transform inset-0 bg-background z-50
                     ${show_side_nav ? "translate-x-0" : "-translate-x-full"}`}
             >
                 <ul className="flex flex-col items-start py-8 px-10 justify-between gap-3 text-base">
@@ -97,7 +97,7 @@ export const Header: FC<HeaderProps> = () => {
                 >
                     <button
                         onClick={() => setShowSideNav(true)}
-                        className="flex sm:hidden ml-4 text-slate-700"
+                        className="flex sm:hidden ml-4 text-slate-900 dark:text-white"
                     >
                         <IconMenu size={30} />
                     </button>

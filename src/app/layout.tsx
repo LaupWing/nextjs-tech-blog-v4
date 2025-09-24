@@ -4,8 +4,8 @@ import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 
 import "./globals.css"
-// import "./dracula.css"
-// import "./mdx.css"
+import "./dracula.css"
+import "./mdx.css"
 
 const geistSans = Geist({
     variable: "--font-geist-sans",

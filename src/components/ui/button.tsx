@@ -33,19 +33,23 @@ export const Button: FC<ButtonProps> = ({
     )
 
     return variant === "gradient-animation" ? (
-        <div
-            className={
-                "gradient-animation-border shadow hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 transition duration-100 scale-100 " +
-                className
-            }
-        >
-            <button
-                {...props}
-                disabled={disabled}
-                className={classNameComputed}
+        <div className="group relative flex">
+            <div className="absolute -inset-0.5 animate-pulse rounded blur from-custom-green bg-gradient-to-r to-custom-purple opacity-75 transition duration-1000 group-hover:opacity-100 group-hover:duration-200" />
+
+            <div
+                className={
+                    "gradient-animation-border shadow hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 transition duration-100 scale-100 " +
+                    className
+                }
             >
-                {children}
-            </button>
+                <button
+                    {...props}
+                    disabled={disabled}
+                    className={classNameComputed}
+                >
+                    {children}
+                </button>
+            </div>
         </div>
     ) : (
         <button {...props} disabled={disabled} className={classNameComputed}>

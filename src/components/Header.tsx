@@ -106,8 +106,8 @@ export const Header: FC<HeaderProps> = () => {
                             <li
                                 className={clsx(
                                     activeSegment === segement
-                                        ? "text-gray-950 dark:text-white font-medium"
-                                        : "text-gray-400 dark:text-gray-500"
+                                        ? "gradient-animation-slow bg-clip-text font-semibold text-transparent"
+                                        : "text-gray-900 dark:text-white"
                                 )}
                                 key={`${href}-${label}`}
                             >

@@ -265,4 +265,18 @@
     .project-card:focus-visible .animated-underline {
         background-size: 0 2px, 100% 2px;
     }
+
+    .gradient-animation-slow {
+        background: linear-gradient(
+            -45deg,
+            rgb(var(--custom-red)),
+            rgb(var(--custom-orange)),
+            rgb(var(--custom-green)),
+            rgb(var(--custom-blue)),
+            rgb(var(--custom-purple)),
+            rgb(var(--custom-red))
+        );
+        background-size: 400% 400%;
+        animation: straight 100s linear infinite;
+    }
 }

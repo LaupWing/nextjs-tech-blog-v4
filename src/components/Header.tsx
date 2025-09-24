@@ -104,9 +104,11 @@ export const Header: FC<HeaderProps> = () => {
                     <ul className="sm:flex hidden items-center justify-between gap-x-3 text-xs md:gap-6 md:text-base sm:ml-4 ml-2">
                         {links.map(({ href, label, segement }) => (
                             <li
-                                className={clsx("opacity-40", {
-                                    "opacity-100": activeSegment === segement,
-                                })}
+                                className={clsx(
+                                    activeSegment === segement
+                                        ? "text-gray-950 dark:text-white font-medium"
+                                        : "text-gray-400 dark:text-gray-500"
+                                )}
                                 key={`${href}-${label}`}
                             >
                                 <Link href={href}>{label}</Link>

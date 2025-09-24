@@ -39,7 +39,7 @@ export const LibraryCard: FC<LibraryCardProps> = ({
                     <div className="mt-auto flex flex-col">
                         <div className="mt-1 flex items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
                             <div className="flex items-center gap-1">
-                                <div className="dark:bg-orange-200 p-1">
+                                <div className="dark:gradient-animation-slow p-1">
                                     <ChadIcon className="inline-block text-base w-5" />
                                 </div>
                                 <Accent>{snippet.likes} likes</Accent>

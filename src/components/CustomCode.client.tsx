@@ -4,6 +4,7 @@ import type { ComponentPropsWithoutRef, FC } from "react"
 import useCopyToClipboard from "@/hooks/useCopyToClipboard"
 import { useRef, useState } from "react"
 import { IconCheckCircle, IconClipboard } from "./Icons"
+import { toast } from "sonner"
 
 interface CustomCodeProps extends ComponentPropsWithoutRef<"code"> {}
 
@@ -41,6 +42,7 @@ export const CustomCode: FC<CustomCodeProps> = ({
                     onClick={() => {
                         copy(textRef?.current?.textContent ?? "").then(() => {
                             setIsCopied(true)
+                            toast.success("Code copied to clipboard!")
                             setTimeout(() => setIsCopied(false), 1500)
                         })
                     }}

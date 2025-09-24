@@ -87,6 +87,16 @@
     --custom-dark: 14 14 14;
 }
 
+@theme {
+    --color-custom-red: rgb(var(--custom-red));
+    --color-custom-orange: rgb(var(--custom-orange));
+    --color-custom-green: rgb(var(--custom-green));
+    --color-custom-blue: rgb(var(--custom-blue));
+    --color-custom-purple: rgb(var(--custom-purple));
+    --color-custom-light: rgb(var(--custom-light));
+    --color-custom-dark: rgb(var(--custom-dark));
+}
+
 .dark {
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);

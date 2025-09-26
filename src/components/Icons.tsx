@@ -1,4 +1,5 @@
 import {
+    ArrowDownNarrowWide,
     Calendar,
     CircleCheck,
     Clipboard,
@@ -181,4 +182,8 @@ export const IconStar = (props: LucideProps) => {
 
 export const IconLink = (props: LucideProps) => {
     return <Link {...props} />
+}
+
+export const IconSortAscending = (props: LucideProps) => {
+    return <ArrowDownNarrowWide {...props} />
 }

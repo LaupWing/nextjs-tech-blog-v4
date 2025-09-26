@@ -3,6 +3,7 @@ import { Metadata } from "next"
 import seo from "@/lib/seo"
 import { attachContentMeta } from "@/lib/helper"
 import { Accent } from "@/components/Accent"
+import { LibraryContainer } from "./LibraryContainer.client"
 
 const fetchLibrary = async () => {
     const library = await getAllFilesFrontmatter("library")
@@ -32,7 +33,7 @@ const Library = async () => {
                 that I have used before. Feel free to make use of them!
             </p>
             {/* @ts-ignore */}
-            {/* <LibraryContainer posts={posts} /> */}
+            <LibraryContainer posts={posts} />
         </section>
     )
 }

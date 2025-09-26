@@ -1,4 +1,4 @@
-import { generateSessionId } from "@/lib/helpers"
+import { generateSessionId } from "@/lib/helper"
 import { prisma } from "@/lib/prisma"
 import { NextRequest } from "next/server"
 

@@ -87,7 +87,7 @@ export const Header: FC<HeaderProps> = () => {
                     ))}
                 </ul>
             </div>
-            <div className="gradient-animation w-full h-1 bg-red-400" />
+            <div className="gradient-animation w-full h-1.5 bg-red-400" />
             <div className="px-2 w-full sm:px-0">
                 <nav
                     className={clsx(

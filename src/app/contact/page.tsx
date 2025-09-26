@@ -100,8 +100,8 @@ const Contact = () => {
                         <Textarea
                             required
                             id="message"
+                            className="resize-none h-24"
                             placeholder="Message"
-                            rows={10}
                         ></Textarea>
                     </div>
                     <div data-fade="5">

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
 import GoogleADKIcon from "@/components/GoogleADKIcon"
 import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 
 interface CustomElements extends HTMLFormControlsCollection {
     message: HTMLTextAreaElement
@@ -96,13 +97,12 @@ const Contact = () => {
                         )}
                     </div>
                     <div className="w-full" data-fade="4">
-                        <textarea
+                        <Textarea
                             required
                             id="message"
-                            className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light resize-none"
                             placeholder="Message"
                             rows={10}
-                        ></textarea>
+                        ></Textarea>
                     </div>
                     <div data-fade="5">
                         <Button

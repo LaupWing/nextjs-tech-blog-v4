@@ -47,10 +47,10 @@ const SingleProjectPage = async (props: PageProps) => {
     const { frontmatter, code } = await fetchProject((await props.params).slug)
 
     return (
-        <section className="custom-container">
+        <section className="container mt-6">
             <Hero frontmatter={frontmatter} slug={frontmatter.slug} />
             <hr className="mt-4 dark:border-gray-600" />
-            <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto,250px] lg:gap-8">
+            <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto_250px] lg:gap-8">
                 <Content code={code} />
                 <aside className="py-4">
                     <div className="sticky top-24">

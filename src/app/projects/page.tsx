@@ -1,5 +1,5 @@
+import { Accent } from "@/components/Accent"
 import { ProjectCard } from "@/components/cards/ProjectCard"
-import { Accent } from "@/components/elements/Accent"
 import { getAllFilesFrontmatter } from "@/lib/mdx"
 
 const fetchProjects = async () => {
@@ -11,8 +11,8 @@ const Projects = async () => {
     const projects = await fetchProjects()
 
     return (
-        <section className="custom-container py-12">
-            <h1 className="text-3xl md:text-5xl" data-fade="0">
+        <section className="container py-12">
+            <h1 className="text-3xl font-bold md:text-5xl" data-fade="0">
                 <Accent>Projects</Accent>
             </h1>
             <p className="mt-2 text-gray-600 dark:text-gray-300" data-fade="1">

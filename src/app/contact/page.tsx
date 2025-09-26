@@ -6,6 +6,7 @@ import { Accent } from "@/components/Accent"
 import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
 import GoogleADKIcon from "@/components/GoogleADKIcon"
+import { Input } from "@/components/ui/input"
 
 interface CustomElements extends HTMLFormControlsCollection {
     message: HTMLTextAreaElement
@@ -54,7 +55,6 @@ const Contact = () => {
                     }}
                 />
             )}
-            <GoogleADKIcon className="text-gray-300 fill-current w-8 h-8" />
             <section className="container max-w-lg py-12">
                 <h1 className="text-3xl md:text-5xl" data-fade="0">
                     <Accent>Contact</Accent>
@@ -70,12 +70,11 @@ const Contact = () => {
                     onSubmit={handleSubmit}
                 >
                     <div className="w-full" data-fade="2">
-                        <input
+                        <Input
                             type="text"
                             id="name"
                             required
                             placeholder="Name"
-                            className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light"
                         />
                     </div>
                     <div className="w-full" data-fade="3">

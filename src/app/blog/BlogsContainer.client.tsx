@@ -58,7 +58,7 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
               )?.id!
             : sortOptions[0].id
     )
-    console.log("Sort order:", sortOrder)
+
     const tags = getTags(posts)
     const [search, setSearch] = useState<string>("")
     const [filteredPosts, setFilteredPosts] = useState<

@@ -6,10 +6,13 @@ import { TechIcons } from "@/components/TechIcons.client"
 const About = () => {
     return (
         <section className="container min-h-screen py-20">
-            <h2 className="dark:text-white" data-fade="0">
+            <h2
+                className="dark:text-white text-xl font-bold md:text-3xl"
+                data-fade="0"
+            >
                 About
             </h2>
-            <h1 className="mt-1 text-2xl font-bold" data-fade="1">
+            <h1 className="mt-1 text-2xl font-bold md:text-4xl" data-fade="1">
                 <Accent>Loc Nguyen</Accent>
             </h1>
             <div className="mt-4">

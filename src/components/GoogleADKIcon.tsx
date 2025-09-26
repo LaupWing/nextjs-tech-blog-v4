@@ -2,17 +2,14 @@ import * as React from "react"
 
 type Props = React.SVGProps<SVGSVGElement> & { className?: string }
 
-const GoogleADKIcon: React.FC<Props> = ({
-    className = "-mt-0.5 w-9 fill-current",
-    ...props
-}) => (
+const GoogleADKIcon: React.FC<Props> = ({ className = "w-9 ", ...props }) => (
     <svg
         viewBox="0 0 512 512"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
         aria-label="Agent Development Kit"
         fill="currentColor"
-        className={`inline-block ${className}`}
+        className={`inline-block fill-current -mt-0.5  ${className}`}
         {...props}
     >
         <path

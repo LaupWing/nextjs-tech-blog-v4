@@ -3,7 +3,7 @@ import * as React from "react"
 type Props = React.SVGProps<SVGSVGElement> & { className?: string }
 
 const GoogleADKIcon: React.FC<Props> = ({
-    className = "h-12 w-12 text-gray-900",
+    className = "-mt-0.5 w-9 fill-current",
     ...props
 }) => (
     <svg

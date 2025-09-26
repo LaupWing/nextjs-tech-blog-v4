@@ -87,6 +87,7 @@ const About = () => {
                             <TechIcons
                                 className="pl-1"
                                 techs={[
+                                    "googleadk",
                                     "laravel",
                                     "nextjs",
                                     "vue",

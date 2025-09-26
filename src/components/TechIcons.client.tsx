@@ -22,6 +22,7 @@ import {
     IconVuejs,
     IconWordpress,
 } from "./Icons"
+import GoogleADKIcon from "./GoogleADKIcon"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 
 export type TechListType = keyof typeof techList
@@ -137,5 +138,9 @@ const techList = {
     solidity: {
         icon: IconSolidity,
         name: "Solidity",
+    },
+    googleadk: {
+        icon: GoogleADKIcon,
+        name: "Google ADK",
     },
 }

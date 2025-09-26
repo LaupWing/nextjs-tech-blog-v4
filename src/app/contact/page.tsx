@@ -78,16 +78,15 @@ const Contact = () => {
                         />
                     </div>
                     <div className="w-full" data-fade="3">
-                        <input
+                        <Input
                             type="email"
                             id="email"
                             required
                             placeholder="Email"
                             className={
-                                "w-full rounded-md dark:bg-dark border focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light" +
-                                (email_error
+                                email_error
                                     ? " border-red-400"
-                                    : "border-gray-300 dark:border-gray-600")
+                                    : "border-gray-300 dark:border-gray-600"
                             }
                         />
                         {email_error && (

@@ -126,7 +126,7 @@ export const LibraryContainer: FC<LibraryContainerProps> = ({ posts }) => {
             <div className="mt-4 flex justify-end" data-fade="5">
                 <Select value={sortOrder}>
                     <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="Select a fruit" />
+                        <SelectValue placeholder="Sort By" />
                     </SelectTrigger>
                     <SelectContent>
                         <SelectGroup>

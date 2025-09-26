@@ -6,6 +6,12 @@ import { IconGithub, IconLink } from "@/components/Icons"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import seo from "@/lib/seo"
 import { TechIcons, TechListType } from "@/components/TechIcons.client"
+import { Content } from "@/components/Content.client"
+import { TableContents } from "@/components/TableContents.client"
+import { Likes } from "@/components/Likes.client"
+import { CloudinaryImage } from "@/components/CloudinaryImage.client"
+import { Views } from "@/components/Views.client"
+import { CustomLink } from "@/components/CustomLink"
 
 export const dynamicParams = false
 export let revalidate = 0

@@ -5,6 +5,7 @@ import Confetti from "react-confetti"
 import { Accent } from "@/components/Accent"
 import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
+import GoogleADKIcon from "@/components/GoogleADKIcon"
 
 interface CustomElements extends HTMLFormControlsCollection {
     message: HTMLTextAreaElement
@@ -53,7 +54,8 @@ const Contact = () => {
                     }}
                 />
             )}
-            <section className="custom-container max-w-lg py-12">
+            <GoogleADKIcon className="text-gray-300 fill-current w-8 h-8" />
+            <section className="container max-w-lg py-12">
                 <h1 className="text-3xl md:text-5xl" data-fade="0">
                     <Accent>Contact</Accent>
                 </h1>

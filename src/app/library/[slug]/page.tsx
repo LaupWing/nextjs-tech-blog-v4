@@ -1,14 +1,14 @@
 import type { FC } from "react"
 import type { TechListType } from "@/components/TechIcons.client"
 import { TechIcons } from "@/components/TechIcons.client"
-import { Likes } from "@/components/elements/Likes.client"
-import { Views } from "@/components/elements/Views.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { LibraryFrontmatter } from "@/types/frontmatters"
-import { Content } from "@/components/sections/Content.client"
-import { TableContents } from "@/components/sections/TableContents.client"
 import { Metadata } from "next"
 import seo from "@/lib/seo"
+import { Content } from "@/components/Content.client"
+import { TableContents } from "@/components/TableContents.client"
+import { Likes } from "@/components/Likes.client"
+import { Views } from "@/components/Views.client"
 
 export const dynamicParams = false
 
@@ -53,10 +53,10 @@ const SingleLibraryPage = async (props: PageProps) => {
     const post = await fetchPost(slug)
     const { frontmatter, code } = post
     return (
-        <main className="custom-container">
+        <main className="container">
             <Hero frontmatter={frontmatter} />
             <hr className="dark:border-gray-600" />
-            <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto,250px] w-full lg:gap-8">
+            <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto_250px] w-full lg:gap-8">
                 <Content code={code} />
                 <aside className="py-4">
                     <div className="sticky top-24">

@@ -91,7 +91,7 @@ export const Header: FC<HeaderProps> = () => {
             <div className="px-2 w-full sm:px-0">
                 <nav
                     className={clsx(
-                        "max-w-2xl w-full flex items-center justify-between text-dark dark:text-light bg-black/2 dark:bg-white/4 backdrop-blur-sm border rounded-full mt-4 p-1.5 duration-200 mx-auto",
+                        "max-w-2xl w-full flex items-center justify-between text-dark dark:text-light bg-black/2 dark:bg-white/4 backdrop-blur-sm border dark:border-gray-800/30 border-gray-300/30 rounded-full mt-4 p-1.5 duration-200 mx-auto",
                         onTop && "shadow-sm"
                     )}
                 >

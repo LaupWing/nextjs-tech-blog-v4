@@ -6,6 +6,7 @@ import {
     Eye,
     Github,
     History,
+    Link,
     Menu,
     Moon,
     Newspaper,
@@ -176,4 +177,8 @@ export const IconGitBranch = (props: LucideProps) => {
 
 export const IconStar = (props: LucideProps) => {
     return <Star {...props} />
+}
+
+export const IconLink = (props: LucideProps) => {
+    return <Link {...props} />
 }

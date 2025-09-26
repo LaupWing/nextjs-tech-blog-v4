@@ -3,13 +3,7 @@ import type { ProjectFrontmatter } from "@/types/frontmatters"
 import type { Metadata } from "next"
 
 import { IconGithub, IconLink } from "@/components/Icons"
-import { Likes } from "@/components/elements/Likes.client"
-import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
-import { CustomLink } from "@/components/links/CustomLink"
-import { Content } from "@/components/sections/Content.client"
-import { TableContents } from "@/components/sections/TableContents.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
-import { Views } from "@/components/elements/Views.client"
 import seo from "@/lib/seo"
 import { TechIcons, TechListType } from "@/components/TechIcons.client"
 

@@ -1,0 +1,237 @@
+[
+  { "id": 2, "slug": "laravel_sms", "createdAt": "2023-12-10 18:16:36.104" },
+  { "id": 3, "slug": "dronestart", "createdAt": "2023-12-11 07:47:53.634" },
+  { "id": 4, "slug": "library_2", "createdAt": "2023-12-11 08:26:49.885" },
+  { "id": 5, "slug": "blog_1", "createdAt": "2023-12-11 08:31:48.822" },
+  { "id": 6, "slug": "saitama_ok", "createdAt": "2023-12-11 09:24:46.473" },
+  { "id": 10, "slug": "lockkey", "createdAt": "2023-12-11 10:16:24.199" },
+  {
+    "id": 12,
+    "slug": "buy_me_a_coffee",
+    "createdAt": "2023-12-11 15:01:06.658"
+  },
+  {
+    "id": 15,
+    "slug": "saitama_ok_market",
+    "createdAt": "2023-12-11 17:50:40.107"
+  },
+  { "id": 16, "slug": "library_3", "createdAt": "2023-12-12 08:39:19.569" },
+  { "id": 17, "slug": "gouden_kwast", "createdAt": "2023-12-12 14:57:12.069" },
+  { "id": 18, "slug": "library_1", "createdAt": "2023-12-13 03:59:49.121" },
+  { "id": 20, "slug": "send_sms", "createdAt": "2023-12-13 04:07:23.62" },
+  {
+    "id": 22,
+    "slug": "responsive_contianer",
+    "createdAt": "2023-12-16 07:16:49.032"
+  },
+  {
+    "id": 23,
+    "slug": "arbitrary_variants_tailwind",
+    "createdAt": "2023-12-26 19:07:49.757"
+  },
+  {
+    "id": 24,
+    "slug": "react_component_element_typing",
+    "createdAt": "2024-01-13 17:26:26.28"
+  },
+  {
+    "id": 25,
+    "slug": "big_project_lessons",
+    "createdAt": "2024-01-13 18:01:48.093"
+  },
+  {
+    "id": 27,
+    "slug": "mysql_import_large_table",
+    "createdAt": "2024-01-15 18:57:56.969"
+  },
+  {
+    "id": 28,
+    "slug": "daily_coding_lessons",
+    "createdAt": "2024-01-16 04:50:14.323"
+  },
+  {
+    "id": 29,
+    "slug": "nested_laravel_relationships",
+    "createdAt": "2024-01-16 04:51:24.84"
+  },
+  {
+    "id": 30,
+    "slug": "laravel_pivot_tables",
+    "createdAt": "2024-01-20 00:51:43.62"
+  },
+  {
+    "id": 31,
+    "slug": "typescript_record_object_typing",
+    "createdAt": "2024-01-24 13:35:02.689"
+  },
+  {
+    "id": 32,
+    "slug": "laravel_foreign_keys",
+    "createdAt": "2024-01-31 17:31:47.944"
+  },
+  {
+    "id": 33,
+    "slug": "laravel_factory_magic_functions",
+    "createdAt": "2024-01-31 17:31:56.399"
+  },
+  {
+    "id": 34,
+    "slug": "the_only_git_commands",
+    "createdAt": "2024-02-08 15:21:46.737"
+  },
+  {
+    "id": 35,
+    "slug": "laravel_send_sms",
+    "createdAt": "2024-02-08 15:38:15.862"
+  },
+  {
+    "id": 37,
+    "slug": "responsive_container",
+    "createdAt": "2024-02-08 15:50:29.885"
+  },
+  {
+    "id": 38,
+    "slug": "laravel_model_get_random",
+    "createdAt": "2024-02-08 15:50:29.885"
+  },
+  {
+    "id": 39,
+    "slug": "react_responsive_container",
+    "createdAt": "2024-02-08 15:57:50.938"
+  },
+  {
+    "id": 40,
+    "slug": "react_arbitrary_variants_tailwind",
+    "createdAt": "2024-02-08 15:57:50.938"
+  },
+  {
+    "id": 41,
+    "slug": "git_the_only_git_commands",
+    "createdAt": "2024-02-08 15:57:50.938"
+  },
+  {
+    "id": 42,
+    "slug": "react_typescript_record_object_typing",
+    "createdAt": "2024-02-08 15:57:50.938"
+  },
+  {
+    "id": 43,
+    "slug": "javascript_typescript_query_selector",
+    "createdAt": "2024-02-13 18:08:52.734"
+  },
+  {
+    "id": 44,
+    "slug": "lessons_from_coding_every_day",
+    "createdAt": "2024-02-13 18:29:24.73"
+  },
+  {
+    "id": 45,
+    "slug": "nodejs_depcheck",
+    "createdAt": "2024-02-14 18:10:22.044"
+  },
+  {
+    "id": 46,
+    "slug": "css_uncommon_selectors",
+    "createdAt": "2024-02-24 16:53:00.494"
+  },
+  {
+    "id": 47,
+    "slug": "best_nodejs_structure",
+    "createdAt": "2024-02-27 13:53:36.359"
+  },
+  {
+    "id": 48,
+    "slug": "laravel_inertia_setup",
+    "createdAt": "2024-03-04 16:20:19.927"
+  },
+  {
+    "id": 49,
+    "slug": "what_is_tutorial_hell_and_how_to_escape",
+    "createdAt": "2024-03-09 04:38:03.252"
+  },
+  {
+    "id": 50,
+    "slug": "most_used_tailwind_flex_classes",
+    "createdAt": "2024-03-09 18:16:32.466"
+  },
+  {
+    "id": 51,
+    "slug": "package_json_explained",
+    "createdAt": "2024-03-10 09:05:12.248"
+  },
+  {
+    "id": 52,
+    "slug": "the_only_array_functions_you_need",
+    "createdAt": "2024-03-12 19:20:02.875"
+  },
+  {
+    "id": 53,
+    "slug": "var_vs_const_vs_let",
+    "createdAt": "2024-03-15 16:18:41.143"
+  },
+  {
+    "id": 55,
+    "slug": "add_event_listener_hidden_gem",
+    "createdAt": "2024-03-17 18:20:20.632"
+  },
+  {
+    "id": 56,
+    "slug": "elon_what_have_you_done",
+    "createdAt": "2024-03-21 18:17:43.176"
+  },
+  {
+    "id": 57,
+    "slug": "css_never_use_margins",
+    "createdAt": "2024-03-22 16:56:52.002"
+  },
+  {
+    "id": 58,
+    "slug": "css_never_use_margins copy",
+    "createdAt": "2024-03-24 17:59:49.837"
+  },
+  {
+    "id": 59,
+    "slug": "css_tailwind_custom_scrollbar",
+    "createdAt": "2024-03-24 18:01:43.654"
+  },
+  {
+    "id": 60,
+    "slug": "css_tailwind_layers",
+    "createdAt": "2024-03-25 16:39:00.517"
+  },
+  {
+    "id": 61,
+    "slug": "react_nextjs_navigation",
+    "createdAt": "2024-03-26 18:28:00.781"
+  },
+  {
+    "id": 62,
+    "slug": "shopify_add_tailwind",
+    "createdAt": "2024-03-28 17:05:23.361"
+  },
+  {
+    "id": 63,
+    "slug": "wordpress_add_tailwind",
+    "createdAt": "2024-03-29 18:24:56.567"
+  },
+  {
+    "id": 64,
+    "slug": "react_tailwind_setup",
+    "createdAt": "2024-03-31 15:10:27.056"
+  },
+  {
+    "id": 65,
+    "slug": "css_tailwind_aspect_plus_grid",
+    "createdAt": "2024-04-01 14:43:36.709"
+  },
+  {
+    "id": 66,
+    "slug": "css_tailwind_gradient_border_button",
+    "createdAt": "2024-04-06 12:26:07.973"
+  },
+  {
+    "id": 67,
+    "slug": "react_tailwind_shadcn_setup",
+    "createdAt": "2024-04-19 15:24:03.613"
+  }
+]

@@ -14,6 +14,7 @@ import { Likes } from "@/components/Likes.client"
 import { Views } from "@/components/Views.client"
 
 import "../../mdx.css"
+import { BlogSection } from "./BlogSection"
 
 export const dynamicParams = false
 
@@ -68,17 +69,7 @@ const SingleBlogPage = async (props: PageProps) => {
         <main className="container mt-6" suppressHydrationWarning>
             <Hero frontmatter={frontmatter} slug={slug} />
             <hr className="dark:border-gray-600" />
-            <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto_250px] lg:gap-8">
-                <Content code={code} />
-                <aside className="py-4">
-                    <div className="sticky top-24">
-                        <TableContents slug={frontmatter.slug} />
-                        <div className="flex items-center justify-center py-8">
-                            <Likes slug={frontmatter.slug} />
-                        </div>
-                    </div>
-                </aside>
-            </section>
+            <BlogSection code={code} frontmatter={frontmatter} />
         </main>
     )
 }

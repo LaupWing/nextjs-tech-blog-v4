@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState } from "react"
 
 export const useIncrementViews = (slug: string, runIncrement = false) => {

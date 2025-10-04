@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 export const useIncrementViews = (slug: string, runIncrement = false) => {
     const [loading, setLoading] = useState(false)

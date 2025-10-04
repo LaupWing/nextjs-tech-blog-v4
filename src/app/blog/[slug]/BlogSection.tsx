@@ -2,6 +2,7 @@
 import { Content } from "@/components/Content.client"
 import { Likes } from "@/components/Likes.client"
 import { TableContents } from "@/components/TableContents.client"
+import { useIncrementViews } from "@/hooks/useIncrementViews"
 import React, { FC } from "react"
 
 export const BlogSection: FC<{
@@ -10,6 +11,7 @@ export const BlogSection: FC<{
         slug: string
     }
 }> = ({ code, frontmatter }) => {
+    useIncrementViews(frontmatter.slug, true)
     return (
         <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto_250px] lg:gap-8">
             <Content code={code} />

@@ -62,6 +62,7 @@ export async function POST(req: Request) {
     try {
         const sessionId = getSessionId(req)
         const slug = extractSlug(req)
+
         const content = await prisma.contentMeta.upsert({
             where: {
                 slug: slug,

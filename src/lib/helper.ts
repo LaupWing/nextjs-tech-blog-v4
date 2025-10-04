@@ -70,7 +70,7 @@ export const getSessionId = (req: Request) => {
 
 export const extractSlug = (req: Request) => {
     const splitted = req.url.split("/")
-    const availableEndpoints = ["content", "like"]
+    const availableEndpoints = ["views", "like"]
 
     if (availableEndpoints.includes(splitted[splitted.length - 2])) {
         const slug = z.string().parse(splitted[splitted.length - 1])

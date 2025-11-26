@@ -24,6 +24,7 @@ export const TableContents: FC<TableOfContentsProps> = ({ slug }) => {
     const activeSection = useScrollSpy()
 
     useEffect(() => {
+        console.log("test")
         const container = document.getElementById("toc-container")
         const activeLink = document.getElementById(`link-${activeSection}`)
 
@@ -54,22 +55,25 @@ export const TableContents: FC<TableOfContentsProps> = ({ slug }) => {
     }, [activeSection])
 
     useEffect(() => {
-        const headings = document.querySelectorAll(".mdx h1, .mdx h2, .mdx h3")
+        setTimeout(() => {
+            const headings = document.querySelectorAll(
+                ".mdx h1, .mdx h2, .mdx h3"
+            )
 
-        const headingsArray: HeadingScrollSpy = []
+            const headingsArray: HeadingScrollSpy = []
+            headings.forEach((heading) => {
+                const id = heading.id
+                const level = +heading.tagName.replace("H", "")
+                const text = heading.textContent + ""
 
-        headings.forEach((heading) => {
-            const id = heading.id
-            const level = +heading.tagName.replace("H", "")
-            const text = heading.textContent + ""
+                headingsArray.push({
+                    id,
+                    level,
+                    text,
+                })
 
-            headingsArray.push({
-                id,
-                level,
-                text,
+                setToc(headingsArray)
             })
-
-            setToc(headingsArray)
         })
     }, [slug])
 

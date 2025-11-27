@@ -5,18 +5,18 @@ import { IconClock, IconEye } from "../Icons"
 import { format } from "date-fns"
 import Link from "next/link"
 import { Accent } from "../Accent"
-import { Badge } from "../ui/badge"
 import { CloudinaryImage } from "../CloudinaryImage.client"
+import { TechIcons, TechListType } from "../TechIcons.client"
 
 interface BlogCardProps extends ComponentPropsWithoutRef<"li"> {
     post: BlogFrontmatter & InjectedMeta
-    checkTagged?: (tag: string) => boolean
+    search?: string
 }
 
 export const BlogCard: FC<BlogCardProps> = ({
     post,
     className,
-    checkTagged,
+    search,
     onClick,
 }) => {
     return (
@@ -45,20 +45,13 @@ export const BlogCard: FC<BlogCardProps> = ({
                         }}
                     />
                     <div className="absolute bottom-0 px-4 w-full py-2 mt-2 flex flex-wrap justify-end gap-x-2 gap-y-1 text-sm text-black dark:text-gray-100">
-                        {post.tags.split(",").map((tag, index) => (
-                            <Badge key={index}>{tag.trim()}</Badge>
-                            // <Tag
-                            //     active={false}
-                            //     className="bg-opacity-80 dark:!bg-opacity-60"
-                            //     key={tag}
-                            // >
-                            //     {checkTagged?.(tag) ? (
-                            //         <Accent>{tag}</Accent>
-                            //     ) : (
-                            //         tag
-                            //     )}
-                            // </Tag>
-                        ))}
+                        <div className="bg-white/50 dark:bg-black/50 backdrop-blur-sm rounded-md px-2 py-1.5">
+                            <TechIcons
+                                techs={post.tags.split(",").map(t => t.trim()) as Array<TechListType>}
+                                activeTechs={search ? search.split(" ") : []}
+                                className="gap-2"
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className="p-4">

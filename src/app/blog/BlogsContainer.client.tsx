@@ -179,7 +179,7 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
             >
                 {paginatedPosts.length > 0 ? (
                     paginatedPosts.map((post) => (
-                        <BlogCard key={post.slug} post={post} />
+                        <BlogCard key={post.slug} post={post} search={search} />
                     ))
                 ) : (
                     <ContentPlaceholder />

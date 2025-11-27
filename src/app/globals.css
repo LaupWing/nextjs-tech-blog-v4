@@ -319,3 +319,7 @@
 .animate-fade-in {
     animation: fade-in 0.3s ease-out;
 }
+
+.animate-fade-in-delay {
+    animation: fade-in 0.3s ease-out 0.2s both;
+}

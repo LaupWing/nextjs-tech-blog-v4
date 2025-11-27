@@ -29,9 +29,10 @@ export type TechListType = keyof typeof techList
 
 export interface TechIconsProps extends ComponentPropsWithoutRef<"ul"> {
     techs: Array<TechListType>
+    activeTechs?: Array<string>
 }
 
-export const TechIcons: FC<TechIconsProps> = ({ className, techs }) => {
+export const TechIcons: FC<TechIconsProps> = ({ className, techs, activeTechs = [] }) => {
     return (
         <ul
             className={clsx(
@@ -39,14 +40,31 @@ export const TechIcons: FC<TechIconsProps> = ({ className, techs }) => {
                 "flex flex-wrap text-gray-700 dark:text-gray-200 flex-1 gap-4"
             )}
         >
+            {/* SVG gradient definition for active icons */}
+            <svg width="0" height="0" className="absolute">
+                <defs>
+                    <linearGradient id="tech-icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#fd004c">
+                            <animate attributeName="stop-color" values="#fd004c;#fe9000;#3edf4b;#3363ff;#b102b7;#fd004c" dur="3s" repeatCount="indefinite" />
+                        </stop>
+                        <stop offset="50%" stopColor="#3edf4b">
+                            <animate attributeName="stop-color" values="#3edf4b;#3363ff;#b102b7;#fd004c;#fe9000;#3edf4b" dur="3s" repeatCount="indefinite" />
+                        </stop>
+                        <stop offset="100%" stopColor="#b102b7">
+                            <animate attributeName="stop-color" values="#b102b7;#fd004c;#fe9000;#3edf4b;#3363ff;#b102b7" dur="3s" repeatCount="indefinite" />
+                        </stop>
+                    </linearGradient>
+                </defs>
+            </svg>
             {techs.map((tech) => {
                 if (!techList[tech]) {
                     return null
                 }
                 const current = techList[tech]
+                const isActive = activeTechs.includes(tech)
 
                 return (
-                    <li key={current.name} className="text-xl list-none">
+                    <li key={current.name} className={clsx("text-xl list-none", isActive && "tech-icon-gradient-fill")}>
                         <Tooltip>
                             <TooltipTrigger className="flex">
                                 <current.icon size={30} />

@@ -51,6 +51,7 @@ export const LibraryCard: FC<LibraryCardProps> = ({
                                         ","
                                     ) as Array<TechListType>
                                 }
+                                activeTechs={search ? search.split(" ") : []}
                             />
                         </div>
 

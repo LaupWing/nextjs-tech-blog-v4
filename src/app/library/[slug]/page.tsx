@@ -5,10 +5,8 @@ import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { LibraryFrontmatter } from "@/types/frontmatters"
 import { Metadata } from "next"
 import seo from "@/lib/seo"
-import { Content } from "@/components/Content.client"
-import { TableContents } from "@/components/TableContents.client"
-import { Likes } from "@/components/Likes.client"
 import { Views } from "@/components/Views.client"
+import { LibrarySection } from "./LibrarySection"
 
 export const dynamicParams = false
 
@@ -56,17 +54,7 @@ const SingleLibraryPage = async (props: PageProps) => {
         <main className="container mt-6">
             <Hero frontmatter={frontmatter} />
             <hr className="dark:border-gray-600" />
-            <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto_250px] w-full lg:gap-8">
-                <Content code={code} />
-                <aside className="py-4">
-                    <div className="sticky top-24">
-                        <TableContents slug={frontmatter.slug} />
-                        <div className="flex items-center justify-center py-8">
-                            <Likes slug={frontmatter.slug} />
-                        </div>
-                    </div>
-                </aside>
-            </section>
+            <LibrarySection code={code} slug={frontmatter.slug} />
         </main>
     )
 }

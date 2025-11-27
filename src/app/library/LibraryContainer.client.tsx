@@ -124,7 +124,13 @@ export const LibraryContainer: FC<LibraryContainerProps> = ({ posts }) => {
                 ))}
             </div>
             <div className="mt-4 flex justify-end" data-fade="5">
-                <Select value={sortOrder}>
+                <Select
+                    value={sortOrder}
+                    onValueChange={(value) => {
+                        setSortOrder(value)
+                        window.sessionStorage.setItem("library-sort", value)
+                    }}
+                >
                     <SelectTrigger className="w-[180px]">
                         <SelectValue placeholder="Sort By" />
                     </SelectTrigger>
@@ -136,13 +142,6 @@ export const LibraryContainer: FC<LibraryContainerProps> = ({ posts }) => {
                                     key={option.id}
                                     value={option.id}
                                     className="fill-current"
-                                    onSelect={() => {
-                                        setSortOrder(option.id)
-                                        window.sessionStorage.setItem(
-                                            "library-sort",
-                                            option.id
-                                        )
-                                    }}
                                 >
                                     <option.icon /> {option.label}
                                 </SelectItem>

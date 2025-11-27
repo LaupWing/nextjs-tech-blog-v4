@@ -19,6 +19,7 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
+import { Pagination } from "@/components/Pagination"
 
 interface BlogsContainerProps {
     posts: Array<BlogFrontmatter & InjectedMeta>
@@ -46,6 +47,8 @@ const sortOptions: Array<SortOption> = [
     },
 ]
 
+const POSTS_PER_PAGE = 9
+
 export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
     const [sortOrder, setSortOrder] = useState<string>(() =>
         getFromSessionStorage("blog-sort")
@@ -57,6 +60,7 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
 
     const tags = getTags(posts)
     const [search, setSearch] = useState<string>("")
+    const [currentPage, setCurrentPage] = useState(1)
     const [filteredPosts, setFilteredPosts] = useState<
         Array<BlogFrontmatter & InjectedMeta>
     >(() => [...posts])
@@ -85,6 +89,7 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
                 }
             })
         setFilteredPosts(result)
+        setCurrentPage(1)
     }, [search, sortOrder])
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -106,6 +111,17 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
 
     const filteredTags = getTags(filteredPosts)
     const tagFoundInSearch = (tag: string) => search.includes(tag)
+
+    // Pagination logic
+    const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
+    const startIndex = (currentPage - 1) * POSTS_PER_PAGE
+    const endIndex = startIndex + POSTS_PER_PAGE
+    const paginatedPosts = filteredPosts.slice(startIndex, endIndex)
+
+    const goToPage = (page: number) => {
+        setCurrentPage(page)
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
 
     return (
         <>
@@ -135,7 +151,13 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
                 ))}
             </div>
             <div className="mt-4 flex justify-end" data-fade="5">
-                <Select value={sortOrder}>
+                <Select
+                    value={sortOrder}
+                    onValueChange={(value) => {
+                        setSortOrder(value)
+                        window.sessionStorage.setItem("blog-sort", value)
+                    }}
+                >
                     <SelectTrigger className="w-[180px]">
                         <SelectValue placeholder="Sort By" />
                     </SelectTrigger>
@@ -143,17 +165,7 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
                         <SelectGroup>
                             <SelectLabel>Sort By</SelectLabel>
                             {sortOptions.map((option) => (
-                                <SelectItem
-                                    key={option.id}
-                                    value={option.id}
-                                    onSelect={() => {
-                                        setSortOrder(option.id)
-                                        window.sessionStorage.setItem(
-                                            "blog-sort",
-                                            option.id
-                                        )
-                                    }}
-                                >
+                                <SelectItem key={option.id} value={option.id}>
                                     <option.icon /> {option.label}
                                 </SelectItem>
                             ))}
@@ -165,14 +177,63 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
                 className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
                 data-fade="6"
             >
-                {filteredPosts.length > 0 ? (
-                    filteredPosts.map((post) => (
+                {paginatedPosts.length > 0 ? (
+                    paginatedPosts.map((post) => (
                         <BlogCard key={post.slug} post={post} />
                     ))
                 ) : (
                     <ContentPlaceholder />
                 )}
             </ul>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+                <div className="mt-8 flex items-center justify-center gap-2" data-fade="7">
+                    <button
+                        onClick={() => goToPage(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className="p-2 rounded cursor-pointer border border-gray-300 dark:border-gray-600 bg-white dark:bg-[#0e0e0e] text-gray-600 dark:text-gray-200 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.03] active:scale-[0.97] transition duration-100"
+                    >
+                        <ChevronLeft className="h-4 w-4" />
+                    </button>
+
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                        currentPage === page ? (
+                            <div key={page} className="gradient-animation rounded p-[2px]">
+                                <button
+                                    onClick={() => goToPage(page)}
+                                    className="px-3 py-1 min-w-[40px] rounded cursor-pointer font-bold bg-white dark:bg-[#0e0e0e] text-gray-600 dark:text-gray-200"
+                                >
+                                    {page}
+                                </button>
+                            </div>
+                        ) : (
+                            <button
+                                key={page}
+                                onClick={() => goToPage(page)}
+                                className="px-3 py-1 min-w-[40px] rounded cursor-pointer font-bold border border-gray-300 dark:border-gray-600 bg-white dark:bg-[#0e0e0e] text-gray-600 dark:text-gray-200 hover:scale-[1.03] active:scale-[0.97] transition duration-100"
+                            >
+                                {page}
+                            </button>
+                        )
+                    ))}
+
+                    <button
+                        onClick={() => goToPage(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className="p-2 rounded cursor-pointer border border-gray-300 dark:border-gray-600 bg-white dark:bg-[#0e0e0e] text-gray-600 dark:text-gray-200 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.03] active:scale-[0.97] transition duration-100"
+                    >
+                        <ChevronRight className="h-4 w-4" />
+                    </button>
+                </div>
+            )}
+
+            {/* Results info */}
+            {filteredPosts.length > 0 && (
+                <p className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
+                    Showing {startIndex + 1}-{Math.min(endIndex, filteredPosts.length)} of {filteredPosts.length} posts
+                </p>
+            )}
         </>
     )
 }

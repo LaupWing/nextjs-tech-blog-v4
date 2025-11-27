@@ -13,6 +13,7 @@ import { FC } from "react"
 import { ProjectCard } from "@/components/cards/ProjectCard"
 import { LibraryCard } from "@/components/cards/LibraryCard"
 import { Subscribe } from "@/components/Subscribe.client"
+import { GitHubContributions3D } from "@/components/github/GitHubContributions3D"
 import seo from "@/lib/seo"
 
 export const metadata: Metadata = {
@@ -27,6 +28,11 @@ export default function Home() {
     return (
         <main>
             <HomeIntro />
+            <section className="">
+                <div className="container">
+                    <GitHubContributions3D />
+                </div>
+            </section>
             <ContactMe />
             <HomeBlogs />
             <HomeProjects />

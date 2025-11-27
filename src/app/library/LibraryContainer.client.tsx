@@ -20,6 +20,7 @@ import {
 import { Tag } from "@/components/Tag"
 import { ContentPlaceholder } from "@/components/ContentPlaceholder"
 import { Input } from "@/components/ui/input"
+import { Pagination } from "@/components/Pagination"
 
 interface LibraryContainerProps {
     posts: Array<LibraryFrontmatter & InjectedMeta>
@@ -44,6 +45,8 @@ const sortOptions: Array<SortOption> = [
     },
 ]
 
+const POSTS_PER_PAGE = 12
+
 export const LibraryContainer: FC<LibraryContainerProps> = ({ posts }) => {
     const [sortOrder, setSortOrder] = useState<string>(() =>
         getFromSessionStorage("library-sort")
@@ -53,6 +56,7 @@ export const LibraryContainer: FC<LibraryContainerProps> = ({ posts }) => {
             : sortOptions[0].id
     )
     const [search, setSearch] = useState<string>("")
+    const [currentPage, setCurrentPage] = useState(1)
     const [filtered_posts, setFilteredPosts] = useState<
         Array<LibraryFrontmatter & InjectedMeta>
     >(() => [...posts])
@@ -75,6 +79,7 @@ export const LibraryContainer: FC<LibraryContainerProps> = ({ posts }) => {
                 }
             })
         setFilteredPosts(result)
+        setCurrentPage(1)
     }, [search, sortOrder])
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -95,6 +100,17 @@ export const LibraryContainer: FC<LibraryContainerProps> = ({ posts }) => {
     }
     const filtered_tags = getTags(filtered_posts)
     const tagFoundInSearch = (tag: string) => search.includes(tag)
+
+    // Pagination logic
+    const totalPages = Math.ceil(filtered_posts.length / POSTS_PER_PAGE)
+    const startIndex = (currentPage - 1) * POSTS_PER_PAGE
+    const endIndex = startIndex + POSTS_PER_PAGE
+    const paginatedPosts = filtered_posts.slice(startIndex, endIndex)
+
+    const goToPage = (page: number) => {
+        setCurrentPage(page)
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
 
     return (
         <>
@@ -154,8 +170,8 @@ export const LibraryContainer: FC<LibraryContainerProps> = ({ posts }) => {
                 className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
                 data-fade="5"
             >
-                {filtered_posts.length > 0 ? (
-                    filtered_posts.map((post) => (
+                {paginatedPosts.length > 0 ? (
+                    paginatedPosts.map((post) => (
                         <LibraryCard
                             key={post.slug}
                             snippet={post}
@@ -166,6 +182,22 @@ export const LibraryContainer: FC<LibraryContainerProps> = ({ posts }) => {
                     <ContentPlaceholder />
                 )}
             </ul>
+
+            {/* Pagination */}
+            <div data-fade="6">
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={goToPage}
+                />
+            </div>
+
+            {/* Results info */}
+            {filtered_posts.length > 0 && (
+                <p className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
+                    Showing {startIndex + 1}-{Math.min(endIndex, filtered_posts.length)} of {filtered_posts.length} snippets
+                </p>
+            )}
         </>
     )
 }

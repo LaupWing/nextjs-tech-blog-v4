@@ -2,6 +2,38 @@
 
 -   [ ] Fix the css file if I have the time
 
+## Email Setup (Contact Form)
+
+The contact form sends email notifications using Gmail. Follow these steps to set it up:
+
+### 1. Add environment variables
+
+Add these to your `.env` file:
+
+```
+GMAIL_USER=your-gmail@gmail.com
+GMAIL_APP_PASSWORD=your-app-password
+```
+
+### 2. Get a Gmail App Password
+
+1. Go to your Google Account: https://myaccount.google.com
+2. Click **Security** in the left menu
+3. Under "How you sign in to Google", make sure **2-Step Verification** is ON
+4. After enabling 2-Step Verification, go back to Security
+5. Search for **App passwords** or go to: https://myaccount.google.com/apppasswords
+6. Select app: **Mail**
+7. Select device: **Other** (type "Tech Blog" or any name)
+8. Click **Generate**
+9. Copy the 16-character password (looks like: `abcd efgh ijkl mnop`)
+10. Use this as `GMAIL_APP_PASSWORD` (without spaces)
+
+### Example `.env`:
+```
+GMAIL_USER=laupwing@gmail.com
+GMAIL_APP_PASSWORD=abcdefghijklmnop
+```
+
 ## Prisma
 
 --- Next steps ---

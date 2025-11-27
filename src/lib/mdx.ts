@@ -5,13 +5,8 @@ import type {
 } from "@/types/frontmatters"
 import { readFileSync, readdirSync } from "fs"
 import matter from "gray-matter"
-import { bundleMDX } from "mdx-bundler"
 import { join } from "path"
 import readingTime from "reading-time"
-import rehypeAutolinkHeadings from "rehype-autolink-headings"
-import rehypePrism from "rehype-prism-plus"
-import rehypeSlug from "rehype-slug"
-import remarkGfm from "remark-gfm"
 
 export async function getFileBySlug(type: ContentType, slug: string) {
     const source = readFileSync(
@@ -19,32 +14,10 @@ export async function getFileBySlug(type: ContentType, slug: string) {
         "utf8"
     )
 
-    const { code, frontmatter } = await bundleMDX({
-        source,
-        mdxOptions(options) {
-            options.remarkPlugins = [
-                ...(options?.remarkPlugins ?? []),
-                remarkGfm,
-            ]
-            options.rehypePlugins = [
-                ...(options?.rehypePlugins ?? []),
-                rehypeSlug,
-                rehypePrism,
-                [
-                    rehypeAutolinkHeadings,
-                    {
-                        properties: {
-                            className: ["hash-anchor"],
-                        },
-                    },
-                ],
-            ]
-            return options
-        },
-    })
+    const { content, data: frontmatter } = matter(source)
 
     return {
-        code,
+        content,
         frontmatter: {
             wordCount: source.split(/\s+/gu).length,
             readingTime: readingTime(source),

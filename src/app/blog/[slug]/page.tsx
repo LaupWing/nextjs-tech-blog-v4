@@ -9,9 +9,12 @@ import Link from "next/link"
 import { CloudinaryImage } from "@/components/CloudinaryImage.client"
 import { Accent } from "@/components/Accent"
 import { Views } from "@/components/Views.client"
+import { Content } from "@/components/Content"
+import { TableContents } from "@/components/TableContents.client"
+import { Likes } from "@/components/Likes.client"
+import { ViewTracker } from "@/components/ViewTracker.client"
 
 import "../../mdx.css"
-import { BlogSection } from "./BlogSection"
 
 export const dynamicParams = false
 
@@ -46,7 +49,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 const fetchPost = async (slug: string) => {
     const post = await getFileBySlug("blog", slug)
     return post as {
-        code: string
+        content: string
         frontmatter: BlogFrontmatter
     }
 }
@@ -60,13 +63,24 @@ interface PageProps {
 const SingleBlogPage = async (props: PageProps) => {
     const { slug } = await props.params
     const post = await fetchPost(slug)
-    const { frontmatter, code } = post
+    const { frontmatter, content } = post
 
     return (
-        <main className="container mt-6" suppressHydrationWarning>
+        <main className="container mt-6">
+            <ViewTracker slug={slug} />
             <Hero frontmatter={frontmatter} slug={slug} />
             <hr className="dark:border-gray-600" />
-            <BlogSection code={code} frontmatter={frontmatter} />
+            <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto_250px] lg:gap-8">
+                <Content content={content} />
+                <aside className="py-4">
+                    <div className="sticky top-24">
+                        <TableContents slug={frontmatter.slug} />
+                        <div className="flex items-center justify-center py-8">
+                            <Likes slug={frontmatter.slug} />
+                        </div>
+                    </div>
+                </aside>
+            </section>
         </main>
     )
 }

@@ -6,12 +6,13 @@ import { IconGithub, IconLink } from "@/components/Icons"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import seo from "@/lib/seo"
 import { TechIcons, TechListType } from "@/components/TechIcons.client"
-import { Content } from "@/components/Content.client"
+import { Content } from "@/components/Content"
 import { TableContents } from "@/components/TableContents.client"
 import { Likes } from "@/components/Likes.client"
 import { CloudinaryImage } from "@/components/CloudinaryImage.client"
 import { Views } from "@/components/Views.client"
 import { CustomLink } from "@/components/CustomLink"
+import { ViewTracker } from "@/components/ViewTracker.client"
 
 export const dynamicParams = false
 export let revalidate = 0
@@ -20,7 +21,7 @@ const fetchProject = async (slug: string) => {
     const post = await getFileBySlug("projects", slug)
 
     return post as {
-        code: string
+        content: string
         frontmatter: ProjectFrontmatter
     }
 }
@@ -44,14 +45,15 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 }
 
 const SingleProjectPage = async (props: PageProps) => {
-    const { frontmatter, code } = await fetchProject((await props.params).slug)
+    const { frontmatter, content } = await fetchProject((await props.params).slug)
 
     return (
         <section className="container mt-6">
+            <ViewTracker slug={frontmatter.slug} />
             <Hero frontmatter={frontmatter} slug={frontmatter.slug} />
             <hr className="mt-4 dark:border-gray-600" />
             <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto_250px] lg:gap-8">
-                <Content code={code} />
+                <Content content={content} />
                 <aside className="py-4">
                     <div className="sticky top-24">
                         <TableContents slug={frontmatter.slug} />

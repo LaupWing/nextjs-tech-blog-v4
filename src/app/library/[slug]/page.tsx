@@ -6,7 +6,10 @@ import { LibraryFrontmatter } from "@/types/frontmatters"
 import { Metadata } from "next"
 import seo from "@/lib/seo"
 import { Views } from "@/components/Views.client"
-import { LibrarySection } from "./LibrarySection"
+import { Content } from "@/components/Content"
+import { TableContents } from "@/components/TableContents.client"
+import { Likes } from "@/components/Likes.client"
+import { ViewTracker } from "@/components/ViewTracker.client"
 
 export const dynamicParams = false
 
@@ -23,7 +26,7 @@ export async function generateStaticParams() {
 const fetchPost = async (slug: string) => {
     const post = await getFileBySlug("library", slug)
     return post as {
-        code: string
+        content: string
         frontmatter: LibraryFrontmatter
     }
 }
@@ -49,12 +52,23 @@ interface PageProps {
 const SingleLibraryPage = async (props: PageProps) => {
     const { slug } = await props.params
     const post = await fetchPost(slug)
-    const { frontmatter, code } = post
+    const { frontmatter, content } = post
     return (
         <main className="container mt-6">
+            <ViewTracker slug={frontmatter.slug} />
             <Hero frontmatter={frontmatter} />
             <hr className="dark:border-gray-600" />
-            <LibrarySection code={code} slug={frontmatter.slug} />
+            <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto_250px] w-full lg:gap-8">
+                <Content content={content} />
+                <aside className="py-4">
+                    <div className="sticky top-24">
+                        <TableContents slug={frontmatter.slug} />
+                        <div className="flex items-center justify-center py-8">
+                            <Likes slug={frontmatter.slug} />
+                        </div>
+                    </div>
+                </aside>
+            </section>
         </main>
     )
 }

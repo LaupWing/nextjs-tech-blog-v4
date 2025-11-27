@@ -24,7 +24,6 @@ export const TableContents: FC<TableOfContentsProps> = ({ slug }) => {
     const activeSection = useScrollSpy()
 
     useEffect(() => {
-        console.log("test")
         const container = document.getElementById("toc-container")
         const activeLink = document.getElementById(`link-${activeSection}`)
 

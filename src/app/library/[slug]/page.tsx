@@ -36,11 +36,20 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
     const post = await fetchPost(slug)
     const { frontmatter } = post
 
+    const ogParams = new URLSearchParams({
+        templateTitle: frontmatter.title,
+        description: frontmatter.description,
+        siteName: "Loc Nguyen",
+        theme: "dark",
+    })
+
     return {
         ...seo({
             title: frontmatter.title,
             description: frontmatter.description,
-            banner: `${process.env.API_URL}/og/gradient?title=${frontmatter.title}&description=${frontmatter.description}`,
+            template_title: frontmatter.title,
+            as_path: `library/${slug}`,
+            banner: `${process.env.SITE_URL}/api/og?${ogParams.toString()}`,
         }),
     }
 }

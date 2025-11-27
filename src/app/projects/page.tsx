@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import { Accent } from "@/components/Accent"
-import { ProjectCard } from "@/components/cards/ProjectCard"
 import { getAllFilesFrontmatter } from "@/lib/mdx"
 import seo from "@/lib/seo"
+import { ProjectsContainer } from "./ProjectsContainer.client"
 
 export const metadata: Metadata = {
     ...seo({
@@ -29,14 +29,7 @@ const Projects = async () => {
             <p className="mt-2 text-gray-600 dark:text-gray-300" data-fade="1">
                 My favorite projects.
             </p>
-            <ul
-                className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
-                data-fade="2"
-            >
-                {projects.map((project) => (
-                    <ProjectCard key={project.slug} project={project} />
-                ))}
-            </ul>
+            <ProjectsContainer projects={projects} />
         </section>
     )
 }

@@ -7,9 +7,10 @@ import { TechIcons, TechListType } from "../TechIcons.client"
 
 interface ProjectCardProps extends ComponentPropsWithoutRef<"li"> {
     project: ProjectFrontmatter
+    activeTechs?: string[]
 }
 
-export const ProjectCard: FC<ProjectCardProps> = ({ project, className }) => {
+export const ProjectCard: FC<ProjectCardProps> = ({ project, className, activeTechs = [] }) => {
     return (
         <li
             className={clsx(
@@ -28,6 +29,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project, className }) => {
                 <div className="mt-2">
                     <TechIcons
                         techs={project.techs.split(",") as Array<TechListType>}
+                        activeTechs={activeTechs}
                     />
                 </div>
                 <CloudinaryImage

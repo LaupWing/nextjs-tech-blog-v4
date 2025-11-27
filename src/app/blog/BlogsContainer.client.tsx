@@ -174,8 +174,8 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
                 </Select>
             </div>
             <ul
-                className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
-                data-fade="6"
+                key={currentPage}
+                className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3 animate-fade-in"
             >
                 {paginatedPosts.length > 0 ? (
                     paginatedPosts.map((post) => (

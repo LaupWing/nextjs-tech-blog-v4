@@ -3,7 +3,10 @@ import { Accent } from "@/components/Accent"
 import { CloudinaryImage } from "@/components/CloudinaryImage.client"
 import { CustomLink } from "@/components/CustomLink"
 import { TechIcons } from "@/components/TechIcons.client"
+import { IconGithub, IconLinkedin, IconTwitter } from "@/components/Icons"
+import { Button } from "@/components/ui/button"
 import seo from "@/lib/seo"
+import Link from "next/link"
 
 export const metadata: Metadata = {
     ...seo({
@@ -16,87 +19,163 @@ export const metadata: Metadata = {
 
 const About = () => {
     return (
-        <section className="container min-h-screen py-20">
-            <h2
-                className="dark:text-white text-xl font-bold md:text-3xl"
-                data-fade="0"
-            >
-                About
-            </h2>
-            <h1 className="mt-1 text-2xl font-bold md:text-4xl" data-fade="1">
-                <Accent>Loc Nguyen</Accent>
-            </h1>
-            <div className="mt-4">
-                <CloudinaryImage
-                    className="float-right ml-6 w-40 md:w-72"
-                    public_id="techblog/laup_d5azzz"
-                    alt="Bike"
-                    width={1200}
-                    height={1200}
-                    data-fade="2"
-                />
-                <article className="prose dark:prose-invert">
-                    <p data-fade="3">
-                        Hello! I'm Loc Nguyen, and my passion for programming
-                        has been with me since my early years. Although I
-                        attended IT universities, the broad curriculum didn't
-                        quite align with my main interest – coding. Determined
-                        to pursue my passion, I took the self-taught route,
-                        starting with YouTube tutorials. Web development
-                        captured my heart, and I dove into building websites
-                        independently.
+        <main className="min-h-screen">
+            {/* Hero Section */}
+            <section className="container py-16 md:py-24">
+                <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16">
+                    <div className="flex-1 text-center md:text-left">
+                        <p className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">
+                            Full-Stack Developer
+                        </p>
+                        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                            Hi, I'm <Accent>Loc Nguyen</Accent>
+                        </h1>
+                        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 max-w-xl">
+                            I craft beautiful, performant web experiences with modern technologies.
+                            5+ years of turning ideas into reality.
+                        </p>
+                        <div className="flex items-center justify-center md:justify-start gap-4">
+                            <Link href="/contact">
+                                <Button variant="gradient-animation">
+                                    Get in Touch
+                                </Button>
+                            </Link>
+                            <div className="flex items-center gap-3">
+                                <a
+                                    href="https://github.com/LaupWing"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                                >
+                                    <IconGithub className="w-6 h-6" />
+                                </a>
+                                <a
+                                    href="https://linkedin.com/in/locnguyen"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                                >
+                                    <IconLinkedin className="w-6 h-6" />
+                                </a>
+                                <a
+                                    href="https://twitter.com/laupwing"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                                >
+                                    <IconTwitter className="w-6 h-6" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="relative">
+                        <div className="absolute inset-0 gradient-animation rounded-full blur-2xl opacity-30 scale-110" />
+                        <CloudinaryImage
+                            className="relative w-48 h-48 md:w-72 md:h-72 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-2xl"
+                            public_id="techblog/laup_d5azzz"
+                            alt="Loc Nguyen"
+                            width={400}
+                            height={400}
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* Stats Section */}
+            <section className="border-y border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
+                <div className="container py-12">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div className="text-center">
+                            <p className="text-3xl md:text-4xl font-bold gradient-animation-slow bg-clip-text text-transparent">5+</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Years Experience</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="text-3xl md:text-4xl font-bold gradient-animation-slow bg-clip-text text-transparent">50+</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Projects Completed</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="text-3xl md:text-4xl font-bold gradient-animation-slow bg-clip-text text-transparent">15+</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Technologies</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="text-3xl md:text-4xl font-bold gradient-animation-slow bg-clip-text text-transparent">100%</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Passion</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Story Section */}
+            <section className="container py-16 md:py-24">
+                <div className="max-w-3xl mx-auto">
+                    <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+                        My <Accent>Journey</Accent>
+                    </h2>
+                    <div className="space-y-8">
+                        <div className="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
+                            <div className="absolute -left-2 top-0 w-4 h-4 rounded-full gradient-animation" />
+                            <h3 className="font-semibold text-lg mb-2">The Beginning</h3>
+                            <p className="text-gray-600 dark:text-gray-300">
+                                My passion for programming started early. While IT university curricula
+                                were too broad, I took the self-taught route through YouTube tutorials.
+                                Web development captured my heart, and I dove into building websites independently.
+                            </p>
+                        </div>
+                        <div className="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
+                            <div className="absolute -left-2 top-0 w-4 h-4 rounded-full gradient-animation" />
+                            <h3 className="font-semibold text-lg mb-2">Formal Education</h3>
+                            <p className="text-gray-600 dark:text-gray-300">
+                                I enrolled in{" "}
+                                <CustomLink href="https://www.hva.nl/opleidingen/communication-and-multimedia-design">
+                                    Communication Multimedia Design
+                                </CustomLink>
+                                , where I deepened my coding skills and learned crucial soft skills like
+                                communication, time management, and teamwork.
+                            </p>
+                        </div>
+                        <div className="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
+                            <div className="absolute -left-2 top-0 w-4 h-4 rounded-full gradient-animation" />
+                            <h3 className="font-semibold text-lg mb-2">Professional Growth</h3>
+                            <p className="text-gray-600 dark:text-gray-300">
+                                With 5 years of professional experience, I've mastered{" "}
+                                <CustomLink href="https://vuejs.org/">Vue.js</CustomLink>,{" "}
+                                <CustomLink href="https://nextjs.org/">React/Next.js</CustomLink>,{" "}
+                                <CustomLink href="https://nodejs.org/en">Node.js</CustomLink>, and{" "}
+                                <CustomLink href="https://laravel.com/">PHP/Laravel</CustomLink>.
+                                Now expanding into DevOps and cloud technologies.
+                            </p>
+                        </div>
+                        <div className="relative pl-8">
+                            <div className="absolute -left-2 top-0 w-4 h-4 rounded-full gradient-animation" />
+                            <h3 className="font-semibold text-lg mb-2">Today & Beyond</h3>
+                            <p className="text-gray-600 dark:text-gray-300">
+                                This website is my platform for sharing knowledge through blogging and
+                                showcasing projects. I believe teaching enhances learning, and I'm always
+                                eager to help others on their coding journey.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Tech Stack Section */}
+            <section className="bg-gray-50 dark:bg-gray-900/50 py-16 md:py-24">
+                <div className="container">
+                    <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
+                        Tech <Accent>Stack</Accent>
+                    </h2>
+                    <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-xl mx-auto">
+                        Technologies I use daily to bring ideas to life
                     </p>
-                    <p data-fade="4">
-                        As coding became second nature, I decided to broaden my
-                        skills. I enrolled in a university program focused on
-                        web design called{" "}
-                        <CustomLink href="https://www.hva.nl/opleidingen/communication-and-multimedia-design">
-                            Communication Multimedia Design
-                        </CustomLink>
-                        . Here, I not only delved deeper into coding but also
-                        recognized the significance of soft skills like
-                        communication, time management, and teamwork. I continue
-                        to refine these skills daily, understanding their
-                        crucial role in a developer's success.
-                    </p>
-                    <p data-fade="5">
-                        With 5 years of experience as a web developer
-                        post-graduation, I've worked with various technologies.
-                        My expertise lies in{" "}
-                        <CustomLink href="https://vuejs.org/">
-                            Vue.js
-                        </CustomLink>
-                        ,{" "}
-                        <CustomLink href="https://nextjs.org/">
-                            React/Next.js
-                        </CustomLink>
-                        ,{" "}
-                        <CustomLink href="https://nodejs.org/en">
-                            Node.js
-                        </CustomLink>
-                        , and{" "}
-                        <CustomLink href="https://laravel.com/">
-                            PHP/Laravel
-                        </CustomLink>
-                        , primarily focusing on frontend frameworks. While my
-                        proficiency in backend frameworks like Node.js and
-                        especially Laravel spans 2 years, I've dedicated each
-                        day within that timeframe to backend programming. I'm
-                        also keen on expanding my knowledge in DevOps and cloud
-                        technologies.
-                    </p>
-                    <p data-fade="6">
-                        This website serves as a platform for blogging and
-                        showcasing my projects. I believe that articulating my
-                        learnings enhances retention, and I'm eager to share my
-                        knowledge. Feel free to reach out, and I'll be delighted
-                        to assist you!
-                    </p>
-                    <div className="flex flex-col" data-fade="7">
-                        <h3>Current Favorite Tech Stack</h3>
-                        <figure className="mt-1 flex-1 flex flex-wrap">
+
+                    <div className="max-w-4xl mx-auto space-y-12">
+                        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 shadow-sm">
+                            <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
+                                <span className="w-2 h-2 rounded-full gradient-animation" />
+                                Current Favorites
+                            </h3>
                             <TechIcons
-                                className="pl-1"
+                                className="gap-4"
                                 techs={[
                                     "googleadk",
                                     "laravel",
@@ -109,14 +188,15 @@ const About = () => {
                                     "mysql",
                                 ]}
                             />
-                        </figure>
-                    </div>
-                    <div className="flex flex-col" data-fade="8">
-                        <h3>Technologies I'm proficient in</h3>
-                        <figure className="mt-1">
+                        </div>
+
+                        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 shadow-sm">
+                            <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
+                                <span className="w-2 h-2 rounded-full gradient-animation" />
+                                Full Toolkit
+                            </h3>
                             <TechIcons
-                                data-fade="8"
-                                className="pl-1"
+                                className="gap-4"
                                 techs={[
                                     "firebase",
                                     "react",
@@ -137,11 +217,38 @@ const About = () => {
                                     "redux",
                                 ]}
                             />
-                        </figure>
+                        </div>
                     </div>
-                </article>
-            </div>
-        </section>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="container py-16 md:py-24">
+                <div className="max-w-2xl mx-auto text-center">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                        Let's Build Something <Accent>Amazing</Accent>
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-300 mb-8">
+                        Have a project in mind? I'm always open to discussing new opportunities,
+                        creative ideas, or ways to help bring your vision to life.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <Link
+                            href="/contact"
+                            className="px-8 py-3 rounded-full gradient-animation text-white font-medium hover:opacity-90 transition-opacity"
+                        >
+                            Start a Conversation
+                        </Link>
+                        <Link
+                            href="/projects"
+                            className="px-8 py-3 rounded-full border border-gray-300 dark:border-gray-700 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                        >
+                            View My Work
+                        </Link>
+                    </div>
+                </div>
+            </section>
+        </main>
     )
 }
 export default About

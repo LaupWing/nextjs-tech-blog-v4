@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { BlogCard } from "@/components/cards/BlogCard"
 import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
 import { IconGithub, IconNewspaper, IconTwitter } from "@/components/Icons"
@@ -12,6 +13,15 @@ import { FC } from "react"
 import { ProjectCard } from "@/components/cards/ProjectCard"
 import { LibraryCard } from "@/components/cards/LibraryCard"
 import { Subscribe } from "@/components/Subscribe.client"
+import seo from "@/lib/seo"
+
+export const metadata: Metadata = {
+    ...seo({
+        title: "Software Developer - Loc Nguyen",
+        description:
+            "Tech brilliance meets freelance versatility! I'm Loc Nguyen, a full-stack web developer and tech blogger. Unleash the power of code through my insights, and let's turn your ideas into digital masterpieces.",
+    }),
+}
 
 export default function Home() {
     return (

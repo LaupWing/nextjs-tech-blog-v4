@@ -1,7 +1,18 @@
+import type { Metadata } from "next"
 import { Accent } from "@/components/Accent"
 import { CloudinaryImage } from "@/components/CloudinaryImage.client"
 import { CustomLink } from "@/components/CustomLink"
 import { TechIcons } from "@/components/TechIcons.client"
+import seo from "@/lib/seo"
+
+export const metadata: Metadata = {
+    ...seo({
+        title: "About",
+        as_path: "about",
+        description:
+            "Learn more about Loc Nguyen, a passionate full-stack web developer with 5+ years of experience in Vue.js, React/Next.js, Node.js, and Laravel.",
+    }),
+}
 
 const About = () => {
     return (

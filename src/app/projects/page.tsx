@@ -1,6 +1,17 @@
+import type { Metadata } from "next"
 import { Accent } from "@/components/Accent"
 import { ProjectCard } from "@/components/cards/ProjectCard"
 import { getAllFilesFrontmatter } from "@/lib/mdx"
+import seo from "@/lib/seo"
+
+export const metadata: Metadata = {
+    ...seo({
+        title: "Projects",
+        as_path: "projects",
+        description:
+            "Showcase of my web development projects built with React, Next.js, Vue.js, Laravel, and other modern technologies.",
+    }),
+}
 
 const fetchProjects = async () => {
     const projects = await getAllFilesFrontmatter("projects")

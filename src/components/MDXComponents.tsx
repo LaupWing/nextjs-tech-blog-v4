@@ -12,6 +12,7 @@ import { SplitImage } from "./SplitImage"
 
 export const MDXComponents = {
     a: CustomLink,
+    CustomLink,
     Image,
     CloudinaryImage: CloudinaryImage,
     code: CustomCode,

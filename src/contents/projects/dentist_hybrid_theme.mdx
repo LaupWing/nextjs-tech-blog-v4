@@ -1,0 +1,186 @@
+---
+title: "Dentist Hybrid Theme"
+description: "A modern, high-performance WordPress theme for dental practices with custom Gutenberg blocks, Tailwind CSS v4, and 95+ Lighthouse scores."
+publishedAt: "2025-11-27"
+techs: "wordpress,tailwindcss,react,typescript,php"
+banner: "techblog/dentist_theme/hero"
+github: "https://github.com/LaupWing/dentist-hybrid-theme"
+link: "https://smileo.loc-nguyen.com/"
+---
+
+> ## Short Explanation
+
+A modern, high-performance WordPress theme specifically designed for dental practices. The design was transformed from a Dribbble concept into fully functional code, carefully tweaked and optimized for real-world use. This theme achieves exceptional performance scores: 95+ on Lighthouse Performance, 96% Accessibility, 100% Best Practices, and 100% SEO.
+
+The theme features 12 custom Gutenberg blocks built with React, 3 custom post types (Doctors, Services, Testimonials), and uses Tailwind CSS v4 for styling. Everything is optimized for speed, accessibility, and search engine optimization.
+
+You can view the live demo at <CustomLink href="https://smileo.loc-nguyen.com/">smileo.loc-nguyen.com</CustomLink>.
+
+> ## Project Goals
+
+The main goal was to create a production-ready WordPress theme that dental practices can use to showcase their services, team, and patient testimonials. Key objectives included:
+
+-   **High Performance**: Achieve 90+ Lighthouse scores across all metrics
+-   **Custom Gutenberg Blocks**: Build 12 reusable, customizable blocks for content editors
+-   **Clean Design**: Implement a professional healthcare aesthetic with bold typography
+-   **Accessibility**: Ensure WCAG AA compliance with proper heading hierarchy and ARIA labels
+-   **Easy Content Management**: Allow staff to update content without touching code
+-   **Mobile-First**: Responsive design that works flawlessly on all devices
+
+<blockquote className="with-icons">
+    ## Tech Stack Used
+    <div className="not-prose mt-2">
+        <TechIcons
+            techs={["wordpress", "tailwindcss", "react", "typescript", "php"]}
+        />
+    </div>
+</blockquote>
+
+The theme is built using modern WordPress development practices:
+
+-   **WordPress 6.0+** for content management
+-   **Gutenberg Blocks** - 12 custom React-based editor blocks
+-   **Tailwind CSS v4** with `@theme` configuration for utility-first styling
+-   **WordPress Scripts** - Webpack-based build system
+-   **PHP 8.0+** for server-side rendering
+-   **Contact Form 7** integration for form handling
+
+> ## Custom Blocks Overview
+
+The theme includes 12 custom Gutenberg blocks, each carefully designed for dental practice websites:
+
+### Content Blocks
+
+1. **Hero Section** - Full-width hero with dark overlay, CTAs, and service cards
+2. **About Section** - Two-column layout with image and feature list
+3. **Services Section** - Horizontal scrolling services display
+4. **Services Grid** - Responsive grid for services archive
+5. **Doctors Section** - Team showcase with featured doctor
+6. **Doctors Grid** - Grid layout for doctors archive
+
+### Interactive Blocks
+
+7. **Testimonials Section** - Client testimonials carousel with keyboard/touch support
+8. **Blog Section** - Featured post layout with latest articles
+9. **Blog Posts Grid** - Full blog archive with pagination
+10. **Contact Section** - Form with Contact Form 7 integration and business info
+
+### Utility Blocks
+
+11. **CTA Section** - Call-to-action banner
+12. **Page Header** - Reusable header with breadcrumbs
+
+> ## App Explanation & Screenshots
+
+### Hero Section Block
+
+The hero section features a full-width background image with dark overlay, large uppercase heading, description text, and two CTA buttons. Three service cards with icons appear at the bottom, and everything fades in on scroll.
+
+<CloudinaryImage
+    mdx
+    public_id="techblog/dentist_theme/hero"
+    alt="Dentist Theme Hero Section"
+    width={1424}
+    height={812}
+/>
+
+### Doctors Section
+
+The doctors section showcases the dental team with a featured doctor displaying their full bio, plus a grid of additional team members. Each doctor card shows their photo, name, role, and specialty with links to individual profile pages.
+
+<CloudinaryImage
+    mdx
+    public_id="techblog/dentist_theme/doctors"
+    alt="Dentist Theme Doctors Section"
+    width={1424}
+    height={812}
+/>
+
+### Services Section
+
+Services are displayed in a horizontally scrollable layout. Each service card includes an icon, title, and description with hover effects. The data is dynamically pulled from the Services custom post type.
+
+<CloudinaryImage
+    mdx
+    public_id="techblog/dentist_theme/services"
+    alt="Dentist Theme Services Section"
+    width={1424}
+    height={812}
+/>
+
+### Testimonials Carousel
+
+The testimonials section features a beautiful carousel on a beige background. It includes prev/next navigation, smooth slide transitions, and displays the quote text, client name, email, and company. The carousel supports keyboard navigation and touch gestures.
+
+<CloudinaryImage
+    mdx
+    public_id="techblog/dentist_theme/testimonials"
+    alt="Dentist Theme Testimonials Section"
+    width={1424}
+    height={812}
+/>
+
+### Contact Section
+
+The contact section features a two-column layout with a Contact Form 7 powered form on the left and business information cards on the right. Information cards display location, phone, email, and working hours. A Google Maps embed shows the practice location.
+
+<CloudinaryImage
+    mdx
+    public_id="techblog/dentist_theme/contact"
+    alt="Dentist Theme Contact Section"
+    width={1424}
+    height={812}
+/>
+
+> ## Custom Post Types
+
+The theme includes three custom post types for easy content management:
+
+### Doctors CPT
+
+Store staff profiles with meta fields for role, specialty, clinical focus, years of experience, phone, education (JSON array), expertise (JSON array), and schedule (JSON array).
+
+### Services CPT
+
+Manage dental services with meta fields for price, duration, and icon.
+
+### Testimonials CPT
+
+Collect client reviews with meta fields for email and company.
+
+> ## Design Philosophy
+
+The theme follows a clean, professional healthcare aesthetic:
+
+-   **Typography**: Oswald for headings, system fonts for body
+-   **Colors**: Indigo (#4338ca) primary with lime green (#a3e635) accent CTAs
+-   **Backgrounds**: White and beige (#f0efe9) alternating sections
+-   **Animations**: Smooth fade-in animations on scroll using `data-id` attributes
+-   **Spacing**: Consistent visual hierarchy throughout
+
+> ## Performance Optimizations
+
+The theme achieves exceptional Lighthouse scores through:
+
+-   Optimized CSS with Tailwind's JIT compiler
+-   Lazy loading for images
+-   Minimal JavaScript footprint
+-   Proper heading hierarchy
+-   ARIA labels on interactive elements
+-   Sufficient color contrast (WCAG AA)
+-   Touch targets minimum 48x48px
+
+| Metric         | Score |
+| -------------- | ----- |
+| Performance    | 90+   |
+| Accessibility  | 96%   |
+| Best Practices | 100%  |
+| SEO            | 100%  |
+
+> ## Lessons Learned
+
+-   **Gutenberg Block Development**: Building custom blocks with React requires understanding both WordPress and React ecosystems
+-   **Tailwind CSS v4**: The new `@theme` configuration provides a cleaner way to define design tokens
+-   **Accessibility First**: Building with accessibility in mind from the start is easier than retrofitting
+-   **Performance Budgets**: Setting performance targets early helps guide development decisions
+-   **WordPress Scripts**: Using the official WordPress build tools simplifies the development workflow

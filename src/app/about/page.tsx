@@ -23,17 +23,17 @@ const About = () => {
             {/* Hero Section */}
             <section className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16">
                 <div className="flex-1 text-center md:text-left">
-                    <p className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">
+                    <p className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2" data-fade="0">
                         Full-Stack Developer
                     </p>
-                    <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4" data-fade="1">
                         Hi, I'm <Accent>Loc Nguyen</Accent>
                     </h1>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-6" data-fade="2">
                         I craft beautiful, performant web experiences with modern technologies.
                         7+ years of turning ideas into reality.
                     </p>
-                    <div className="flex items-center justify-center md:justify-start gap-4">
+                    <div className="flex items-center justify-center md:justify-start gap-4" data-fade="3">
                         <Link href="/contact">
                             <Button variant="gradient-animation">
                                 Get in Touch
@@ -67,7 +67,7 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <div className="relative">
+                <div className="relative" data-fade="4">
                     <div className="absolute inset-0 gradient-animation rounded-full blur-2xl opacity-30 scale-110" />
                     <CloudinaryImage
                         className="relative w-48 h-48 md:w-72 md:h-72 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-2xl"
@@ -80,7 +80,7 @@ const About = () => {
             </section>
 
             {/* Stats Section */}
-            <section className="py-12 mt-12 border-y border-gray-200 dark:border-gray-800">
+            <section className="py-12 mt-12 border-y border-gray-200 dark:border-gray-800" data-fade="5">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                     <div className="text-center">
                         <p className="text-3xl md:text-4xl font-bold gradient-animation-slow bg-clip-text text-transparent">7+</p>
@@ -103,11 +103,11 @@ const About = () => {
 
             {/* Story Section */}
             <section className="py-16">
-                <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+                <h2 className="text-2xl md:text-3xl font-bold text-center mb-12" data-fade="6">
                     My <Accent>Journey</Accent>
                 </h2>
                 <div className="space-y-8">
-                    <div className="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
+                    <div className="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700" data-fade="7">
                         <div className="absolute -left-2 top-0 w-4 h-4 rounded-full gradient-animation" />
                         <h3 className="font-semibold text-lg mb-2">The Beginning</h3>
                         <p className="text-gray-600 dark:text-gray-300">
@@ -116,7 +116,7 @@ const About = () => {
                             Web development captured my heart, and I dove into building websites independently.
                         </p>
                     </div>
-                    <div className="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
+                    <div className="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700" data-fade="8">
                         <div className="absolute -left-2 top-0 w-4 h-4 rounded-full gradient-animation" />
                         <h3 className="font-semibold text-lg mb-2">Formal Education</h3>
                         <p className="text-gray-600 dark:text-gray-300">
@@ -128,7 +128,7 @@ const About = () => {
                             communication, time management, and teamwork.
                         </p>
                     </div>
-                    <div className="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
+                    <div className="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700" data-fade="8">
                         <div className="absolute -left-2 top-0 w-4 h-4 rounded-full gradient-animation" />
                         <h3 className="font-semibold text-lg mb-2">Professional Growth</h3>
                         <p className="text-gray-600 dark:text-gray-300">
@@ -140,7 +140,7 @@ const About = () => {
                             Now expanding into DevOps and cloud technologies.
                         </p>
                     </div>
-                    <div className="relative pl-8">
+                    <div className="relative pl-8" data-fade="8">
                         <div className="absolute -left-2 top-0 w-4 h-4 rounded-full gradient-animation" />
                         <h3 className="font-semibold text-lg mb-2">Today & Beyond</h3>
                         <p className="text-gray-600 dark:text-gray-300">
@@ -154,15 +154,15 @@ const About = () => {
 
             {/* Tech Stack Section */}
             <section className="py-16 border-t border-gray-200 dark:border-gray-800">
-                <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-center mb-4" data-fade="8">
                     Tech <Accent>Stack</Accent>
                 </h2>
-                <p className="text-center text-gray-600 dark:text-gray-400 mb-12">
+                <p className="text-center text-gray-600 dark:text-gray-400 mb-12" data-fade="8">
                     Technologies I use daily to bring ideas to life
                 </p>
 
                 <div className="space-y-8">
-                    <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-6 md:p-8">
+                    <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-6 md:p-8" data-fade="8">
                         <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full gradient-animation" />
                             Current Favorites
@@ -183,7 +183,7 @@ const About = () => {
                         />
                     </div>
 
-                    <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-6 md:p-8">
+                    <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-6 md:p-8" data-fade="8">
                         <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full gradient-animation" />
                             Full Toolkit
@@ -216,14 +216,14 @@ const About = () => {
 
             {/* CTA Section */}
             <section className="py-16 text-center border-t border-gray-200 dark:border-gray-800">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4" data-fade="8">
                     Let's Build Something <Accent>Amazing</Accent>
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 mb-8">
+                <p className="text-gray-600 dark:text-gray-300 mb-8" data-fade="8">
                     Have a project in mind? I'm always open to discussing new opportunities,
                     creative ideas, or ways to help bring your vision to life.
                 </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4" data-fade="8">
                     <Link href="/contact">
                         <Button variant="gradient-animation">
                             Start a Conversation

@@ -33,13 +33,19 @@ interface PageProps {
 }
 
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
-    const post = await fetchProject((await props.params).slug)
+    const slug = (await props.params).slug
+    const post = await fetchProject(slug)
     const { frontmatter } = post
+
+    const OG_BANNER_LINK = `https://res.cloudinary.com/laupwing/image/upload/f_auto,c_fill,ar_12:8,w_1200/${frontmatter.banner}`
 
     return {
         ...seo({
+            banner: OG_BANNER_LINK,
+            template_title: frontmatter.title,
             title: frontmatter.title,
             description: frontmatter.description,
+            as_path: `projects/${slug}`,
         }),
     }
 }

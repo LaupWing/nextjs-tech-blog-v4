@@ -12,9 +12,11 @@ interface HeaderProps {
 
 export const Header: FC<HeaderProps> = () => {
     const [onTop, setOnTop] = useState<boolean>(false)
+    const [overDarkSection, setOverDarkSection] = useState<boolean>(false)
     const activeSegment = useSelectedLayoutSegment()
     const [show_side_nav, setShowSideNav] = useState<boolean>(false)
 
+    // Track scroll position
     useEffect(() => {
         const handleScroll = () => {
             setOnTop(window.scrollY > 0)
@@ -23,6 +25,36 @@ export const Header: FC<HeaderProps> = () => {
         return () => {
             window.removeEventListener("scroll", handleScroll)
         }
+    }, [])
+
+    // Intersection Observer for dark sections
+    useEffect(() => {
+        const darkSections = document.querySelectorAll('[data-header-dark]')
+        if (darkSections.length === 0) return
+
+        const activeSections = new Set<Element>()
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        activeSections.add(entry.target)
+                    } else {
+                        activeSections.delete(entry.target)
+                    }
+                })
+                setOverDarkSection(activeSections.size > 0)
+            },
+            {
+                // Trigger when element enters the header zone (top 80px of viewport)
+                rootMargin: '-0px 0px -90% 0px',
+                threshold: 0,
+            }
+        )
+
+        darkSections.forEach((section) => observer.observe(section))
+
+        return () => observer.disconnect()
     }, [])
 
     const links = [
@@ -91,13 +123,19 @@ export const Header: FC<HeaderProps> = () => {
             <div className="px-2 w-full sm:px-0">
                 <nav
                     className={clsx(
-                        "max-w-2xl w-full flex items-center justify-between text-dark dark:text-light bg-black/2 dark:bg-white/4 backdrop-blur-sm border dark:border-gray-800/30 border-gray-300/30 rounded-full mt-4 p-1.5 duration-200 mx-auto",
-                        onTop && "shadow-sm"
+                        "max-w-2xl w-full flex items-center justify-between backdrop-blur-sm border rounded-full mt-4 p-1.5 duration-300 mx-auto transition-colors",
+                        onTop && "shadow-sm",
+                        overDarkSection
+                            ? "bg-black/40 border-white/20 text-white"
+                            : "bg-black/2 dark:bg-white/4 border-gray-300/30 dark:border-gray-800/30 text-dark dark:text-light"
                     )}
                 >
                     <button
                         onClick={() => setShowSideNav(true)}
-                        className="flex sm:hidden ml-4 text-slate-900 dark:text-white"
+                        className={clsx(
+                            "flex sm:hidden ml-4 transition-colors duration-300",
+                            overDarkSection ? "text-white" : "text-slate-900 dark:text-white"
+                        )}
                     >
                         <IconMenu size={30} />
                     </button>
@@ -105,9 +143,12 @@ export const Header: FC<HeaderProps> = () => {
                         {links.map(({ href, label, segement }) => (
                             <li
                                 className={clsx(
+                                    "transition-colors duration-300",
                                     activeSegment === segement
                                         ? "gradient-animation-slow bg-clip-text font-semibold text-transparent"
-                                        : "text-gray-900 dark:text-white"
+                                        : overDarkSection
+                                            ? "text-white"
+                                            : "text-gray-900 dark:text-white"
                                 )}
                                 key={`${href}-${label}`}
                             >

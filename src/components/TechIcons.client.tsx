@@ -30,9 +30,10 @@ export type TechListType = keyof typeof techList
 export interface TechIconsProps extends ComponentPropsWithoutRef<"ul"> {
     techs: Array<TechListType>
     activeTechs?: Array<string>
+    hoverGradient?: boolean
 }
 
-export const TechIcons: FC<TechIconsProps> = ({ className, techs, activeTechs = [] }) => {
+export const TechIcons: FC<TechIconsProps> = ({ className, techs, activeTechs = [], hoverGradient = false }) => {
     return (
         <ul
             className={clsx(
@@ -64,7 +65,14 @@ export const TechIcons: FC<TechIconsProps> = ({ className, techs, activeTechs = 
                 const isActive = activeTechs.includes(tech)
 
                 return (
-                    <li key={current.name} className={clsx("text-xl list-none", isActive && "tech-icon-gradient-fill")}>
+                    <li
+                        key={current.name}
+                        className={clsx(
+                            "text-xl list-none transition-transform duration-200",
+                            isActive && "tech-icon-gradient-fill",
+                            hoverGradient && "tech-icon-hover-gradient hover:scale-110 cursor-pointer"
+                        )}
+                    >
                         <Tooltip>
                             <TooltipTrigger className="flex">
                                 <current.icon size={30} />

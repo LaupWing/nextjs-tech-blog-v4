@@ -339,6 +339,11 @@
     fill: url(#tech-icon-gradient) !important;
 }
 
+.tech-icon-hover-gradient:hover svg,
+.tech-icon-hover-gradient:hover svg path {
+    fill: url(#tech-icon-gradient) !important;
+}
+
 .project-filter-gradient-fill svg,
 .project-filter-gradient-fill svg path {
     fill: url(#project-filter-gradient) !important;

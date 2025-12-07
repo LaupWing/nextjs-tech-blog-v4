@@ -97,10 +97,12 @@ const Hero: FC<HeroProps> = ({ frontmatter, slug }) => {
                     width={1440}
                     height={750}
                 />
-                <TechIcons
-                    className="absolute bottom-4 left-4"
-                    techs={frontmatter.techs.split(",") as Array<TechListType>}
-                />
+                <div className="absolute bottom-4 left-4 bg-white/60 dark:bg-black/60 backdrop-blur-sm rounded-lg px-3 py-2">
+                    <TechIcons
+                        techs={frontmatter.techs.split(",") as Array<TechListType>}
+                        hoverGradient
+                    />
+                </div>
             </div>
             <h1 className="mt-4 dark:text-light text-2xl font-bold md:text-4xl">{frontmatter.title}</h1>
             <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">

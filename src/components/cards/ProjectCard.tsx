@@ -35,19 +35,21 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project, className, activeTe
                 <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">
                     {project.description}
                 </p>
-                <div className="mt-2">
-                    <TechIcons
-                        techs={project.techs.split(",") as Array<TechListType>}
-                        activeTechs={activeTechs}
+                <div className="relative mt-3 w-full">
+                    <CloudinaryImage
+                        className="pointer-events-none w-full"
+                        public_id={project.banner}
+                        alt={project.title}
+                        width={1440}
+                        height={792}
                     />
+                    <div className="absolute bottom-2 left-2 bg-white/60 dark:bg-black/60 backdrop-blur-sm rounded-lg px-2 py-1.5">
+                        <TechIcons
+                            techs={project.techs.split(",") as Array<TechListType>}
+                            activeTechs={activeTechs}
+                        />
+                    </div>
                 </div>
-                <CloudinaryImage
-                    className="pointer-events-none mt-3 w-full"
-                    public_id={project.banner}
-                    alt={project.title}
-                    width={1440}
-                    height={792}
-                />
                 <p className="animated-underline dark:text-white mt-2 inline-block font-medium">
                     See more →
                 </p>

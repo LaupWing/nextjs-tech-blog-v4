@@ -82,7 +82,7 @@ export const ProjectsContainer: FC<ProjectsContainerProps> = ({ projects }) => {
         return Array.from(techSet)
     }, [projects])
 
-    // Filter projects based on active techs and featured status
+    // Filter projects based on active techs and featured status, sorted by date
     const filteredProjects = useMemo(() => {
         let filtered = projects
 
@@ -101,7 +101,10 @@ export const ProjectsContainer: FC<ProjectsContainerProps> = ({ projects }) => {
             })
         }
 
-        return filtered
+        // Sort by date (newest first)
+        return filtered.sort((a, b) =>
+            new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+        )
     }, [projects, activeTechs, showFeaturedOnly])
 
     const toggleTech = (tech: string) => {

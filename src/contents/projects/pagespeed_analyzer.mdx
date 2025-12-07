@@ -1,0 +1,160 @@
+---
+title: "PageSpeed Analyzer"
+description: "A full-stack performance analysis tool that turns Google PageSpeed data into AI-powered PDF reports. Built for agencies and freelancers to win clients."
+publishedAt: "2025-12-07"
+techs: "react,tailwindcss,typescript,laravel"
+banner: "techblog/pagespeed/hero"
+link: "https://pagespeed.loc-nguyen.com/"
+---
+
+Here's a sales technique that actually works: show prospects exactly what's wrong with their website before they even ask. PageSpeed Analyzer automates this entirely — enter a URL, get a professional PDF report with AI-powered recommendations, and track when prospects open it.
+
+It's a lead generation machine disguised as a performance tool.
+
+> ## The Real Problem
+
+Google PageSpeed Insights is powerful but useless for most people. Business owners see walls of technical jargon — "Largest Contentful Paint," "Cumulative Layout Shift," "Time to First Byte" — and their eyes glaze over. They know their site is slow. They don't know what to do about it.
+
+This gap is where agencies and freelancers make money. The ones who can translate performance data into plain English win clients. PageSpeed Analyzer does that translation automatically, at scale.
+
+{/* 📸 IMAGE 1: Homepage with URL input and analysis interface */}
+<CloudinaryImage
+  mdx
+  public_id="techblog/pagespeed/hero"
+  alt="PageSpeed Analyzer homepage"
+  width={1424}
+  height={812}
+/>
+
+> ## How It Works
+
+The workflow is dead simple:
+
+1. Enter any website URL
+2. Choose mobile or desktop analysis
+3. Wait 30 seconds while Google PageSpeed does its thing
+4. Get a beautiful report with scores, screenshots, and AI recommendations
+5. Download a branded PDF to send to prospects
+6. Track when they open it
+
+That last step is the secret weapon. Knowing exactly when a prospect views your report means you can follow up at the perfect moment — while they're still thinking about their slow website.
+
+<blockquote className='with-icons'>
+  ## Tech Stack
+  <div className='not-prose mt-2'>
+    <TechIcons techs={['react', 'tailwindcss', 'typescript', 'laravel']} />
+  </div>
+</blockquote>
+
+> ## The Report Experience
+
+A performance report is only useful if people actually read it. PageSpeed Analyzer reports are designed for non-technical audiences:
+
+**The Score** — A big, animated number from 0-100. Everyone understands that 47 is bad and 92 is good. No explanation needed.
+
+**The Screenshot** — The actual website rendered in a device frame (phone or browser). This proves the analysis is real and personalized.
+
+**Core Web Vitals** — The metrics that matter for SEO, presented with color-coded severity indicators. Green is good, red needs work.
+
+**Optimization Opportunities** — Specific issues ranked by impact. Not "improve server response time" but "your images are 3MB larger than they need to be."
+
+**AI-Powered Tips** — This is where GPT-4 earns its keep. Instead of technical recommendations, prospects get plain-English explanations of what's wrong and why it matters for their business.
+
+{/* 📸 IMAGE 2: Report page showing score, screenshot, and metrics */}
+<CloudinaryImage
+  mdx
+  public_id="techblog/pagespeed/report"
+  alt="Performance report with score visualization"
+  width={1424}
+  height={812}
+/>
+
+> ## The PDF That Sells
+
+The downloadable PDF is where this tool pays for itself. It's a single-page, branded document that looks like something an expensive agency would produce:
+
+- Performance score with visual gauge
+- Website screenshot proving personalization
+- Top three optimization opportunities
+- AI-generated recommendations in business language
+- Your contact information and call-to-action
+
+{/* 📸 IMAGE 3: The actual PDF report output */}
+<CloudinaryImage
+  mdx
+  public_id="techblog/pagespeed/pdf"
+  alt="Generated PDF performance report"
+  width={1424}
+  height={812}
+/>
+
+Send this to a prospect cold, and you've already demonstrated more value than competitors who just send generic proposals. The PDF does the selling for you.
+
+> ## Analytics That Close Deals
+
+Every PDF download gets a unique tracking link. When a prospect opens the report, you know:
+
+- Exactly when they viewed it
+- How many times they came back
+- What device they used
+- Where they came from (referrer)
+
+The admin dashboard aggregates this data across all reports. Sort by recent views to find hot leads. See which reports get opened multiple times — those prospects are seriously considering their options.
+
+{/* 📸 IMAGE 4: Admin dashboard showing PDF analytics */}
+<CloudinaryImage
+  mdx
+  public_id="techblog/pagespeed/dashboard"
+  alt="Admin dashboard with PDF view analytics"
+  width={1424}
+  height={812}
+/>
+
+> ## Built for the Dutch Market (and Beyond)
+
+Full bilingual support means every piece of text — UI labels, error messages, AI recommendations — works in both English and Dutch. One toggle switch, instant language change, no page reload.
+
+For agencies serving international clients, this is table stakes. For agencies competing in the Netherlands, it's often the difference between winning and losing local business.
+
+> ## Enterprise-Grade Security
+
+This isn't a toy. The authentication system includes:
+
+- Two-factor authentication (TOTP)
+- API key access for programmatic use
+- Rate limiting on all endpoints
+- Secure session management via Laravel Fortify
+
+Agencies handling client data need to trust their tools. PageSpeed Analyzer is built to that standard.
+
+> ## The Technical Foundation
+
+The backend is Laravel 12 with Inertia.js bridging to a React 19 frontend. This architecture delivers the best of both worlds: Laravel's robust backend ecosystem (authentication, queues, API handling) with React's component-driven UI.
+
+PDF generation uses Spatie's Laravel PDF package, which renders React components server-side. The AI integration hits OpenAI's GPT-4 API with carefully crafted prompts that produce business-friendly recommendations every time.
+
+The Google PageSpeed Insights API does the heavy lifting on performance analysis. No need to run our own Lighthouse instances — Google's infrastructure handles the load.
+
+> ## Who This Is For
+
+**Digital Agencies** — Generate professional audits for prospects at scale. The PDF tracking tells you exactly who's interested and when to follow up.
+
+**Freelance Developers** — Demonstrate expertise before the first call. A personalized performance report builds more trust than any portfolio.
+
+**SEO Consultants** — Core Web Vitals directly impact search rankings. This tool quantifies the problem and positions you as the solution.
+
+**Web Performance Specialists** — Streamline client acquisition. Analyze prospect sites, generate reports, track engagement — all from one dashboard.
+
+> ## The Business Math
+
+Let's be honest about ROI. If you're an agency charging €2,000+ for performance optimization projects, you need to close one extra client per year to justify building (or buying) a tool like this.
+
+But here's what actually happens: agencies using lead generation tools like this close more deals because they're reaching prospects with proof of value instead of generic pitches. The PDF report isn't just marketing — it's a demonstration of exactly what you can deliver.
+
+> ## What I Learned
+
+Building PageSpeed Analyzer reinforced something important: the best B2B tools solve sales problems, not just technical ones. The Google PageSpeed API was the easy part. The hard part was designing a workflow that actually helps agencies win clients.
+
+The PDF tracking feature came from a simple insight: knowing when prospects engage is worth more than the report itself. That single feature transforms the tool from "nice to have" into "competitive advantage."
+
+Laravel + React via Inertia.js proved to be the perfect stack for this kind of application. Server-side rendering for SEO, React's component model for complex UI, Laravel's ecosystem for everything else. No compromises.

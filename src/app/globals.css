@@ -320,10 +320,6 @@
     animation: fade-in 0.3s ease-out;
 }
 
-.animate-fade-in-delay {
-    animation: fade-in 0.3s ease-out 0.2s both;
-}
-
 .tech-icon-gradient-fill svg,
 .tech-icon-gradient-fill svg path {
     fill: url(#tech-icon-gradient) !important;

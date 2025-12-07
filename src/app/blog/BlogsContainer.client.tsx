@@ -175,7 +175,7 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
             </div>
             <ul
                 key={currentPage}
-                className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3 animate-fade-in-delay"
+                className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3 "
             >
                 {paginatedPosts.length > 0 ? (
                     paginatedPosts.map((post) => (
@@ -198,7 +198,9 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
             {/* Results info */}
             {filteredPosts.length > 0 && (
                 <p className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
-                    Showing {startIndex + 1}-{Math.min(endIndex, filteredPosts.length)} of {filteredPosts.length} posts
+                    Showing {startIndex + 1}-
+                    {Math.min(endIndex, filteredPosts.length)} of{" "}
+                    {filteredPosts.length} posts
                 </p>
             )}
         </>

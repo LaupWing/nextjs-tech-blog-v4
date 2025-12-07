@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { Accent } from "@/components/Accent"
 import { getAllFilesFrontmatter } from "@/lib/mdx"
 import seo from "@/lib/seo"
 import { ProjectsContainer } from "./ProjectsContainer.client"
@@ -23,12 +22,6 @@ const Projects = async () => {
 
     return (
         <section className="container py-12">
-            <h1 className="text-3xl font-bold md:text-5xl" data-fade="0">
-                <Accent>Projects</Accent>
-            </h1>
-            <p className="mt-2 text-gray-600 dark:text-gray-300" data-fade="1">
-                My favorite projects.
-            </p>
             <ProjectsContainer projects={projects} />
         </section>
     )

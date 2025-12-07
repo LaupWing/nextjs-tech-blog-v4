@@ -168,7 +168,7 @@ export const LibraryContainer: FC<LibraryContainerProps> = ({ posts }) => {
             </div>
             <ul
                 key={currentPage}
-                className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3 animate-fade-in-delay"
+                className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3 "
             >
                 {paginatedPosts.length > 0 ? (
                     paginatedPosts.map((post) => (
@@ -195,7 +195,9 @@ export const LibraryContainer: FC<LibraryContainerProps> = ({ posts }) => {
             {/* Results info */}
             {filtered_posts.length > 0 && (
                 <p className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
-                    Showing {startIndex + 1}-{Math.min(endIndex, filtered_posts.length)} of {filtered_posts.length} snippets
+                    Showing {startIndex + 1}-
+                    {Math.min(endIndex, filtered_posts.length)} of{" "}
+                    {filtered_posts.length} snippets
                 </p>
             )}
         </>

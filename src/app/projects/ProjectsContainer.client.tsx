@@ -28,35 +28,41 @@ import {
     IconStar,
 } from "@/components/Icons"
 import GoogleADKIcon from "@/components/GoogleADKIcon"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { Switch } from "@/components/ui/switch"
+import { Accent } from "@/components/Accent"
 
 interface ProjectsContainerProps {
     projects: Array<ProjectFrontmatter>
 }
 
-const techList: Record<string, { icon: FC<{ size?: number }>, name: string }> = {
-    react: { icon: IconReact, name: "React" },
-    nextjs: { icon: IconNextjs, name: "Next.js" },
-    tailwindcss: { icon: IconTailwindcss, name: "Tailwind CSS" },
-    javascript: { icon: IconJavascript, name: "Javascript" },
-    mysql: { icon: IconMySQL, name: "MySQL" },
-    php: { icon: IconPhp, name: "PHP" },
-    typescript: { icon: IconTypescript, name: "Typescript" },
-    nodejs: { icon: IconNodejs, name: "Node.js" },
-    firebase: { icon: IconFirebase, name: "Firebase" },
-    mongodb: { icon: IconMongoDB, name: "MongoDB" },
-    swr: { icon: IconVercel, name: "SWR" },
-    redux: { icon: IconRedux, name: "Redux" },
-    laravel: { icon: IconLaravel, name: "Laravel" },
-    mdx: { icon: IconMarkdown, name: "MDX" },
-    git: { icon: IconGit, name: "Git" },
-    gatsby: { icon: IconGatsby, name: "Gatsby" },
-    wordpress: { icon: IconWordpress, name: "Wordpress" },
-    vue: { icon: IconVuejs, name: "Vue" },
-    solidity: { icon: IconSolidity, name: "Solidity" },
-    googleadk: { icon: GoogleADKIcon, name: "Google ADK" },
-}
+const techList: Record<string, { icon: FC<{ size?: number }>; name: string }> =
+    {
+        react: { icon: IconReact, name: "React" },
+        nextjs: { icon: IconNextjs, name: "Next.js" },
+        tailwindcss: { icon: IconTailwindcss, name: "Tailwind CSS" },
+        javascript: { icon: IconJavascript, name: "Javascript" },
+        mysql: { icon: IconMySQL, name: "MySQL" },
+        php: { icon: IconPhp, name: "PHP" },
+        typescript: { icon: IconTypescript, name: "Typescript" },
+        nodejs: { icon: IconNodejs, name: "Node.js" },
+        firebase: { icon: IconFirebase, name: "Firebase" },
+        mongodb: { icon: IconMongoDB, name: "MongoDB" },
+        swr: { icon: IconVercel, name: "SWR" },
+        redux: { icon: IconRedux, name: "Redux" },
+        laravel: { icon: IconLaravel, name: "Laravel" },
+        mdx: { icon: IconMarkdown, name: "MDX" },
+        git: { icon: IconGit, name: "Git" },
+        gatsby: { icon: IconGatsby, name: "Gatsby" },
+        wordpress: { icon: IconWordpress, name: "Wordpress" },
+        vue: { icon: IconVuejs, name: "Vue" },
+        solidity: { icon: IconSolidity, name: "Solidity" },
+        googleadk: { icon: GoogleADKIcon, name: "Google ADK" },
+    }
 
 export const ProjectsContainer: FC<ProjectsContainerProps> = ({ projects }) => {
     const [activeTechs, setActiveTechs] = useState<string[]>([])
@@ -88,7 +94,9 @@ export const ProjectsContainer: FC<ProjectsContainerProps> = ({ projects }) => {
         // Filter by tech
         if (activeTechs.length > 0) {
             filtered = filtered.filter((project) => {
-                const projectTechs = project.techs.split(",").map((t) => t.trim())
+                const projectTechs = project.techs
+                    .split(",")
+                    .map((t) => t.trim())
                 return activeTechs.some((tech) => projectTechs.includes(tech))
             })
         }
@@ -109,44 +117,92 @@ export const ProjectsContainer: FC<ProjectsContainerProps> = ({ projects }) => {
             {/* SVG gradient definition for active icons */}
             <svg width="0" height="0" className="absolute">
                 <defs>
-                    <linearGradient id="project-filter-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <linearGradient
+                        id="project-filter-gradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                    >
                         <stop offset="0%" stopColor="#fd004c">
-                            <animate attributeName="stop-color" values="#fd004c;#fe9000;#3edf4b;#3363ff;#b102b7;#fd004c" dur="3s" repeatCount="indefinite" />
+                            <animate
+                                attributeName="stop-color"
+                                values="#fd004c;#fe9000;#3edf4b;#3363ff;#b102b7;#fd004c"
+                                dur="3s"
+                                repeatCount="indefinite"
+                            />
                         </stop>
                         <stop offset="50%" stopColor="#3edf4b">
-                            <animate attributeName="stop-color" values="#3edf4b;#3363ff;#b102b7;#fd004c;#fe9000;#3edf4b" dur="3s" repeatCount="indefinite" />
+                            <animate
+                                attributeName="stop-color"
+                                values="#3edf4b;#3363ff;#b102b7;#fd004c;#fe9000;#3edf4b"
+                                dur="3s"
+                                repeatCount="indefinite"
+                            />
                         </stop>
                         <stop offset="100%" stopColor="#b102b7">
-                            <animate attributeName="stop-color" values="#b102b7;#fd004c;#fe9000;#3edf4b;#3363ff;#b102b7" dur="3s" repeatCount="indefinite" />
+                            <animate
+                                attributeName="stop-color"
+                                values="#b102b7;#fd004c;#fe9000;#3edf4b;#3363ff;#b102b7"
+                                dur="3s"
+                                repeatCount="indefinite"
+                            />
                         </stop>
                     </linearGradient>
                 </defs>
             </svg>
 
-            {/* Featured toggle */}
-            <div className="mt-4 flex items-center gap-3" data-fade="2">
+            {/* Header with title and featured toggle */}
+            <div
+                className="flex flex-col sm:flex-row sm:items-center gap-4"
+                data-fade="0"
+            >
+                <div>
+                    <h1 className="text-3xl font-bold md:text-5xl">
+                        <Accent>Projects</Accent>
+                    </h1>
+                    <p className="mt-2 text-gray-600 dark:text-gray-300">
+                        Showcase of my projects.
+                    </p>
+                </div>
                 <label
                     htmlFor="featured-toggle"
-                    className="flex items-center gap-2 cursor-pointer select-none"
+                    className="flex items-center gap-2.5 cursor-pointer select-none"
                 >
                     <Switch
                         id="featured-toggle"
                         checked={showFeaturedOnly}
                         onCheckedChange={setShowFeaturedOnly}
                     />
-                    <span className="flex items-center gap-1.5 text-sm font-medium text-gray-600 dark:text-gray-300">
-                        <IconStar className={clsx(
-                            "h-4 w-4 transition-colors",
-                            showFeaturedOnly ? "text-orange-500" : "text-gray-400"
-                        )} />
+                    <span
+                        className={clsx(
+                            "flex items-center gap-1.5 text-sm font-medium transition-colors",
+                            showFeaturedOnly
+                                ? "gradient-animation-slow bg-clip-text text-transparent"
+                                : "text-gray-500 dark:text-gray-400"
+                        )}
+                    >
+                        <IconStar
+                            className={clsx(
+                                "h-4 w-4 shrink-0 transition-colors",
+                                showFeaturedOnly
+                                    ? "text-[rgb(var(--custom-orange))]"
+                                    : "text-gray-400"
+                            )}
+                        />
                         Featured only
                     </span>
                 </label>
             </div>
 
             {/* Tech filter icons */}
-            <div className="mt-4 flex flex-wrap items-center gap-2" data-fade="3">
-                <span className="font-medium text-gray-600 dark:text-gray-300 text-sm">Filter by tech:</span>
+            <div
+                className="mt-6 flex flex-wrap items-center gap-2"
+                data-fade="1"
+            >
+                <span className="font-medium text-gray-600 dark:text-gray-300 text-sm">
+                    Filter by tech:
+                </span>
                 <div className="flex flex-wrap gap-3">
                     {allTechs.map((tech) => {
                         const current = techList[tech]
@@ -177,9 +233,9 @@ export const ProjectsContainer: FC<ProjectsContainerProps> = ({ projects }) => {
 
             {/* Projects grid */}
             <ul
-                className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3 animate-fade-in-delay"
+                className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3 "
                 key={`${showFeaturedOnly}-${activeTechs.join(",")}`}
-                data-fade="4"
+                data-fade="2"
             >
                 {filteredProjects.length > 0 ? (
                     filteredProjects.map((project) => (

@@ -102,7 +102,7 @@ const Hero: FC<HeroProps> = ({ frontmatter, slug }) => {
                     techs={frontmatter.techs.split(",") as Array<TechListType>}
                 />
             </div>
-            <h1 className="dark:text-white mt-4">{frontmatter.title}</h1>
+            <h1 className="mt-4 dark:text-light text-2xl font-bold md:text-4xl">{frontmatter.title}</h1>
             <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
                 {frontmatter.description}
             </p>

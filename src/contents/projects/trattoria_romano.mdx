@@ -1,0 +1,171 @@
+---
+title: "Trattoria Romano"
+description: "An Italian restaurant website featuring an AI chatbot powered by Google ADK that provides personalized menu recommendations and handles customer inquiries in real-time."
+publishedAt: "2025-12-07"
+techs: "nextjs,react,tailwindcss,typescript,googleadk"
+banner: "techblog/trattoria/hero"
+link: "https://restaurant.loc-nguyen.com/"
+favorite: true
+---
+
+What if your restaurant could answer customer questions at 3 AM? What if it could remember that a guest is vegetarian and instantly recommend the perfect dish? Trattoria Romano isn't just a restaurant website — it's a 24/7 AI concierge that never sleeps, never forgets, and never gets frustrated.
+
+This is what happens when you combine a beautiful Italian restaurant website with Google's Agent Development Kit.
+
+> ## The Problem Worth Solving
+
+Every restaurant owner knows the pain: phones ringing during the dinner rush, staff answering the same questions over and over. "Do you have vegetarian options?" "What's gluten-free?" "What do you recommend?" Meanwhile, potential customers on the website bounce because they can't find what they need.
+
+Trattoria Romano solves this with an AI chatbot that actually understands food. Not a scripted FAQ bot — a conversational assistant that knows the entire menu, understands dietary restrictions, and makes personalized recommendations like a knowledgeable server would.
+
+{/* 📸 IMAGE 1: Homepage hero with the restaurant branding */}
+<CloudinaryImage
+  mdx
+  public_id="techblog/trattoria/hero"
+  alt="Trattoria Romano homepage"
+  width={1424}
+  height={812}
+/>
+
+> ## The AI That Changes Everything
+
+The chatbot isn't a gimmick. It's the core feature that transforms how customers interact with the restaurant:
+
+**Natural Language Understanding** — Ask "what's good for someone who doesn't eat meat?" and it responds with vegetarian recommendations. Ask "I'm gluten intolerant, what can I eat?" and it filters the entire menu instantly.
+
+**Interactive Menu Cards** — Recommendations don't come as plain text. The bot displays actual menu items with prices, descriptions, and dietary icons. Click any dish and you're taken directly to it on the menu page, highlighted for easy finding.
+
+**Context Memory** — The AI remembers your conversation. Say you're vegetarian once, and every recommendation after respects that preference. No repeating yourself.
+
+**Typewriter Animation** — Responses appear naturally, character by character, like a real person typing. It's a small detail that makes the interaction feel human.
+
+{/* 📸 IMAGE 2: Chat widget open showing menu recommendations */}
+<CloudinaryImage
+  mdx
+  public_id="techblog/trattoria/chatbot"
+  alt="AI chatbot with menu recommendations"
+  width={1424}
+  height={812}
+/>
+
+<blockquote className='with-icons'>
+  ## Tech Stack
+  <div className='not-prose mt-2'>
+    <TechIcons techs={['nextjs', 'react', 'tailwindcss', 'typescript', 'googleadk']} />
+  </div>
+</blockquote>
+
+> ## Built on Google's Agent Development Kit
+
+This isn't ChatGPT with a restaurant prompt. The chatbot runs on Google Vertex AI with a custom reasoning engine built using the Agent Development Kit (ADK). This matters because:
+
+- **Real-time streaming** — Responses arrive as they're generated, not after a long wait
+- **Persistent sessions** — Conversations survive page navigation
+- **Structured actions** — The AI can trigger UI events (highlight items, navigate pages)
+- **Restaurant-specific training** — The agent understands menus, not just general knowledge
+
+The technical architecture uses NDJSON streaming for real-time responses, with session management that maintains context across the entire customer journey.
+
+> ## The Menu Experience
+
+Even without the chatbot, Trattoria Romano delivers a premium menu experience:
+
+**Seven Categories** — Antipasti, Primi, Secondi, Pizze, Dolci, Bevande, and a proper wine list with bottle and glass pricing. Over 50 items, each with descriptions and dietary badges.
+
+**Dietary Clarity** — Vegetarian, vegan, gluten-free, and spicy indicators on every applicable dish. No guessing, no awkward questions to staff.
+
+**AI Integration** — When the chatbot recommends dishes, they appear in a special "AI Recommendations" section with animated reveals. Items highlight when selected, creating a seamless connection between conversation and browsing.
+
+{/* 📸 IMAGE 3: Menu page showing categories and dietary badges */}
+<CloudinaryImage
+  mdx
+  public_id="techblog/trattoria/menu"
+  alt="Restaurant menu with dietary badges"
+  width={1424}
+  height={812}
+/>
+
+> ## Beyond the Chatbot
+
+The AI gets the spotlight, but Trattoria Romano is a complete restaurant website:
+
+**Reservation System** — Online booking with date/time selection, automated confirmation emails to both restaurant and customer. Built with React Hook Form and Zod for bulletproof validation.
+
+**Full Landing Page** — Hero section, about story, menu previews, chef testimonial, blog section. Everything a restaurant needs to establish credibility online.
+
+**Perfect Scores** — 95+ Performance, 100 Accessibility, 100 Best Practices, 100 SEO. Because a beautiful website that loads slowly is just a beautiful bounce rate.
+
+> ## Real Conversations, Real Results
+
+The chatbot doesn't just answer questions — it drives action. Here's what a typical conversation looks like when a customer asks for recommendations:
+
+{/* 📸 IMAGE 4: Chatbot conversation log showing recommendations */}
+<CloudinaryImage
+  mdx
+  public_id="techblog/trattoria/chatlog"
+  alt="AI chatbot conversation with menu recommendations"
+  width={1424}
+  height={812}
+/>
+
+And when a customer books a table, both the restaurant and guest receive professional confirmation emails instantly:
+
+{/* 📸 IMAGE 5: Email confirmation */}
+<CloudinaryImage
+  mdx
+  public_id="techblog/trattoria/email"
+  alt="Reservation confirmation email"
+  width={1424}
+  height={812}
+/>
+
+> ## The Business Case
+
+For restaurant owners, the ROI is straightforward:
+
+**Staff Time Saved** — Common questions handled automatically, freeing staff to focus on guests in the room.
+
+**24/7 Availability** — The chatbot answers at midnight when restaurants are closed but customers are planning.
+
+**Higher Engagement** — Personalized recommendations drive customers deeper into the menu. More browsing, more appetite, bigger orders.
+
+**Dietary Confidence** — Guests with restrictions book with confidence when they've already found dishes they can eat.
+
+**Data Insights** — Every conversation reveals what customers want. Patterns emerge: popular dishes, common restrictions, peak inquiry times.
+
+> ## What's Included vs. What You'd Customize
+
+**Production Ready:**
+- Complete AI chatbot with menu understanding
+- Full responsive website (mobile + desktop)
+- Online reservation system with email notifications
+- 50+ menu items across 7 categories
+- Dietary filtering and badges
+- SEO and accessibility optimization
+
+**You'd Customize:**
+- Menu content in `/data/menu.json`
+- Restaurant info in `/data/website_content.json`
+- Google Cloud credentials for AI
+- Email SMTP configuration
+- Branding (colors, logo, imagery)
+
+> ## Why Google ADK?
+
+I could have built this with OpenAI's API or Anthropic's Claude. Google ADK won for three reasons:
+
+**Structured Actions** — ADK lets the AI trigger specific UI behaviors, not just return text. "Show me vegetarian pasta" actually highlights the dishes on the menu page.
+
+**Streaming Architecture** — Real-time response streaming is built into the framework. No polling, no waiting for complete responses.
+
+**Google Cloud Integration** — For restaurants already using Google Workspace, the infrastructure story is simpler. One cloud provider, unified billing, familiar console.
+
+> ## What I Learned
+
+Building Trattoria Romano taught me that AI features succeed or fail on the details. The chatbot technically "worked" in week one. Making it feel natural took three more weeks — tuning response timing, adding typewriter animations, perfecting the menu card displays.
+
+The menu highlighting feature came from user testing. People would ask the bot for recommendations, get great answers, then struggle to find those items on the actual menu page. Adding automatic navigation and highlighting solved a problem I didn't know existed until I watched real users.
+
+Google ADK has a learning curve, but it enables things that simpler API integrations can't. The ability to define custom actions that manipulate the UI — that's where AI assistants become genuinely useful instead of just conversational novelties.
+
+Restaurant websites have been static for too long. Trattoria Romano proves they don't have to be.

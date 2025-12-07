@@ -1,0 +1,150 @@
+---
+title: "Food Brothers"
+description: "A premium burger restaurant ordering platform built for an Amsterdam-based restaurant. Features a complete end-to-end food ordering experience with modern design and mobile optimization."
+publishedAt: "2024-12-07"
+techs: "nextjs,react,tailwindcss,typescript"
+banner: "techblog/foodbrothers/hero"
+link: "https://foodbrothers.loc-nguyen.com/"
+---
+
+Food Brothers is a complete restaurant ordering solution designed for an upscale burger establishment in Amsterdam. The website features a premium aesthetic with smooth animations, intuitive navigation, and a seamless ordering flow that takes customers from menu browsing to checkout in just a few taps.
+
+> ## Lighthouse Performance
+
+The website achieves near-perfect Lighthouse scores across all metrics:
+
+| Metric | Score |
+|--------|:-----:|
+| Performance | **95** |
+| Accessibility | **96** |
+| Best Practices | **96** |
+| SEO | **100** |
+
+> ## Project Overview
+
+This website is **100% functional** and production-ready. The only missing component is payment gateway integration (Stripe, Mollie, or iDEAL). Once connected, this becomes a fully operational ordering system capable of handling real customer orders.
+
+{/* 📸 IMAGE 1: Homepage hero section showing the landing page with Google Reviews integration */}
+<CloudinaryImage
+  mdx
+  public_id="techblog/foodbrothers/hero"
+  alt="Food Brothers homepage hero section"
+  width={1424}
+  height={812}
+/>
+
+<blockquote className='with-icons'>
+  ## Tech Stack
+  <div className='not-prose mt-2'>
+    <TechIcons techs={['nextjs', 'react', 'tailwindcss', 'typescript']} />
+  </div>
+</blockquote>
+
+The application is built with a modern tech stack optimized for performance and developer experience:
+
+- **Next.js 16** with App Router for server-side rendering and routing
+- **React 19** for the UI layer
+- **Tailwind CSS 4** for styling
+- **Radix UI** for accessible component primitives
+- **Zustand** for lightweight state management (cart, checkout, language)
+- **React Hook Form + Zod** for form handling and validation
+- **Vercel** for deployment and analytics
+
+> ## Key Features
+
+### Shopping Cart System
+
+The cart system is designed for seamless user experience:
+
+- **Persistent Cart** - Items saved across page navigation using Zustand
+- **Floating Cart Button** - Always-visible cart indicator with item count and total
+- **Slide-out Drawer** - Full cart management without leaving the current page
+- **Topping Details** - Each item shows its customizations clearly
+
+{/* 📸 IMAGE 2: Menu page showing the category navigation and product cards */}
+<CloudinaryImage
+  mdx
+  public_id="techblog/foodbrothers/menu"
+  alt="Food Brothers menu page with category filtering"
+  width={1424}
+  height={812}
+/>
+
+### Menu & Ordering
+
+The menu system handles 50+ items across 13 categories:
+
+- **Grill Beef & Chicken Burgers** - Signature items with customization options
+- **Double Burgers** - Premium double-patty options
+- **Loaded Fries & Sides** - Extensive sides menu
+- **Real-time Search** - Instant filtering across all menu items
+- **Category Navigation** - Horizontal scrollable tabs with smooth animations
+
+### Product Customization
+
+For items with customization options, users get a detailed modal:
+
+- **11+ Toppings** - Including premium options like truffle mayo and halal veal bacon
+- **Live Price Calculation** - Real-time total updates as options are selected
+- **Dietary Information** - Allergen and dietary icons (halal, gluten, egg, etc.)
+
+{/* 📸 IMAGE 3: Product customization modal showing topping selection */}
+<CloudinaryImage
+  mdx
+  public_id="techblog/foodbrothers/customization"
+  alt="Product customization modal with topping options"
+  width={1424}
+  height={812}
+/>
+
+### Checkout Flow
+
+A complete checkout experience with:
+
+- **Delivery/Pickup Toggle** - Choose between home delivery or store pickup
+- **Dutch Address Form** - Full address entry with postal code validation
+- **Delivery Time Selection** - Choose preferred time slot
+- **Payment Options** - iDEAL and cash on delivery support
+- **Discount Code Field** - Promo code functionality
+- **Order Summary** - Complete breakdown with item details and toppings
+
+### Multi-Language Support
+
+- **Dutch (NL)** - Native language for local customers
+- **English (EN)** - For international visitors
+- Instant switching without page reload
+
+> ## Responsive Design
+
+The website follows a mobile-first approach:
+
+- **Mobile** - Optimized for smartphone ordering with touch-friendly controls
+- **Tablet** - Beautiful layouts for iPad and Android tablets
+- **Desktop** - Full-width layout with sidebar cart preview
+
+> ## Accessibility (WCAG 2.1)
+
+Built with accessibility in mind:
+
+- **ARIA Labels** - Screen reader support for all interactive elements
+- **Keyboard Navigation** - Full keyboard accessibility throughout
+- **Color Contrast** - AA compliant color ratios
+- **Focus Indicators** - Clear focus states for all controls
+
+> ## What's Needed to Go Live
+
+This project is deployment-ready. To make it fully operational:
+
+1. **Payment Gateway Integration** - Stripe, Mollie, or iDEAL with webhook handlers
+2. **Backend API** (Optional) - Order management, email notifications, kitchen display
+3. **Custom Domain** - Already deployed on Vercel, just needs domain configuration
+
+> ## Lessons Learned
+
+- **State Management Simplicity** - Zustand proved to be the perfect choice for e-commerce state. Its simplicity over Redux made cart logic straightforward to implement and debug.
+
+- **Mobile-First Pays Off** - Starting with mobile design and scaling up resulted in a much cleaner codebase than retrofitting responsive design later.
+
+- **Radix UI for Accessibility** - Using Radix primitives for modals, dropdowns, and sheets meant accessibility came almost for free, significantly reducing development time on a11y features.
+
+- **Form Validation UX** - Combining React Hook Form with Zod schemas creates an excellent developer and user experience. Real-time validation feedback keeps users informed without being intrusive.

@@ -26,7 +26,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project, className, activeTe
                 <div className="flex w-full items-start justify-between gap-2">
                     <h4 className="dark:text-white">{project.title}</h4>
                     {project.favorite && (
-                        <span className="inline-flex items-center gap-1 rounded-full gradient-animation-slow px-2 py-0.5 text-xs font-medium text-white shrink-0">
+                        <span className="inline-flex items-center gap-1 rounded-full gradient-animation px-2 py-0.5 text-xs font-medium text-white shrink-0">
                             <IconStar className="h-3 w-3" />
                             Featured
                         </span>

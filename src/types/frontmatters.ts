@@ -15,6 +15,7 @@ export interface ProjectFrontmatter {
     banner: string
     link?: string
     github?: string
+    favorite?: boolean
 }
 
 export interface BlogFrontmatter {

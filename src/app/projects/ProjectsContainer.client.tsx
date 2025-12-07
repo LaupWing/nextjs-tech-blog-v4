@@ -3,7 +3,6 @@ import type { FC } from "react"
 import type { ProjectFrontmatter } from "@/types/frontmatters"
 
 import { ProjectCard } from "@/components/cards/ProjectCard"
-import { TechListType } from "@/components/TechIcons.client"
 import { useState, useMemo } from "react"
 import clsx from "clsx"
 import {
@@ -26,9 +25,11 @@ import {
     IconVercel,
     IconVuejs,
     IconWordpress,
+    IconStar,
 } from "@/components/Icons"
 import GoogleADKIcon from "@/components/GoogleADKIcon"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { Switch } from "@/components/ui/switch"
 
 interface ProjectsContainerProps {
     projects: Array<ProjectFrontmatter>
@@ -59,6 +60,7 @@ const techList: Record<string, { icon: FC<{ size?: number }>, name: string }> = 
 
 export const ProjectsContainer: FC<ProjectsContainerProps> = ({ projects }) => {
     const [activeTechs, setActiveTechs] = useState<string[]>([])
+    const [showFeaturedOnly, setShowFeaturedOnly] = useState(true)
 
     // Get all unique techs from projects
     const allTechs = useMemo(() => {
@@ -74,14 +76,25 @@ export const ProjectsContainer: FC<ProjectsContainerProps> = ({ projects }) => {
         return Array.from(techSet)
     }, [projects])
 
-    // Filter projects based on active techs
+    // Filter projects based on active techs and featured status
     const filteredProjects = useMemo(() => {
-        if (activeTechs.length === 0) return projects
-        return projects.filter((project) => {
-            const projectTechs = project.techs.split(",").map((t) => t.trim())
-            return activeTechs.some((tech) => projectTechs.includes(tech))
-        })
-    }, [projects, activeTechs])
+        let filtered = projects
+
+        // Filter by featured status
+        if (showFeaturedOnly) {
+            filtered = filtered.filter((project) => project.favorite)
+        }
+
+        // Filter by tech
+        if (activeTechs.length > 0) {
+            filtered = filtered.filter((project) => {
+                const projectTechs = project.techs.split(",").map((t) => t.trim())
+                return activeTechs.some((tech) => projectTechs.includes(tech))
+            })
+        }
+
+        return filtered
+    }, [projects, activeTechs, showFeaturedOnly])
 
     const toggleTech = (tech: string) => {
         setActiveTechs((prev) =>
@@ -110,8 +123,29 @@ export const ProjectsContainer: FC<ProjectsContainerProps> = ({ projects }) => {
                 </defs>
             </svg>
 
+            {/* Featured toggle */}
+            <div className="mt-4 flex items-center gap-3" data-fade="2">
+                <label
+                    htmlFor="featured-toggle"
+                    className="flex items-center gap-2 cursor-pointer select-none"
+                >
+                    <Switch
+                        id="featured-toggle"
+                        checked={showFeaturedOnly}
+                        onCheckedChange={setShowFeaturedOnly}
+                    />
+                    <span className="flex items-center gap-1.5 text-sm font-medium text-gray-600 dark:text-gray-300">
+                        <IconStar className={clsx(
+                            "h-4 w-4 transition-colors",
+                            showFeaturedOnly ? "text-orange-500" : "text-gray-400"
+                        )} />
+                        Featured only
+                    </span>
+                </label>
+            </div>
+
             {/* Tech filter icons */}
-            <div className="mt-4 flex flex-wrap items-center gap-2" data-fade="2">
+            <div className="mt-4 flex flex-wrap items-center gap-2" data-fade="3">
                 <span className="font-medium text-gray-600 dark:text-gray-300 text-sm">Filter by tech:</span>
                 <div className="flex flex-wrap gap-3">
                     {allTechs.map((tech) => {
@@ -144,8 +178,8 @@ export const ProjectsContainer: FC<ProjectsContainerProps> = ({ projects }) => {
             {/* Projects grid */}
             <ul
                 className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3 animate-fade-in-delay"
-                key={activeTechs.join(",")}
-                data-fade="3"
+                key={`${showFeaturedOnly}-${activeTechs.join(",")}`}
+                data-fade="4"
             >
                 {filteredProjects.length > 0 ? (
                     filteredProjects.map((project) => (

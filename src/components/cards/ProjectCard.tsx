@@ -4,6 +4,7 @@ import clsx from "clsx"
 import { CloudinaryImage } from "../CloudinaryImage.client"
 import Link from "next/link"
 import { TechIcons, TechListType } from "../TechIcons.client"
+import { IconStar } from "../Icons"
 
 interface ProjectCardProps extends ComponentPropsWithoutRef<"li"> {
     project: ProjectFrontmatter
@@ -22,7 +23,15 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project, className, activeTe
                 href={`/projects/${project.slug}`}
                 className="flex h-full flex-col items-start rounded-md p-4 focus:outline-none focus-visible:ring focus-visible:ring-accent-light"
             >
-                <h4 className="dark:text-white">{project.title}</h4>
+                <div className="flex w-full items-start justify-between gap-2">
+                    <h4 className="dark:text-white">{project.title}</h4>
+                    {project.favorite && (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 px-2 py-0.5 text-xs font-medium text-white shrink-0">
+                            <IconStar className="h-3 w-3" />
+                            Featured
+                        </span>
+                    )}
+                </div>
                 <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">
                     {project.description}
                 </p>

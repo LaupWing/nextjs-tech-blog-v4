@@ -14,6 +14,7 @@ import {
     IconPhp,
     IconReact,
     IconRedux,
+    IconShopify,
     IconSolidity,
     IconMySQL,
     IconTailwindcss,
@@ -164,6 +165,10 @@ const techList = {
     solidity: {
         icon: IconSolidity,
         name: "Solidity",
+    },
+    shopify: {
+        icon: IconShopify,
+        name: "Shopify",
     },
     googleadk: {
         icon: GoogleADKIcon,

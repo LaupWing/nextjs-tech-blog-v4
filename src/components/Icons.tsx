@@ -33,6 +33,7 @@ import {
     SiPhp,
     SiReact,
     SiRedux,
+    SiShopify,
     SiSolidity,
     SiTailwindcss,
     SiTypescript,
@@ -126,6 +127,10 @@ export const IconReact: IconType = (props) => {
 
 export const IconRedux: IconType = (props) => {
     return <SiRedux {...props} />
+}
+
+export const IconShopify: IconType = (props) => {
+    return <SiShopify {...props} />
 }
 
 export const IconSolidity: IconType = (props) => {

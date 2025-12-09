@@ -1,6 +1,6 @@
 ---
 title: "Defense in Depth: Why Your App Needs Multiple Security Layers"
-publishedAt: "2024-12-09"
+publishedAt: "2025-12-09"
 description: "Learn why relying on a single security layer is dangerous and how to implement a multi-layer security architecture with frontend, backend, and database protection."
 englishOnly: "true"
 banner: "techblog/thumbnails/security_layers"
@@ -17,9 +17,9 @@ Let's say you have an admin panel. You check if the user is an admin on the fron
 
 ```tsx
 // This is NOT security
-{user.isAdmin && (
-    <Link href="/admin">Admin Panel</Link>
-)}
+{
+    user.isAdmin && <Link href="/admin">Admin Panel</Link>
+}
 ```
 
 Looks secure, right? Wrong. Here's what an attacker can do:
@@ -74,26 +74,28 @@ Let's break down each layer and what it's responsible for.
 **Purpose:** Convenience and user experience
 
 **What it does:**
-- Shows/hides UI elements based on role
-- Redirects unauthorized users away from protected pages
-- Manages login state for a smooth UX
+
+-   Shows/hides UI elements based on role
+-   Redirects unauthorized users away from protected pages
+-   Manages login state for a smooth UX
 
 **What it CANNOT do:**
-- Actually prevent access to data
-- Stop a determined attacker
+
+-   Actually prevent access to data
+-   Stop a determined attacker
 
 **Think of it as:** A door with a "Staff Only" sign. Polite people won't enter, but there's no lock.
 
 ```tsx
 // This is convenience, NOT security
-{user.isAdmin && (
-    <Link href="/admin/users">Manage Users</Link>
-)}
+{
+    user.isAdmin && <Link href="/admin/users">Manage Users</Link>
+}
 
 // Even with route guards - still not security
 useEffect(() => {
     if (!user.isAdmin) {
-        router.push('/dashboard')
+        router.push("/dashboard")
     }
 }, [user])
 ```
@@ -105,15 +107,17 @@ The frontend layer is important for user experience. Regular users shouldn't see
 **Purpose:** Actual access control and verification
 
 **What it does:**
-- Verifies authentication tokens are genuine (not forged)
-- Fetches the actual role from the database (not what the frontend claims)
-- Blocks requests from unauthorized users
-- Returns 403 Forbidden if not authorized
+
+-   Verifies authentication tokens are genuine (not forged)
+-   Fetches the actual role from the database (not what the frontend claims)
+-   Blocks requests from unauthorized users
+-   Returns 403 Forbidden if not authorized
 
 **Why it's secure:**
-- Runs on your server (attacker can't modify it)
-- Uses cryptographic verification (can't fake tokens)
-- Checks the real database (can't lie about roles)
+
+-   Runs on your server (attacker can't modify it)
+-   Uses cryptographic verification (can't fake tokens)
+-   Checks the real database (can't lie about roles)
 
 **Think of it as:** A security guard who checks your ID against the employee database.
 
@@ -163,14 +167,16 @@ The key points here:
 **Purpose:** Database-level protection even if your backend is compromised
 
 **What it does:**
-- Enforces rules on every database read/write
-- Runs inside the database service (attacker can't modify)
-- Blocks direct database access attempts
+
+-   Enforces rules on every database read/write
+-   Runs inside the database service (attacker can't modify)
+-   Blocks direct database access attempts
 
 **Why it's secure:**
-- Runs on the database provider's servers
-- Cannot be bypassed from the client
-- Applies even if someone bypasses your app entirely
+
+-   Runs on the database provider's servers
+-   Cannot be bypassed from the client
+-   Applies even if someone bypasses your app entirely
 
 **Think of it as:** The vault door. Even if someone gets past the guard, they can't open the vault.
 
@@ -205,9 +211,10 @@ service cloud.firestore {
 ```
 
 For SQL databases, this translates to:
-- Row-Level Security (PostgreSQL)
-- Proper permission grants
-- Never connecting with root/admin credentials from your app
+
+-   Row-Level Security (PostgreSQL)
+-   Proper permission grants
+-   Never connecting with root/admin credentials from your app
 
 ## How The Layers Work Together
 
@@ -276,10 +283,10 @@ When a user logs in, they receive a **JWT (JSON Web Token)**. This token contain
 
 ```json
 {
-  "sub": "user-uid-here",
-  "email": "user@example.com",
-  "iat": 1234567890,
-  "exp": 1234571490
+    "sub": "user-uid-here",
+    "email": "user@example.com",
+    "iat": 1234567890,
+    "exp": 1234571490
 }
 ```
 
@@ -298,8 +305,9 @@ Token Signature + Public Key → Valid or Invalid?
 ```
 
 To forge a token, an attacker would need:
-- The private key (impossible to get)
-- Or to break the cryptographic algorithm (mathematically infeasible)
+
+-   The private key (impossible to get)
+-   Or to break the cryptographic algorithm (mathematically infeasible)
 
 This is why you should **never** put sensitive information like roles in the token payload if users can modify their own tokens. Always verify roles against your database.
 
@@ -320,7 +328,7 @@ $isAdmin = $user->is_admin;
 ```tsx
 // ❌ BAD: Only frontend check, no backend protection
 if (user.isAdmin) {
-    showAdminPanel();
+    showAdminPanel()
 }
 
 // ✅ GOOD: Frontend check + backend middleware
@@ -353,22 +361,22 @@ $token = JWT::encode($payload, $key);
 
 Before going to production, verify:
 
-- [ ] All admin routes have backend middleware protection
-- [ ] All API endpoints verify authentication tokens
-- [ ] Role information comes from database, not request
-- [ ] Database has security rules or row-level security
-- [ ] API keys and secrets are not in frontend code
-- [ ] Tokens have reasonable expiration times
-- [ ] HTTPS is enabled everywhere
-- [ ] CORS is configured properly
+-   [ ] All admin routes have backend middleware protection
+-   [ ] All API endpoints verify authentication tokens
+-   [ ] Role information comes from database, not request
+-   [ ] Database has security rules or row-level security
+-   [ ] API keys and secrets are not in frontend code
+-   [ ] Tokens have reasonable expiration times
+-   [ ] HTTPS is enabled everywhere
+-   [ ] CORS is configured properly
 
 ## Summary
 
-| Layer | Location | Purpose | Can Be Bypassed? |
-|-------|----------|---------|------------------|
-| **Frontend** | Browser | UX convenience | Yes (DevTools) |
-| **Backend** | Your Server | Access control | No |
-| **Database** | DB Server | Data protection | No |
+| Layer        | Location    | Purpose         | Can Be Bypassed? |
+| ------------ | ----------- | --------------- | ---------------- |
+| **Frontend** | Browser     | UX convenience  | Yes (DevTools)   |
+| **Backend**  | Your Server | Access control  | No               |
+| **Database** | DB Server   | Data protection | No               |
 
 The key principle: **Never trust the client. Always verify on the server.**
 
